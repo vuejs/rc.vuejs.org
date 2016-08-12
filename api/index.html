@@ -347,6 +347,91 @@
 <li><p><strong>See also:</strong> <a href="/guide/render-function.html">Render Functions</a>.</p>
 </li>
 </ul>
+<h2 id="Options-Data"><a href="#Options-Data" class="headerlink" title="Options / Data"></a>Options / Data</h2><h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><ul>
+<li><p><strong>Type:</strong> <code>Object | Function</code></p>
+</li>
+<li><p><strong>Restriction:</strong> Only accepts <code>Function</code> when used in a component definition.</p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>The data object for the Vue instance. Vue will recursively convert its properties into getter/setters to make it “reactive”. <strong>The object must be plain</strong>: native objects, existing getter/setters and prototype properties are ignored. It is not recommended to observe complex objects.</p>
+<p>Once the instance is created, the original data object can be accessed as <code>vm.$data</code>. The Vue instance also proxies all the properties found on the data object.</p>
+<p>Properties that start with <code>_</code> or <code>$</code> will <strong>not</strong> be proxied on the Vue instance because they may conflict with Vue’s internal properties and API methods. You will have to access them as <code>vm.$data._property</code>.</p>
+<p>When defining a <strong>component</strong>, <code>data</code> must be declared as a function that returns the initial data object, because there will be many instances created using the same definition. If we still use a plain object for <code>data</code>, that same object will be <strong>shared by reference</strong> across all instances created! By providing a <code>data</code> function, every time a new instance is created, we can simply call it to return a fresh copy of the initial data.</p>
+<p>If required, a deep clone of the original object can be obtained by passing <code>vm.$data</code> through <code>JSON.parse(JSON.stringify(...))</code>.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123; a: <span class="number">1</span> &#125;</div><div class="line"></div><div class="line"><span class="comment">// direct instance creation</span></div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  data: data</div><div class="line">&#125;)</div><div class="line">vm.a <span class="comment">// -&gt; 1</span></div><div class="line">vm.$data === data <span class="comment">// -&gt; true</span></div><div class="line"></div><div class="line"><span class="comment">// must use function when in Vue.extend()</span></div><div class="line"><span class="keyword">var</span> Component = Vue.extend(&#123;</div><div class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123; a: <span class="number">1</span> &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/reactivity.html">Reactivity in Depth</a>.</p>
+</li>
+</ul>
+<h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><ul>
+<li><p><strong>Type:</strong> <code>Array | Object</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>A list/hash of attributes that are exposed to accept data from the parent component. It has a simple Array-based syntax and an alternative Object-based syntax that allows advanced configurations such as type checking, custom validation and default values.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// simple syntax</span></div><div class="line">Vue.component(<span class="string">'props-demo-simple'</span>, &#123;</div><div class="line">  props: [<span class="string">'size'</span>, <span class="string">'myMessage'</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// object syntax with validation</span></div><div class="line">Vue.component(<span class="string">'props-demo-advanced'</span>, &#123;</div><div class="line">  props: &#123;</div><div class="line">    <span class="comment">// just type check</span></div><div class="line">    size: <span class="built_in">Number</span>,</div><div class="line">    <span class="comment">// type check plus other validations</span></div><div class="line">    name: &#123;</div><div class="line">      type: <span class="built_in">String</span>,</div><div class="line">      <span class="keyword">default</span>: <span class="number">0</span>,</div><div class="line">      required: <span class="literal">true</span>,</div><div class="line">      validator: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> value &gt; <span class="number">0</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/components.html#Props">Props</a></p>
+</li>
+</ul>
+<h3 id="propsData"><a href="#propsData" class="headerlink" title="propsData"></a>propsData</h3><blockquote>
+<p>1.0.22+</p>
+</blockquote>
+<ul>
+<li><p><strong>Type:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Restriction:</strong> only respected in instance creation via <code>new</code>.</p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Pass props to an instance during its creation. This is primarily intended to make unit testing easier.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> Comp = Vue.extend(&#123;</div><div class="line">  props: [<span class="string">'msg'</span>],</div><div class="line">  template: <span class="string">'&lt;div&gt;&#123;&#123; msg &#125;&#125;&lt;/div&gt;'</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Comp(&#123;</div><div class="line">  propsData: &#123;</div><div class="line">    msg: <span class="string">'hello'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h3><ul>
+<li><p><strong>Type:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Computed properties to be mixed into the Vue instance. All getters and setters have their <code>this</code> context automatically bound to the Vue instance.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  data: &#123; a: <span class="number">1</span> &#125;,</div><div class="line">  computed: &#123;</div><div class="line">    <span class="comment">// get only, just need a function</span></div><div class="line">    aDouble: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.a * <span class="number">2</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// both get and set</span></div><div class="line">    aPlus: &#123;</div><div class="line">      get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a + <span class="number">1</span></div><div class="line">      &#125;,</div><div class="line">      set: <span class="function"><span class="keyword">function</span> (<span class="params">v</span>) </span>&#123;</div><div class="line">        <span class="keyword">this</span>.a = v - <span class="number">1</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.aPlus   <span class="comment">// -&gt; 2</span></div><div class="line">vm.aPlus = <span class="number">3</span></div><div class="line">vm.a       <span class="comment">// -&gt; 2</span></div><div class="line">vm.aDouble <span class="comment">// -&gt; 4</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="/guide/computed.html">Computed Properties</a></li>
+<li><a href="/guide/reactivity.html#Inside-Computed-Properties">Reactivity in Depth: Inside Computed Properties</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h3><ul>
+<li><p><strong>Type:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Methods to be mixed into the Vue instance. You can access these methods directly on the VM instance, or use them in directive expressions. All methods will have their <code>this</code> context automatically bound to the Vue instance.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  data: &#123; a: <span class="number">1</span> &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    plus: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.a++</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.plus()</div><div class="line">vm.a <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/events.html">Methods and Event Handling</a></p>
+</li>
+</ul>
+<h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3><ul>
+<li><p><strong>Type:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>An object where keys are expressions to watch and values are the corresponding callbacks. The value can also be a string of a method name, or an Object that contains additional options. The Vue instance will call <code>$watch()</code> for each entry in the object at instantiation.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  data: &#123;</div><div class="line">    a: <span class="number">1</span></div><div class="line">  &#125;,</div><div class="line">  watch: &#123;</div><div class="line">    <span class="string">'a'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'new: %s, old: %s'</span>, val, oldVal)</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// string method name</span></div><div class="line">    <span class="string">'b'</span>: <span class="string">'someMethod'</span>,</div><div class="line">    <span class="comment">// deep watcher</span></div><div class="line">    <span class="string">'c'</span>: &#123;</div><div class="line">      handler: <span class="function"><span class="keyword">function</span> (<span class="params">val, oldVal</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">      deep: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.a = <span class="number">2</span> <span class="comment">// -&gt; new: 2, old: 1</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong> <a href="#vm-watch">Instance Methods - vm.$watch</a></p>
+</li>
+</ul>
 
     
     <div class="footer">

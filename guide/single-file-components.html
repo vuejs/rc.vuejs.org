@@ -356,7 +356,7 @@
 <li><strong>Global definitions</strong> force unique names for every component</li>
 <li><strong>String templates</strong> lack syntax highlighting and require ugly slashes for multiline HTML</li>
 <li><strong>No CSS support</strong> means that while HTML and JavaScript are modularized into components, CSS is conspicuously left out</li>
-<li><strong>No build step</strong> restricts us to HTML and ES5 JavaScript, rather than preprocessors like Jade and Babel</li>
+<li><strong>No build step</strong> restricts us to HTML and ES5 JavaScript, rather than preprocessors like Pug (formerly Jade) and Babel</li>
 </ul>
 <p>All of these are solved by <strong>single-file components</strong> with a <code>.vue</code> extension, made possible with build tools such as Webpack or Browserify.</p>
 <p>Here’s a simple example of a file we’ll call <code>Hello.vue</code>:</p>
@@ -381,8 +381,15 @@
 <h2 id="Deploying-for-Production"><a href="#Deploying-for-Production" class="headerlink" title="Deploying for Production"></a>Deploying for Production</h2><p>The minified standalone build of Vue has already stripped out all the warnings for you for a smaller file size, but when you are using tools like Webpack or Browserify, you will need some additional configuration to achieve this.</p>
 <h3 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h3><p>Use Webpack’s <a href="http://webpack.github.io/docs/list-of-plugins.html#defineplugin" target="_blank" rel="external">DefinePlugin</a> to indicate a production environment, so that warning blocks can be automatically dropped by UglifyJS during minification. Example config:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  plugins: [</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</div><div class="line">      <span class="string">'process.env'</span>: &#123;</div><div class="line">        NODE_ENV: <span class="string">'"production"'</span></div><div class="line">      &#125;</div><div class="line">    &#125;),</div><div class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</div><div class="line">      compress: &#123;</div><div class="line">        warnings: <span class="literal">false</span></div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="Browserify"><a href="#Browserify" class="headerlink" title="Browserify"></a>Browserify</h3><p>Just run your bundling command with <code>NODE_ENV</code> set to <code>&quot;production&quot;</code>. Vue automatically applies <a href="https://github.com/hughsk/envify" target="_blank" rel="external">envify</a> transform to itself and makes warning blocks unreachable. For example:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">NODE_ENV=production browserify <span class="_">-e</span> main.js | uglifyjs -c -m &gt; build.js</div></pre></td></tr></table></figure>
+<h3 id="Browserify"><a href="#Browserify" class="headerlink" title="Browserify"></a>Browserify</h3><ul>
+<li>Run your bundling command with <code>NODE_ENV</code> set to <code>&quot;production&quot;</code>. This tells <code>vueify</code> to avoid including hot-reload and development related code.</li>
+<li>Apply a global <a href="https://github.com/hughsk/envify" target="_blank" rel="external">envify</a> transform to your bundle. This allows the minifier to strip out all the warnings in Vue’s source code wrapped in env variable conditional blocks. For example:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">NODE_ENV=production browserify -g envify <span class="_">-e</span> main.js | uglifyjs -c -m &gt; build.js</div></pre></td></tr></table></figure>
+<ul>
+<li>To extract styles to a separate css file use a extract-css plugin which is included in vueify.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o build.css ] <span class="_">-e</span> main.js | uglifyjs -c -m &gt; build.js</div></pre></td></tr></table></figure>
 
     
       <div class="guide-links">
