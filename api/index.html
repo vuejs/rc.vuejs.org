@@ -432,6 +432,206 @@
 <li><p><strong>See also:</strong> <a href="#vm-watch">Instance Methods - vm.$watch</a></p>
 </li>
 </ul>
+<h2 id="Instance-Properties"><a href="#Instance-Properties" class="headerlink" title="Instance Properties"></a>Instance Properties</h2><h3 id="vm-data"><a href="#vm-data" class="headerlink" title="vm.$data"></a>vm.$data</h3><ul>
+<li><p><strong>Type:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>The data object that the Vue instance is observing. You can swap it with a new object. The Vue instance proxies access to the properties on its data object.</p>
+</li>
+</ul>
+<h3 id="vm-el"><a href="#vm-el" class="headerlink" title="vm.$el"></a>vm.$el</h3><ul>
+<li><p><strong>Type:</strong> <code>HTMLElement</code></p>
+</li>
+<li><p><strong>Read only</strong></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>The DOM element that the Vue instance is managing. <code>vm.$el</code> will return a DOM element that created with the Vue instance.</p>
+</li>
+</ul>
+<h3 id="vm-options"><a href="#vm-options" class="headerlink" title="vm.$options"></a>vm.$options</h3><ul>
+<li><p><strong>Type:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Read only</strong></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>The instantiation options used for the current Vue instance. This is useful when you want to include custom properties in the options:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  customOption: <span class="string">'foo'</span>,</div><div class="line">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.$options.customOption) <span class="comment">// -&gt; 'foo'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="vm-parent"><a href="#vm-parent" class="headerlink" title="vm.$parent"></a>vm.$parent</h3><ul>
+<li><p><strong>Type:</strong> <code>Vue instance</code></p>
+</li>
+<li><p><strong>Read only</strong></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>The parent instance, if the current instance has one.</p>
+</li>
+</ul>
+<h3 id="vm-root"><a href="#vm-root" class="headerlink" title="vm.$root"></a>vm.$root</h3><ul>
+<li><p><strong>Type:</strong> <code>Vue instance</code></p>
+</li>
+<li><p><strong>Read only</strong></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>The root Vue instance of the current component tree. If the current instance has no parents this value will be itself.</p>
+</li>
+</ul>
+<h3 id="vm-children"><a href="#vm-children" class="headerlink" title="vm.$children"></a>vm.$children</h3><ul>
+<li><p><strong>Type:</strong> <code>Array&lt;Vue instance&gt;</code></p>
+</li>
+<li><p><strong>Read only</strong></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>The direct child components of the current instance.</p>
+</li>
+</ul>
+<h3 id="vm-refs"><a href="#vm-refs" class="headerlink" title="vm.$refs"></a>vm.$refs</h3><ul>
+<li><p><strong>Type:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Read only</strong></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>An object that holds child components that have <code>ref</code> registered.</p>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="/guide/components.html#Child-Component-Reference">Child-Component-Reference</a></li>
+<li>!!TODO: <a href="#ref">ref</a>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="vm-isServer"><a href="#vm-isServer" class="headerlink" title="vm.$isServer"></a>vm.$isServer</h3><ul>
+<li><p><strong>Type:</strong> <code>Boolean</code></p>
+</li>
+<li><p><strong>Read only</strong></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Whether the current Vue instance is running on the server-side.</p>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li>!!TODO: <a href="/guide/ssr.html">Server-Side Rendering</a>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Instance-Methods-Data"><a href="#Instance-Methods-Data" class="headerlink" title="Instance Methods / Data"></a>Instance Methods / Data</h2><h3 id="vm-watch">vm.$watch( expOrFn, callback, [options] )</h3>
+
+<ul>
+<li><p><strong>Arguments:</strong></p>
+<ul>
+<li><code>{String | Function} expOrFn</code></li>
+<li><code>{Function} callback</code></li>
+<li><code>{Object} [options]</code><ul>
+<li><code>{Boolean} deep</code></li>
+<li><code>{Boolean} immediate</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong> <code>{Function} unwatch</code></p>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>Watch an expression or a computed function on the Vue instance for changes. The callback gets called with the new value and the old value. The expression can be a single keypath or any valid binding expressions.</p>
+</li>
+</ul>
+<p class="tip">Note: when mutating (rather than replacing) an Object or an Array, the old value will be the same as new value because they reference the same Object/Array. Vue doesn’t keep a copy of the pre-mutate value.</p>
+
+<ul>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// keypath</span></div><div class="line">vm.$watch(<span class="string">'a.b.c'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">newVal, oldVal</span>) </span>&#123;</div><div class="line">  <span class="comment">// do something</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// expression</span></div><div class="line">vm.$watch(<span class="string">'a + b'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">newVal, oldVal</span>) </span>&#123;</div><div class="line">  <span class="comment">// do something</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// function</span></div><div class="line">vm.$watch(</div><div class="line">  <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.a + <span class="keyword">this</span>.b</div><div class="line">  &#125;,</div><div class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">newVal, oldVal</span>) </span>&#123;</div><div class="line">    <span class="comment">// do something</span></div><div class="line">  &#125;</div><div class="line">)</div></pre></td></tr></table></figure>
+<p><code>vm.$watch</code> returns an unwatch function that stops firing the callback:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> unwatch = vm.$watch(<span class="string">'a'</span>, cb)</div><div class="line"><span class="comment">// later, teardown the watcher</span></div><div class="line">unwatch()</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Option: deep</strong></p>
+<p>To also detect nested value changes inside Objects, you need to pass in <code>deep: true</code> in the options argument. Note that you don’t need to do so to listen for Array mutations.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.$watch(<span class="string">'someObject'</span>, callback, &#123;</div><div class="line">  deep: <span class="literal">true</span></div><div class="line">&#125;)</div><div class="line">vm.someObject.nestedValue = <span class="number">123</span></div><div class="line"><span class="comment">// callback is fired</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Option: immediate</strong></p>
+<p>Passing in <code>immediate: true</code> in the option will trigger the callback immediately with the current value of the expression:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.$watch(<span class="string">'a'</span>, callback, &#123;</div><div class="line">  immediate: <span class="literal">true</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">// callback is fired immediately with current value of `a`</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Instance-Methods-Events"><a href="#Instance-Methods-Events" class="headerlink" title="Instance Methods / Events"></a>Instance Methods / Events</h2><h3 id="vm-on">vm.$on( event, callback )</h3>
+
+<ul>
+<li><p><strong>Arguments:</strong></p>
+<ul>
+<li><code>{String} event</code></li>
+<li><code>{Function} callback</code></li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>Listen for a custom event on the current vm. Events can be triggered by <code>vm.$emit</code>. The callback will receive all the additional arguments passed into these event-triggering methods.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.$on(<span class="string">'test'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(msg)</div><div class="line">&#125;)</div><div class="line">vm.$emit(<span class="string">'test'</span>, <span class="string">'hi'</span>)</div><div class="line"><span class="comment">// -&gt; "hi"</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="vm-once">vm.$once( event, callback )</h3>
+
+<ul>
+<li><p><strong>Arguments:</strong></p>
+<ul>
+<li><code>{String} event</code></li>
+<li><code>{Function} callback</code></li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>Listen for a custom event, but only once. The listener will be removed once it triggers for the first time.</p>
+</li>
+</ul>
+<h3 id="vm-off">vm.$off( [event, callback] )</h3>
+
+<ul>
+<li><p><strong>Arguments:</strong></p>
+<ul>
+<li><code>{String} [event]</code></li>
+<li><code>{Function} [callback]</code></li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>Remove event listener(s).</p>
+<ul>
+<li><p>If no arguments are provided, remove all event listeners;</p>
+</li>
+<li><p>If only the event is provided, remove all listeners for that event;</p>
+</li>
+<li><p>If both event and callback are given, remove the listener for that specific callback only.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="vm-emit">vm.$emit( event, […args] )</h3>
+
+<ul>
+<li><p><strong>Arguments:</strong></p>
+<ul>
+<li><code>{String} event</code></li>
+<li><code>[...args]</code></li>
+</ul>
+<p>Trigger an event on the current instance. Any additional arguments will be passed into the listener’s callback function.</p>
+</li>
+</ul>
+<h2 id="Instance-Methods-DOM"><a href="#Instance-Methods-DOM" class="headerlink" title="Instance Methods / DOM"></a>Instance Methods / DOM</h2><h3 id="vm-nextTick">vm.$nextTick( callback )</h3>
+
+<ul>
+<li><p><strong>Arguments:</strong></p>
+<ul>
+<li><code>{Function} [callback]</code></li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>Defer the callback to be executed after the next DOM update cycle. Use it immediately after you’ve changed some data to wait for the DOM update. This is the same as the global <code>Vue.nextTick</code>, except that the callback’s <code>this</code> context is automatically bound to the instance calling this method.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  methods: &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    example: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">// modify data</span></div><div class="line">      <span class="keyword">this</span>.message = <span class="string">'changed'</span></div><div class="line">      <span class="comment">// DOM is not updated yet</span></div><div class="line">      <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">// DOM is now updated</span></div><div class="line">        <span class="comment">// `this` is bound to the current instance</span></div><div class="line">        <span class="keyword">this</span>.doSomethingElse()</div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="#Vue-nextTick">Vue.nextTick</a><br>-!!TODO: <a href="/guide/reactivity.html#Async-Update-Queue">Async Update Queue</a></li>
+</ul>
+</li>
+</ul>
 
     
     <div class="footer">
