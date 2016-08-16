@@ -632,6 +632,52 @@
 </ul>
 </li>
 </ul>
+<h2 id="Instance-Methods-Lifecycle"><a href="#Instance-Methods-Lifecycle" class="headerlink" title="Instance Methods / Lifecycle"></a>Instance Methods / Lifecycle</h2><h3 id="vm-mount">vm.$mount( [elementOrSelector], [hydrating] )</h3>
+
+<ul>
+<li><p><strong>Arguments:</strong></p>
+<ul>
+<li><code>{Element | String} [elementOrSelector]</code></li>
+<li><code>{Boolean} [hydrating]</code></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong> <code>vm</code> - the instance itself</p>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>If a Vue instance didn’t receive the <code>el</code> option at instantiation, it will be in “unmounted” state, without an associated DOM element. <code>vm.$mount()</code> can be used to manually start the mounting/compilation of an unmounted Vue instance.</p>
+<p>If <code>elementOrSelector</code> argument is not provided, the element is managed in Vue instance will be created as an out-of-document DOM element, and you will have to use DOM API to insert it into the document yourself.</p>
+<p>If <code>hydrating</code> argument is provided as <code>true</code>, in the rendering process of this method, run the DOM elements hydration.</p>
+<p>The method returns the instance itself so you can chain other instance methods after it.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> MyComponent = Vue.extend(&#123;</div><div class="line">  template: <span class="string">'&lt;div&gt;Hello!&lt;/div&gt;'</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// create and mount to #app (will replace #app)</span></div><div class="line"><span class="keyword">new</span> MyComponent().$mount(<span class="string">'#app'</span>)</div><div class="line"></div><div class="line"><span class="comment">// the above is the same as:</span></div><div class="line"><span class="keyword">new</span> MyComponent(&#123; el: <span class="string">'#app'</span> &#125;)</div><div class="line"></div><div class="line"><span class="comment">// or, compile off-document and append afterwards:</span></div><div class="line"><span class="keyword">var</span> component = <span class="keyword">new</span> MyComponent().$mount()</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'app'</span>).appendChild(vm.$el)</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="/guide/instance.html#Lifecycle-Diagram">Lifecycle Diagram</a></li>
+<li>!!TODO: <a href="/guide/ssr.html">Server-Side Rendering</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="vm-forceUpdate">vm.$forceUpdate( )</h3>
+
+<ul>
+<li><p><strong>Usage:</strong></p>
+<p>The Vue instance will be forced into a “digest cycle”, during which all its watchers are re-evaluated.</p>
+</li>
+</ul>
+<p class="tip">Note: This method have an influence on your application performance degradation. The excessive call is no recommended.</p>
+
+<h3 id="vm-destroy">vm.$destroy( )</h3>
+
+<ul>
+<li><p><strong>Usage:</strong></p>
+<p>Completely destroy a vm. Clean up its connections with other existing vms, unbind all its directives, turn off all event listeners.</p>
+<p>Triggers the <code>beforeDestroy</code> and <code>destroyed</code> hooks.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/instance.html#Lifecycle-Diagram">Lifecycle Diagram</a></p>
+</li>
+</ul>
 
     
     <div class="footer">
