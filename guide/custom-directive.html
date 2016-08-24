@@ -381,10 +381,6 @@ new Vue({
 <li><code>componentUpdated</code>: called after the component has completed an update cycle</li>
 <li><code>unbind</code>: called only once, when the directive is unbound from the element.</li>
 </ul>
-<p>For example:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.directive(<span class="string">'demo'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(value) <span class="comment">// "foo bar baz"</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h3 id="Element-Directives"><a href="#Element-Directives" class="headerlink" title="Element Directives"></a>Element Directives</h3><p>In some cases, we may want our directive to be used in the form of a custom element rather than as an attribute. This is very similar to Angular’s notion of “E” mode directives. Element directives provide a lighter-weight alternative to full-blown components (which are explained earlier in the guide). You can register a custom element directive like so:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.elementDirective(<span class="string">'my-directive'</span>, &#123;</div><div class="line">  <span class="comment">// same API as normal directives</span></div><div class="line">  bind: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// manipulate this.el...</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>We’ll explore the arguments passed into these hooks (i.e. <code>el</code>, <code>binding</code>, <code>vnode</code>, and <code>oldVnode</code>) in the next section.</p>
 <h2 id="Directive-Hook-Arguments"><a href="#Directive-Hook-Arguments" class="headerlink" title="Directive Hook Arguments"></a>Directive Hook Arguments</h2><p>Directive hooks are passed these arguments:</p>
 <ul>

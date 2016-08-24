@@ -301,7 +301,7 @@
 <p>Register or retrieve a global component.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// register an extended constructor</span></div><div class="line">Vue.component(<span class="string">'my-component'</span>, Vue.extend(&#123; <span class="comment">/* ... */</span> &#125;))</div><div class="line"></div><div class="line"><span class="comment">// register an options object (automatically call Vue.extend)</span></div><div class="line">Vue.component(<span class="string">'my-component'</span>, &#123; <span class="comment">/* ... */</span> &#125;)</div><div class="line"></div><div class="line"><span class="comment">// retrieve a registered component (always return constructor)</span></div><div class="line"><span class="keyword">var</span> MyComponent = Vue.component(<span class="string">'my-component'</span>)</div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>See also:</strong> <a href="/guide/components.html">Components</a>.</p>
+<li><p><strong>See also:</strong> <a href="/guide/components.html">Components</a></p>
 </li>
 </ul>
 <h3 id="Vue-use">Vue.use( plugin )</h3>
@@ -315,7 +315,7 @@
 <li><p><strong>Usage:</strong></p>
 <p>Install a Vue.js plugin. If the plugin is an Object, it must expose an <code>install</code> method. If it is a function itself, it will be treated as the install method. The install method will be called with Vue as the argument.</p>
 </li>
-<li><p><strong>See also:</strong> <a href="/guide/plugins.html">Plugins</a>.</p>
+<li><p><strong>See also:</strong> <a href="/guide/plugins.html">Plugins</a></p>
 </li>
 </ul>
 <h3 id="Vue-mixin">Vue.mixin( mixin )</h3>
@@ -344,7 +344,7 @@
 <p>Compiles a template string into a render function. Only available in the standalone build.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> res = Vue.compile(<span class="string">'&lt;div&gt;&lt;span&gt;&#123;&#123; msg &#125;&#125;&lt;/span&gt;&lt;/div&gt;'</span>)</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  data: &#123;</div><div class="line">    msg: <span class="string">'hello'</span></div><div class="line">  &#125;,</div><div class="line">  render: res.render,</div><div class="line">  staticRenderFns: res.staticRenderFns</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>See also:</strong> <a href="/guide/render-function.html">Render Functions</a>.</p>
+<li><p><strong>See also:</strong> <a href="/guide/render-function.html">Render Functions</a></p>
 </li>
 </ul>
 <h2 id="Options-Data"><a href="#Options-Data" class="headerlink" title="Options / Data"></a>Options / Data</h2><h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><ul>
@@ -362,7 +362,7 @@
 <li><p><strong>Example:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123; a: <span class="number">1</span> &#125;</div><div class="line"></div><div class="line"><span class="comment">// direct instance creation</span></div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  data: data</div><div class="line">&#125;)</div><div class="line">vm.a <span class="comment">// -&gt; 1</span></div><div class="line">vm.$data === data <span class="comment">// -&gt; true</span></div><div class="line"></div><div class="line"><span class="comment">// must use function when in Vue.extend()</span></div><div class="line"><span class="keyword">var</span> Component = Vue.extend(&#123;</div><div class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123; a: <span class="number">1</span> &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>See also:</strong> <a href="/guide/reactivity.html">Reactivity in Depth</a>.</p>
+<li><p><strong>See also:</strong> <a href="/guide/reactivity.html">Reactivity in Depth</a></p>
 </li>
 </ul>
 <h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><ul>
@@ -496,7 +496,7 @@
 <li><p><strong>See also:</strong></p>
 <ul>
 <li><a href="/guide/components.html#Child-Component-Reference">Child-Component-Reference</a></li>
-<li>!!TODO: <a href="#ref">ref</a>.</li>
+<li><a href="#ref">ref</a></li>
 </ul>
 </li>
 </ul>
@@ -508,10 +508,7 @@
 <li><p><strong>Details:</strong></p>
 <p>Whether the current Vue instance is running on the server-side.</p>
 </li>
-<li><p><strong>See also:</strong></p>
-<ul>
-<li>!!TODO: <a href="/guide/ssr.html">Server-Side Rendering</a>.</li>
-</ul>
+<li><p><strong>See also:</strong> <a href="/guide/ssr.html">Server-Side Rendering</a></p>
 </li>
 </ul>
 <h2 id="Instance-Methods-Data"><a href="#Instance-Methods-Data" class="headerlink" title="Instance Methods / Data"></a>Instance Methods / Data</h2><h3 id="vm-watch">vm.$watch( expOrFn, callback, [options] )</h3>
@@ -549,6 +546,39 @@
 <li><p><strong>Option: immediate</strong></p>
 <p>Passing in <code>immediate: true</code> in the option will trigger the callback immediately with the current value of the expression:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.$watch(<span class="string">'a'</span>, callback, &#123;</div><div class="line">  immediate: <span class="literal">true</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">// callback is fired immediately with current value of `a`</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="vm-set">vm.$set( object, key, value )</h3>
+
+<ul>
+<li><p><strong>Arguments:</strong></p>
+<ul>
+<li><code>{Object} object</code></li>
+<li><code>{String} key</code></li>
+<li><code>{*} value</code></li>
+</ul>
+</li>
+<li><p><strong>Returns:</strong> the set value.</p>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>This is the <strong>alias</strong> of the global <code>Vue.set</code>.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="#Vue-set">Vue.set</a></p>
+</li>
+</ul>
+<h3 id="vm-delete">vm.$delete( object, key )</h3>
+
+<ul>
+<li><p><strong>Arguments:</strong></p>
+<ul>
+<li><code>{Object} object</code></li>
+<li><code>{String} key</code></li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>This is the <strong>alias</strong> of the global <code>Vue.delete</code>.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="#Vue-delete">Vue.delete</a></p>
 </li>
 </ul>
 <h2 id="Instance-Methods-Events"><a href="#Instance-Methods-Events" class="headerlink" title="Instance Methods / Events"></a>Instance Methods / Events</h2><h3 id="vm-on">vm.$on( event, callback )</h3>
@@ -628,7 +658,8 @@
 </li>
 <li><p><strong>See also:</strong></p>
 <ul>
-<li><a href="#Vue-nextTick">Vue.nextTick</a><br>-!!TODO: <a href="/guide/reactivity.html#Async-Update-Queue">Async Update Queue</a></li>
+<li><a href="#Vue-nextTick">Vue.nextTick</a></li>
+<li><a href="/guide/reactivity.html#Async-Update-Queue">Async Update Queue</a></li>
 </ul>
 </li>
 </ul>
@@ -655,7 +686,7 @@
 <li><p><strong>See also:</strong></p>
 <ul>
 <li><a href="/guide/instance.html#Lifecycle-Diagram">Lifecycle Diagram</a></li>
-<li>!!TODO: <a href="/guide/ssr.html">Server-Side Rendering</a></li>
+<li><a href="/guide/ssr.html">Server-Side Rendering</a></li>
 </ul>
 </li>
 </ul>
@@ -663,7 +694,7 @@
 
 <ul>
 <li><p><strong>Usage:</strong></p>
-<p>The Vue instance will be forced into a “digest cycle”, during which all its watchers are re-evaluated.</p>
+<p>The Vue instance will be forced the re-render.</p>
 </li>
 </ul>
 <p class="tip">Note: This method have an influence on your application performance degradation. The excessive call is no recommended.</p>
@@ -676,6 +707,209 @@
 <p>Triggers the <code>beforeDestroy</code> and <code>destroyed</code> hooks.</p>
 </li>
 <li><p><strong>See also:</strong> <a href="/guide/instance.html#Lifecycle-Diagram">Lifecycle Diagram</a></p>
+</li>
+</ul>
+<h2 id="Directives"><a href="#Directives" class="headerlink" title="Directives"></a>Directives</h2><h3 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a>v-text</h3><ul>
+<li><p><strong>Expects:</strong> <code>String</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Updates the element’s <code>textContent</code>. If you need to update the part of <code>textContent</code>, you should use <code>{{ Mustache }}</code> interpolations.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-text</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- same as --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/syntax.html#Text">Data Binding Syntax - interpolations</a></p>
+</li>
+</ul>
+<h3 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a>v-html</h3><ul>
+<li><p><strong>Expects:</strong> <code>String</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Updates the element’s <code>innerHTML</code>. The contents are inserted as plain HTML - data bindings are ignored. If you need to reuse template pieces, you should use <a href="/guide/render-function.html#Functional-Components">functional components</a>.</p>
+<p class="tip">Dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to <a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank" rel="external">XSS attacks</a>. Only use <code>v-html</code> on trusted content and <strong>never</strong> on user-provided content.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-html</span>=<span class="string">"html"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/syntax.html#Raw-HTML">Data Binding Syntax - interpolations</a></p>
+</li>
+</ul>
+<h3 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h3><ul>
+<li><p><strong>Expects:</strong> <code>*</code></p>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>Conditionally render the element based on the truthy-ness of the expression value. The element and its contained data bindings / components are destroyed and re-constructed during toggles. If the element is a <code>&lt;template&gt;</code> element, its content will be extracted as the conditional block.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/conditional.html">Conditional Rendering - v-if</a></p>
+</li>
+</ul>
+<h3 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h3><ul>
+<li><p><strong>Expects:</strong> <code>*</code></p>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>Toggle’s the element’s <code>display</code> CSS property based on the truthy-ness of the expression value. Triggers transitions if present.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/conditional.html#v-show">Conditional Rendering - v-show</a></p>
+</li>
+</ul>
+<h3 id="v-else"><a href="#v-else" class="headerlink" title="v-else"></a>v-else</h3><ul>
+<li><p><strong>Does not expect expression</strong></p>
+</li>
+<li><p><strong>Restriction:</strong> previous sibling element must have <code>v-if</code> or <code>v-show</code>.</p>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>Denote the “else block” for <code>v-if</code> and <code>v-show</code>.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"Math.random() &gt; 0.5"</span>&gt;</span></div><div class="line">  Sorry</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></div><div class="line">  Not sorry</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="/guide/conditional.html#v-else">Conditional Rendering - v-else</a></li>
+<li><a href="/guide/conditional.html#Component-caveat">Conditional Rendering - Component caveat</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h3><ul>
+<li><p><strong>Expects:</strong> <code>Array | Object | Number | String</code></p>
+</li>
+<li><p><strong>Param Attributes:</strong></p>
+<ul>
+<li><a href="/guide/list.html#key"><code>key</code></a></li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>Render the element or template block multiple times based on the source data. The directive’s value must use the special syntax <code>alias in expression</code> to provide an alias for the current element being iterated on:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></div><div class="line">  &#123;&#123; item.text &#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Alternatively, you can also specify an alias for the index (or the key if used on an Object):</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(key, val) in object"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(key, val, index) in object"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>The detailed usage for <code>v-for</code> is explained in the guide section linked below.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/list.html">List Rendering</a>.</p>
+</li>
+</ul>
+<h3 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h3><ul>
+<li><p><strong>Shorthand:</strong> <code>@</code></p>
+</li>
+<li><p><strong>Expects:</strong> <code>Function | Inline Statement</code></p>
+</li>
+<li><p><strong>Argument:</strong> <code>event (required)</code></p>
+</li>
+<li><p><strong>Modifiers:</strong></p>
+<ul>
+<li><code>.stop</code> - call <code>event.stopPropagation()</code>.</li>
+<li><code>.prevent</code> - call <code>event.preventDefault()</code>.</li>
+<li><code>.capture</code> - add event listener in capture mode.</li>
+<li><code>.self</code> - only trigger handler if event was dispatched from this element.</li>
+<li><code>.{keyCode | keyAlias}</code> - only trigger handler on certain keys.</li>
+<li><code>.native</code> - listen for a native event on the root element of component.</li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>Attaches an event listener to the element. The event type is denoted by the argument. The expression can either be a method name or an inline statement, or simply omitted when there are modifiers present.</p>
+<p>When used on a normal element, it listens to <strong>native DOM events</strong> only. When used on a custom element component, it also listens to <strong>custom events</strong> emitted on that child component.</p>
+<p>When listening to native DOM events, the method receives the native event as the only argument. If using inline statement, the statement has access to the special <code>$event</code> property: <code>v-on:click=&quot;handle(&#39;ok&#39;, $event)&quot;</code>.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- method handler --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- inline statement --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"doThat('hello', $event)"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- shorthand --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- stop propagation --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.stop</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- prevent default --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.prevent</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- prevent default without expression --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">form</span> @<span class="attr">submit.prevent</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- chain modifiers --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.stop.prevent</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- key modifier using keyAlias --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.enter</span>=<span class="string">"onEnter"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- key modifier using keyCode --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.13</span>=<span class="string">"onEnter"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Listening to custom events on a child component (the handler is called when “my-event” is emitted on the child):</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-component</span> @<span class="attr">my-event</span>=<span class="string">"handleThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- inline statement --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">my-component</span> @<span class="attr">my-event</span>=<span class="string">"handleThis(123, $event)"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="/guide/events.html">Methods and Event Handling</a></li>
+<li><a href="/guide/components.html#Custom-Events">Components - Custom Events</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h3><ul>
+<li><p><strong>Shorthand:</strong> <code>:</code></p>
+</li>
+<li><p><strong>Expects:</strong> <code>* (with argument) | Object (without argument)</code></p>
+</li>
+<li><p><strong>Argument:</strong> <code>attrOrProp (optional)</code></p>
+</li>
+<li><p><strong>Modifiers:</strong></p>
+<ul>
+<li><code>.prop</code> - Used for binding DOM attributes.</li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>Dynamically bind one or more attributes, or a component prop to an expression.</p>
+<p>When used to bind the <code>class</code> or <code>style</code> attribute, it supports additional value types such as Array or Objects. See linked guide section below for more details.</p>
+<p>When used for prop binding, the prop must be properly declared in the child component.</p>
+<p>When used without an argument, can be used to bind an object containing attribute name-value pairs. Note in this mode <code>class</code> and <code>style</code> does not support Array or Objects.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- bind an attribute --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">v-bind:src</span>=<span class="string">"imageSrc"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- shorthand --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"imageSrc"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- class binding --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"&#123; red: isRed &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"[classA, classB]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"[classA, &#123; classB: isB, classC: isC &#125;]"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- style binding --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">"&#123; fontSize: size + 'px' &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">"[styleObjectA, styleObjectB]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- binding an object of attributes --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind</span>=<span class="string">"&#123; id: someProp, 'other-attr': otherProp &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- DOM attribute binding with prop modifier --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:text-content.prop</span>=<span class="string">"text"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- prop binding. "prop" must be declared in my-component. --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">:prop</span>=<span class="string">"someThing"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- XLink --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">svg</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">:xlink:special</span>=<span class="string">"foo"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="/guide/class-and-style.html">Class and Style Bindings</a></li>
+<li><a href="/guide/components.html#Props">Components - Component Props</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h3><ul>
+<li><p><strong>Expects:</strong> varies based on value of form inputs element or output of components</p>
+</li>
+<li><p><strong>Limited to:</strong></p>
+<ul>
+<li><code>&lt;input&gt;</code></li>
+<li><code>&lt;select&gt;</code></li>
+<li><code>&lt;textarea&gt;</code></li>
+<li>components</li>
+</ul>
+</li>
+<li><p><strong>Param Attributes:</strong></p>
+<ul>
+<li><a href="/guide/forms.html#lazy"><code>lazy</code></a></li>
+<li><a href="/guide/forms.html#number"><code>number</code></a></li>
+<li><a href="/guild/forms.html#trim"><code>trim</code></a></li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>Create a two-way binding on a form input element or a component. For detailed usage, see guide section linked below.</p>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="/guide/forms.html">Form Input Bindings</a></li>
+<li><a href="/guide/components.html#Form-Input-Components-using-Custom-Events">Components - Parent-Child Commnunication</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="v-pre"><a href="#v-pre" class="headerlink" title="v-pre"></a>v-pre</h3><ul>
+<li><p><strong>Does not expect expression</strong></p>
+</li>
+<li><p><strong>Usage</strong></p>
+<p>Skip compilation for this element and all its children. You can use this for displaying raw mustache tags. Skipping large numbers of nodes with no directives on them can also speed up compilation.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-pre</span>&gt;</span>&#123;&#123; this will not be compiled &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="v-cloak"><a href="#v-cloak" class="headerlink" title="v-cloak"></a>v-cloak</h3><ul>
+<li><p><strong>Does not expect expression</strong></p>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>This directive will remain on the element until the associated Vue instance finishes compilation. Combined with CSS rules such as <code>[v-cloak] { display: none }</code>, this directive can be used to hide un-compiled mustache bindings until the Vue instance is ready.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-attr">[v-cloak]</span> &#123;</div><div class="line">  <span class="attribute">display</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-cloak</span>&gt;</span></div><div class="line">  &#123;&#123; message &#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>The <code>&lt;div&gt;</code> will not be visible until the compilation is done.</p>
+</li>
+</ul>
+<h3 id="v-once"><a href="#v-once" class="headerlink" title="v-once"></a>v-once</h3><ul>
+<li><p><strong>Does not expect expression</strong></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Evaluates the element and component <strong>once</strong> only.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- single element --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-once</span>&gt;</span>This will never change: &#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- the element have children --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-once</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>comment<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- component --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-once</span> <span class="attr">:comment</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- v-for directive --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"i in list"</span> <span class="attr">v-once</span>&gt;</span>&#123;&#123;i&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="/guide/syntax.html#Text">Data Binding Syntax - interpolations</a></li>
+<li><a href="/guide/components.html#Cheap-Static-Components-with-v-once">Components - Cheap Static Components with v-once</a></li>
+</ul>
 </li>
 </ul>
 
