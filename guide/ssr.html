@@ -341,12 +341,7 @@
 
 <div class="content guide with-sidebar">
     <div id="ad">
-  <span>Proudly sponsored by</span>
-  <br>
-  <a href="https://strikingly.com/s/careers?utm_source=v" target="_blank"
-    style="display:inline-block;padding-top:8px">
-    <img src="/images/strikingly.png">
-  </a>
+  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
 </div>
 
     <h1>Server-Side Rendering</h1>
@@ -405,8 +400,8 @@
 
 <h3 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h3><p>With that warning out of the way, here’s how you cache components.</p>
 <p>First, you’ll need to provide your renderer with a <a href="https://www.npmjs.com/package/vue-server-renderer#cache" target="_blank" rel="external">cache object</a>. Here’s a simple example using <a href="https://github.com/isaacs/node-lru-cache" target="_blank" rel="external">lru-cache</a>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> createRenderer = <span class="built_in">require</span>(<span class="string">'vue-server-renderer'</span>).createRenderer</div><div class="line"><span class="keyword">var</span> lru = <span class="built_in">require</span>(<span class="string">'lru-cache'</span>)</div><div class="line"></div><div class="line"><span class="keyword">var</span> renderer = createRenderer(&#123;</div><div class="line">  cache: lru(&#123;</div><div class="line">    max: <span class="number">10000000</span>,</div><div class="line">    length: <span class="function"><span class="keyword">function</span> (<span class="params">n, key</span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> n.length</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>That will cache up to 10 million characters of HTML (10MB assuming 1 byte per character). See <a href="https://github.com/isaacs/node-lru-cache#options" target="_blank" rel="external">the lru-cache options</a> for other configurations.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> createRenderer = <span class="built_in">require</span>(<span class="string">'vue-server-renderer'</span>).createRenderer</div><div class="line"><span class="keyword">var</span> lru = <span class="built_in">require</span>(<span class="string">'lru-cache'</span>)</div><div class="line"></div><div class="line"><span class="keyword">var</span> renderer = createRenderer(&#123;</div><div class="line">  cache: lru(<span class="number">1000</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>That will cache up to 1000 unique renders. For other configurations that more closely align to memory usage, see <a href="https://github.com/isaacs/node-lru-cache#options" target="_blank" rel="external">the lru-cache options</a>.</p>
 <p>Then for components you want to cache, you must provide them with:</p>
 <ul>
 <li>a unique <code>name</code></li>

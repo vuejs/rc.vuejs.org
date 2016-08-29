@@ -225,7 +225,6 @@ a.small-button:hover {
 }
 #ad {
   width: 140px;
-  text-align: center;
   position: fixed;
   z-index: 99;
   bottom: 10px;
@@ -392,6 +391,17 @@ ul.demo li {
     margin-left: 0;
   }
 }
+.benchmark-table {
+  margin: 0 auto;
+  text-align: center;
+}
+.benchmark-table tbody > tr > th {
+  text-align: right;
+}
+.benchmark-table th,
+.benchmark-table td {
+  padding: 3px 7px;
+}
 .content.blog h1 {
   margin: 0 0 0.5em;
 }
@@ -459,6 +469,15 @@ ul.demo li {
 }
 .aa-cursor .algolia-docsearch-suggestion--content {
   color: #2c3e50;
+}
+.sponsors-page a,
+.sponsors-page img {
+  width: 120px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.sponsors-page a {
+  margin: 10px 20px;
 }
 #header {
   background-color: #fff;
@@ -759,8 +778,7 @@ ul.demo li {
   #ad {
     z-index: 8;
     position: relative;
-    width: 140px;
-    height: 60px;
+    width: 100%;
     padding: 0;
     bottom: 0;
     right: 0;
@@ -774,13 +792,13 @@ ul.demo li {
     vertical-align: top;
   }
   #ad .carbon-text {
-    width: 130px;
+    width: 140px;
     margin-left: 15px;
   }
   #ad .carbon-poweredby {
     position: absolute;
-    bottom: 0;
-    left: 145px;
+    bottom: 12px;
+    left: 140px;
   }
 }
 @media screen and (max-width: 720px) {
