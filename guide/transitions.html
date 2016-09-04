@@ -135,15 +135,7 @@
                 
                 
                 <li>
-                    <a href="/guide/index.html" class="sidebar-link">Getting Started</a>
-                </li>
-            
-                
-                
-                
-                
-                <li>
-                    <a href="/guide/overview.html" class="sidebar-link">Overview</a>
+                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
                 </li>
             
                 
@@ -159,7 +151,7 @@
                 
                 
                 <li>
-                    <a href="/guide/syntax.html" class="sidebar-link">Data Binding Syntax</a>
+                    <a href="/guide/syntax.html" class="sidebar-link">Template Syntax</a>
                 </li>
             
                 
@@ -540,10 +532,10 @@ new Vue({
 </ul>
 <p>These will override the conventional class names. This is especially useful when you want to combine Vue’s transition system with an existing CSS animation library, such as <a href="https://daneden.github.io/animate.css/" target="_blank" rel="external">Animate.css</a>.</p>
 <p>Here’s an example:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"https://npmcdn.com/animate.css@3.5.1/animate.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-3"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"show = !show"</span>&gt;</span></div><div class="line">    Toggle render</div><div class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">transition</span></span></div><div class="line">    <span class="attr">name</span>=<span class="string">"custom-classes-transition"</span></div><div class="line">    <span class="attr">enter-active-class</span>=<span class="string">"animated tada"</span></div><div class="line">    <span class="attr">leave-active-class</span>=<span class="string">"animated bounceOutRight"</span></div><div class="line">  &gt;</div><div class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"show"</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"https://unpkg.com/animate.css@3.5.1/animate.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-3"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"show = !show"</span>&gt;</span></div><div class="line">    Toggle render</div><div class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">transition</span></span></div><div class="line">    <span class="attr">name</span>=<span class="string">"custom-classes-transition"</span></div><div class="line">    <span class="attr">enter-active-class</span>=<span class="string">"animated tada"</span></div><div class="line">    <span class="attr">leave-active-class</span>=<span class="string">"animated bounceOutRight"</span></div><div class="line">  &gt;</div><div class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"show"</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#example-3'</span>,</div><div class="line">  data: &#123;</div><div class="line">    show: <span class="literal">true</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 
-<link href="https://npmcdn.com/animate.css@3.5.1" rel="stylesheet" type="text/css">
+<link href="https://unpkg.com/animate.css@3.5.1" rel="stylesheet" type="text/css">
 <div id="example-3" class="demo">
   <button @click="show = !show">
     Toggle render
@@ -665,7 +657,7 @@ new Vue({
 </style>
 
 <p>As it’s transitioning between the “on” button and the “off” button, both buttons are rendered - one transitioning out while the other transitions in. This is the default behavior of <code>&lt;transition&gt;</code> - entering and leaving happens simultaneously.</p>
-<p>Sometimes, this works great, like when transitioning items are absolutely positioned on top of each other:</p>
+<p>Sometimes this works great, like when transitioning items are absolutely positioned on top of each other:</p>
 
 <div id="no-mode-absolute-demo" class="demo">
   <div class="no-mode-absolute-demo-wrapper">
@@ -747,7 +739,7 @@ new Vue({
 }
 </style>
 
-<p>Simultaneous entering and leaving transitions isn’t always desirable though, so Vue offers some alternative <strong>transition modes</strong>:</p>
+<p>Simultaneous entering and leaving transitions aren’t always desirable though, so Vue offers some alternative <strong>transition modes</strong>:</p>
 <ul>
 <li><p><code>in-out</code>: New element transitions in first, then when complete, the current element transitions out.</p>
 </li>
@@ -1017,7 +1009,7 @@ new Vue({
 
 <p class="tip">One important note is that these FLIP transitions do not work with elements set to <code>display: inline</code>. As an alternative, you can use <code>display: inline-block</code> or place elements in a flex context.</p>
 
-<p>These FLIP animations are also not limited to a single axis. Items in a multidimensional grid can transitioned <a href="https://jsfiddle.net/chrisvfritz/a2ngorat/" target="_blank" rel="external">just as easily</a>:</p>
+<p>These FLIP animations are also not limited to a single axis. Items in a multidimensional grid can transitioned <a href="https://jsfiddle.net/chrisvfritz/sLrhk1bc/" target="_blank" rel="external">just as easily</a>:</p>
 
 <div id="sudoku-demo" class="demo">
   <strong>Lazy Sudoku</strong>

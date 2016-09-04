@@ -135,15 +135,7 @@
                 
                 
                 <li>
-                    <a href="/guide/index.html" class="sidebar-link">Getting Started</a>
-                </li>
-            
-                
-                
-                
-                
-                <li>
-                    <a href="/guide/overview.html" class="sidebar-link">Overview</a>
+                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
                 </li>
             
                 
@@ -159,7 +151,7 @@
                 
                 
                 <li>
-                    <a href="/guide/syntax.html" class="sidebar-link">Data Binding Syntax</a>
+                    <a href="/guide/syntax.html" class="sidebar-link">Template Syntax</a>
                 </li>
             
                 
@@ -546,6 +538,7 @@ new Vue({
 <p>In addition, <code>type</code> can also be a custom constructor function and the assertion will be made with an <code>instanceof</code> check.</p>
 <p>When a prop validation fails, Vue will refuse to set the value on the child component and throw a warning if using the development build.</p>
 <h2 id="Parent-Child-Communication"><a href="#Parent-Child-Communication" class="headerlink" title="Parent-Child Communication"></a>Parent-Child Communication</h2><h3 id="Parent-Chain"><a href="#Parent-Chain" class="headerlink" title="Parent Chain"></a>Parent Chain</h3><p>A child component holds access to its parent component as <code>this.$parent</code>. A root Vue instance will be available to all of its descendants as <code>this.$root</code>. Each parent component has an array, <code>this.$children</code>, which contains all its child components.</p>
+<p>When you’d like to access a specific child, you can give that component a <code>ref</code> attribute (e.g. <code>ref=&quot;myChild&quot;</code>), which makes the component instance available via <code>this.$refs.myChild</code>.</p>
 <p class="tip">These properties are made available as an escape hatch to accomodate extreme edge cases. They are not the correct way to access and mutate components in the vast majority of circumstances and if abused, can make your components much more difficult to reason about.</p>
 
 <p>Instead, prefer passing data down explicitly using props. Where data must be shared and mutated by multiple components, a parent component can be used to manage state in a single location. To mutate parent state, custom events can be emitted that parents may choose to listen to or mutation methods can be passed to child components.</p>
