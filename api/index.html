@@ -372,10 +372,7 @@
 <li><p><strong>See also:</strong> <a href="/guide/components.html#Props">Props</a></p>
 </li>
 </ul>
-<h3 id="propsData"><a href="#propsData" class="headerlink" title="propsData"></a>propsData</h3><blockquote>
-<p>1.0.22+</p>
-</blockquote>
-<ul>
+<h3 id="propsData"><a href="#propsData" class="headerlink" title="propsData"></a>propsData</h3><ul>
 <li><p><strong>Type:</strong> <code>Object</code></p>
 </li>
 <li><p><strong>Restriction:</strong> only respected in instance creation via <code>new</code>.</p>
@@ -399,7 +396,6 @@
 <li><p><strong>See also:</strong></p>
 <ul>
 <li><a href="/guide/computed.html">Computed Properties</a></li>
-<li><a href="/guide/reactivity.html#Inside-Computed-Properties">Reactivity in Depth: Inside Computed Properties</a></li>
 </ul>
 </li>
 </ul>
@@ -425,6 +421,139 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  data: &#123;</div><div class="line">    a: <span class="number">1</span></div><div class="line">  &#125;,</div><div class="line">  watch: &#123;</div><div class="line">    <span class="string">'a'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'new: %s, old: %s'</span>, val, oldVal)</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// string method name</span></div><div class="line">    <span class="string">'b'</span>: <span class="string">'someMethod'</span>,</div><div class="line">    <span class="comment">// deep watcher</span></div><div class="line">    <span class="string">'c'</span>: &#123;</div><div class="line">      handler: <span class="function"><span class="keyword">function</span> (<span class="params">val, oldVal</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">      deep: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.a = <span class="number">2</span> <span class="comment">// -&gt; new: 2, old: 1</span></div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>See also:</strong> <a href="#vm-watch">Instance Methods - vm.$watch</a></p>
+</li>
+</ul>
+<h2 id="Options-DOM"><a href="#Options-DOM" class="headerlink" title="Options / DOM"></a>Options / DOM</h2><h3 id="el"><a href="#el" class="headerlink" title="el"></a>el</h3><ul>
+<li><p><strong>Type:</strong> <code>String | HTMLElement | Function</code></p>
+</li>
+<li><p><strong>Restriction:</strong> only accepts type <code>Function</code> when used in a component definition.</p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Provide the Vue instance an existing DOM element to mount on. It can be a CSS selector string, an actual HTMLElement, or a function that returns an HTMLElement. Note that the provided element merely serves as a mounting point; it will be replaced if a template is also provided. The resolved element will be accessible as <code>vm.$el</code>.</p>
+<p>When used in <code>Vue.extend</code>, a function must be provided so each instance gets a separately created element.</p>
+<p>If this option is available at instantiation, the instance will immediately enter compilation; otherwise, the user will have to explicitly call <code>vm.$mount()</code> to manually start the compilation.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/instance.html#Lifecycle-Diagram">Lifecycle Diagram</a></p>
+</li>
+</ul>
+<h3 id="template"><a href="#template" class="headerlink" title="template"></a>template</h3><ul>
+<li><p><strong>Type:</strong> <code>String</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>A string template to be used as the markup for the Vue instance. The template will <strong>replace</strong> the mounted element. Any existing markup inside the mounted element will be ignored, unless content distribution slots are present in the template.</p>
+<p>If the string starts with <code>#</code> it will be used as a querySelector and use the selected element’s innerHTML as the template string. This allows the use of the common <code>&lt;script type=&quot;x-template&quot;&gt;</code> trick to include templates.</p>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="/guide/instance.html#Lifecycle-Diagram">Lifecycle Diagram</a></li>
+<li><a href="/guide/components.html#Content-Distribution-with-Slots">Content Distribution</a></li>
+<li><a href="/guide/components.html#Fragment-Instance">Fragment Instance</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="render"><a href="#render" class="headerlink" title="render"></a>render</h3><ul>
+<li><p><strong>Type:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>An alternative to string templates allowing you to leverage the full programmatic power of JavaScript. The render function receives a <code>createElement</code> method as it’s first argument used to create <code>VNode</code>s.</p>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="/guide/render-function">Render Functions</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Options-Lifecycle-Hooks"><a href="#Options-Lifecycle-Hooks" class="headerlink" title="Options / Lifecycle Hooks"></a>Options / Lifecycle Hooks</h2><h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><ul>
+<li><p><strong>Type:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Called synchronously after the instance has just been initialized, before data observation and event/watcher setup.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/instance.html#Lifecycle-Diagram">Lifecycle Diagram</a></p>
+</li>
+</ul>
+<h3 id="created"><a href="#created" class="headerlink" title="created"></a>created</h3><ul>
+<li><p><strong>Type:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Called synchronously after the instance is created. At this stage, the instance has finished processing the options which means the following have been set up: data observation, computed properties, methods, watch/event callbacks. However, DOM compilation has not been started, and the <code>$el</code> property will not be available yet.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/instance.html#Lifecycle-Diagram">Lifecycle Diagram</a></p>
+</li>
+</ul>
+<h3 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a>beforeMount</h3><ul>
+<li><p><strong>Type:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+</li>
+</ul>
+<p>Called after the template has just been compiled, before <code>vm.$el</code> is created.</p>
+<ul>
+<li><strong>See also:</strong> <a href="/guide/instance.html#Lifecycle-Diagram">Lifecycle Diagram</a></li>
+</ul>
+<h3 id="mounted"><a href="#mounted" class="headerlink" title="mounted"></a>mounted</h3><ul>
+<li><p><strong>Type:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Called after the instance has just been mounted where <code>el</code> is replaced by the newly created <code>vm.$el</code>.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/instance.html#Lifecycle-Diagram">Lifecycle Diagram</a></p>
+</li>
+</ul>
+<h3 id="beforeUpdate"><a href="#beforeUpdate" class="headerlink" title="beforeUpdate"></a>beforeUpdate</h3><ul>
+<li><p><strong>Type:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Called when the data changes, before the virtual DOM is re-rendered and patched.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/instance.html#Lifecycle-Diagram">Lifecycle Diagram</a></p>
+</li>
+</ul>
+<h3 id="updated"><a href="#updated" class="headerlink" title="updated"></a>updated</h3><ul>
+<li><p><strong>Type:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Called after a data change causes the virtual DOM to be re-rendered and patched.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/instance.html#Lifecycle-Diagram">Lifecycle Diagram</a></p>
+</li>
+</ul>
+<h3 id="activated"><a href="#activated" class="headerlink" title="activated"></a>activated</h3><ul>
+<li><p><strong>Type:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Called after a dynamic component is activated, allowing you to perform any necessary asynchronous operations before it should be swapped in.</p>
+<p>The <code>activated</code> hook is only respected during dynamic component swapping or the initial render for static components - it does not affect manual insertions with instance methods.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/instance.html#Lifecycle-Diagram">Lifecycle Diagram</a></p>
+</li>
+</ul>
+<h3 id="deactivated"><a href="#deactivated" class="headerlink" title="deactivated"></a>deactivated</h3><ul>
+<li><p><strong>Type:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Called after the dynamic component has been swapped out.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/instance.html#Lifecycle-Diagram">Lifecycle Diagram</a></p>
+</li>
+</ul>
+<h3 id="beforeDestroy"><a href="#beforeDestroy" class="headerlink" title="beforeDestroy"></a>beforeDestroy</h3><ul>
+<li><p><strong>Type:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Called right before a Vue instance is destroyed. At this stage the instance is still fully functional.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/instance.html#Lifecycle-Diagram">Lifecycle Diagram</a></p>
+</li>
+</ul>
+<h3 id="destroyed"><a href="#destroyed" class="headerlink" title="destroyed"></a>destroyed</h3><ul>
+<li><p><strong>Type:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Called after a Vue instance has been destroyed. When this hook is called, all bindings and directives of the Vue instance have been unbound and all child Vue instances have also been destroyed.</p>
+<p>Note if there is a leaving transition, the <code>destroyed</code> hook is called <strong>after</strong> the transition has finished.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/instance.html#Lifecycle-Diagram">Lifecycle Diagram</a></p>
 </li>
 </ul>
 <h2 id="Instance-Properties"><a href="#Instance-Properties" class="headerlink" title="Instance Properties"></a>Instance Properties</h2><h3 id="vm-data"><a href="#vm-data" class="headerlink" title="vm.$data"></a>vm.$data</h3><ul>

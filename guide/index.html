@@ -326,6 +326,14 @@
                     <a href="/guide/join.html" class="sidebar-link">Join the Vue.js Community!</a>
                 </li>
             
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/migration.html" class="sidebar-link">Migration from v1.x</a>
+                </li>
+            
         </ul>
     </div>
 </div>
@@ -391,7 +399,7 @@ var app3 = new Vue({
 })
 </script>
 
-<p>Go ahead and enter <code>app2.seen = false</code> in the console. You should see the message disappear.</p>
+<p>Go ahead and enter <code>app3.seen = false</code> in the console. You should see the message disappear.</p>
 <p>This second example demonstrates that we can bind data to not only text and attributes, but also the <strong>structure</strong> of the DOM. Moreover, Vue also provides a powerful transition effect system that can automatically apply <a href="transitions.html">transition effects</a> when elements are inserted/updated/removed by Vue.</p>
 <p>There are quite a few other directives, each with its own special functionality. For example, the <code>v-for</code> directive can be used for displaying a list of items using the data from an Array:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app-4"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ol</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"todo in todos"</span>&gt;</span></div><div class="line">      &#123;&#123; todo.text &#125;&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -417,7 +425,7 @@ var app4 = new Vue({
 })
 </script>
 
-<p>In the console, enter <code>app3.todos.push({ text: &#39;New item&#39; })</code>. You should see a new item appended to the list.</p>
+<p>In the console, enter <code>app4.todos.push({ text: &#39;New item&#39; })</code>. You should see a new item appended to the list.</p>
 <h2 id="Handling-User-Input"><a href="#Handling-User-Input" class="headerlink" title="Handling User Input"></a>Handling User Input</h2><p>To let users interact with your app, we can use the <code>v-on</code> directive to attach event listeners that invoke methods on our Vue instances:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app-5"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"reverseMessage"</span>&gt;</span>Reverse Message<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> app5 = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#app-5'</span>,</div><div class="line">  data: &#123;</div><div class="line">    message: <span class="string">'Hello Vue.js!'</span></div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    reverseMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.message = <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>

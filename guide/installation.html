@@ -326,6 +326,14 @@
                     <a href="/guide/join.html" class="sidebar-link">Join the Vue.js Community!</a>
                 </li>
             
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/migration.html" class="sidebar-link">Migration from v1.x</a>
+                </li>
+            
         </ul>
     </div>
 </div>
@@ -339,7 +347,9 @@
     <h1>Installation</h1>
     <h3 id="Compatibility-Note"><a href="#Compatibility-Note" class="headerlink" title="Compatibility Note"></a>Compatibility Note</h3><p>Vue does <strong>not</strong> support IE8 and below, because it uses ECMAScript 5 features that are un-shimmable in IE8. However it supports all <a href="http://caniuse.com/#feat=es5" target="_blank" rel="external">ECMAScript 5 compliant browsers</a>.</p>
 <h3 id="Release-Notes"><a href="#Release-Notes" class="headerlink" title="Release Notes"></a>Release Notes</h3><p>Detailed release notes for each version are available on <a href="https://github.com/vuejs/vue/releases" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Standalone"><a href="#Standalone" class="headerlink" title="Standalone"></a>Standalone</h2><p>Simply download and include with a script tag. <code>Vue</code> will be registered as a global variable. <strong>Pro tip: Don’t use the minified version during development. You will miss out all the nice warnings for common mistakes.</strong></p>
+<h2 id="Standalone"><a href="#Standalone" class="headerlink" title="Standalone"></a>Standalone</h2><p>Simply download and include with a script tag. <code>Vue</code> will be registered as a global variable.</p>
+<p class="tip">Don’t use the minified version during development. You will miss out all the nice warnings for common mistakes!</p>
+
 <div id="downloads"><br><a class="button" href="/js/vue.js" download="">Development Version</a><span class="light info">With full warnings and debug mode</span><br><br><a class="button" href="/js/vue.min.js" download="">Production Version</a><span class="light info">Warnings stripped, 22.06kb min+gzip</span><br></div>
 
 <h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><p>Available on <a href="//cdn.jsdelivr.net/vue/2.0.0-rc.1/vue.min.js">jsdelivr</a> or <a href="//cdnjs.cloudflare.com/ajax/libs/vue/2.0.0-rc.1/vue.min.js">cdnjs</a> (takes some time to sync so the latest version might not be available yet).</p>
@@ -348,6 +358,12 @@
 <p>There <em>is</em> a solution however. When using Vue in a build system with <a href="https://github.com/vuejs-templates/webpack-simple-2.0" target="_blank" rel="external">Webpack + vue-loader</a> or <a href="https://github.com/vuejs-templates/browserify-simple-2.0" target="_blank" rel="external">Browserify + vueify</a>, your templates will be precompiled into <code>render</code> functions which work perfectly in CSP environments.</p>
 <h2 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h2><p>NPM is the recommended installation method when building large scale applications with Vue. It pairs nicely with module bundlers such as <a href="http://webpack.github.io/" target="_blank" rel="external">Webpack</a> or <a href="http://browserify.org/" target="_blank" rel="external">Browserify</a>. Vue also provides accompanying tools for authoring <a href="application.html#Single-File-Components">Single File Components</a>.</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="comment"># latest stable</span></div><div class="line">$ npm install vue@next</div></pre></td></tr></table></figure>
+<h3 id="Note-on-NPM-Builds"><a href="#Note-on-NPM-Builds" class="headerlink" title="Note on NPM Builds"></a>Note on NPM Builds</h3><p>Because Single File Components pre-compile the templates into render functions at build time, the default export of the <code>vue</code> NPM package is the <strong>runtime-only build</strong>, which does not support the <code>template</code> option. If you still wish to use the <code>template</code> option, you will need to configure your bundler to alias <code>vue</code> to the standalone build.</p>
+<p>With webpack, add the following alias to your webpack config:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">resolve: &#123;</div><div class="line">  alias: &#123;</div><div class="line">    vue: <span class="string">'vue/dist/vue.js'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>For Browserify, you can use <a href="https://github.com/benbria/aliasify" target="_blank" rel="external">aliasify</a> for the same effect.</p>
+<p class="tip">Do NOT do <code>import Vue from &#39;vue/dist/vue&#39;</code> - since some tools or 3rd party libraries may import vue as well, this may cause the app to load both the runtime and standalone builds at the same time and lead to errors.</p>
+
 <h2 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h2><p>Vue.js provides an <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="external">official CLI</a> for quickly scaffolding ambitious Single Page Applications. It provides batteries-included build setups for a modern frontend workflow. It takes only a few minutes to get up and running with hot-reload, lint-on-save, and production-ready builds:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="comment"># install vue-cli</span></div><div class="line">$ npm install --global vue-cli</div><div class="line"><span class="comment"># create a new project using the "webpack" template</span></div><div class="line">$ vue init webpack my-project</div><div class="line"><span class="comment"># install dependencies and go!</span></div><div class="line">$ <span class="built_in">cd</span> my-project</div><div class="line">$ npm install</div><div class="line">$ npm run dev</div></pre></td></tr></table></figure>
 <h2 id="Dev-Build"><a href="#Dev-Build" class="headerlink" title="Dev Build"></a>Dev Build</h2><p><strong>Important</strong>: the CommonJS bundle distributed on NPM (<code>vue.common.js</code>) is only checked in during releases on the <code>next</code> branch. To use Vue from the latest source code on GitHub, you will have to build it yourself!</p>
