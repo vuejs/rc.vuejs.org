@@ -556,6 +556,123 @@
 <li><p><strong>See also:</strong> <a href="/guide/instance.html#Lifecycle-Diagram">Lifecycle Diagram</a></p>
 </li>
 </ul>
+<h2 id="Options-Assets"><a href="#Options-Assets" class="headerlink" title="Options / Assets"></a>Options / Assets</h2><h3 id="directives"><a href="#directives" class="headerlink" title="directives"></a>directives</h3><ul>
+<li><p><strong>Type:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>A hash of directives to be made available to the Vue instance.</p>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="/guide/custom-directive.html">Custom Directives</a></li>
+<li><a href="/guide/components.html#Assets-Naming-Convention">Assets Naming Convention</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="filters"><a href="#filters" class="headerlink" title="filters"></a>filters</h3><ul>
+<li><p><strong>Type:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>A hash of filters to be made available to the Vue instance.</p>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="/guide/custom-filter.html">Custom Filters</a></li>
+<li><a href="/guide/components.html#Assets-Naming-Convention">Assets Naming Convention</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="components"><a href="#components" class="headerlink" title="components"></a>components</h3><ul>
+<li><p><strong>Type:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>A hash of components to be made available to the Vue instance.</p>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="/guide/components.html">Components</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="transitions"><a href="#transitions" class="headerlink" title="transitions"></a>transitions</h3><ul>
+<li><p><strong>Type:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>A hash of transitions to be made available to the Vue instance.</p>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="/guide/transitions.html">Transitions</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Options-Misc"><a href="#Options-Misc" class="headerlink" title="Options / Misc"></a>Options / Misc</h2><h3 id="parent"><a href="#parent" class="headerlink" title="parent"></a>parent</h3><ul>
+<li><p><strong>Type:</strong> <code>Vue instance</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Specify the parent instance for the instance to be created. Establishes a parent-child relationship between the two. The parent will be accessible as <code>this.$parent</code> for the child, and the child will be pushed into the parent’s <code>$children</code> array.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/components.html#Parent-Child-Communication">Parent-Child Communication</a></p>
+</li>
+</ul>
+<h3 id="mixins"><a href="#mixins" class="headerlink" title="mixins"></a>mixins</h3><ul>
+<li><p><strong>Type:</strong> <code>Array</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>The <code>mixins</code> option accepts an array of mixin objects. These mixin objects can contain instance options just like normal instance objects, and they will be merged against the eventual options using the same option merging logic in <code>Vue.extend()</code>. e.g. If your mixin contains a created hook and the component itself also has one, both functions will be called.</p>
+<p>Mixin hooks are called in the order they are provided, and called before the component’s own hooks.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> mixin = &#123;</div><div class="line">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="number">1</span>) &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="number">2</span>) &#125;,</div><div class="line">  mixins: [mixin]</div><div class="line">&#125;)</div><div class="line"><span class="comment">// -&gt; 1</span></div><div class="line"><span class="comment">// -&gt; 2</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/mixins.html">Mixins</a></p>
+</li>
+</ul>
+<h3 id="name"><a href="#name" class="headerlink" title="name"></a>name</h3><ul>
+<li><p><strong>Type:</strong> <code>String</code></p>
+</li>
+<li><p><strong>Restriction:</strong> only respected when used in <code>Vue.extend()</code>.</p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Allow the component to recursively invoke itself in its template. Note that when a component is registered globally with <code>Vue.component()</code>, the global ID is automatically set as its name.</p>
+<p>Another benefit of specifying a <code>name</code> option is console inspection. When inspecting an extended Vue component in the console, the default constructor name is <code>VueComponent</code>, which isn’t very informative. By passing in an optional <code>name</code> option to <code>Vue.extend()</code>, you will get a better inspection output so that you know which component you are looking at. The string will be camelized and used as the component’s constructor name.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> Ctor = Vue.extend(&#123;</div><div class="line">  name: <span class="string">'stack-overflow'</span>,</div><div class="line">  template:</div><div class="line">    <span class="string">'&lt;div&gt;'</span> +</div><div class="line">      <span class="comment">// recursively invoke self</span></div><div class="line">      <span class="string">'&lt;stack-overflow&gt;&lt;/stack-overflow&gt;'</span> +</div><div class="line">    <span class="string">'&lt;/div&gt;'</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// this will actually result in a max stack size exceeded</span></div><div class="line"><span class="comment">// error, but let's assume it works...</span></div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Ctor()</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(vm) <span class="comment">// -&gt; StackOverflow &#123;$el: null, ...&#125;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="extends"><a href="#extends" class="headerlink" title="extends"></a>extends</h3><ul>
+<li><p><strong>Type:</strong> <code>Object | Function</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Allows declaratively extending another component (could be either a plain options object or a constructor) without having to use <code>Vue.extend</code>. This is primarily intended to make it easier to extend between single file components.</p>
+<p>This is similar to <code>mixins</code>, the difference being that the component’s own options takes higher priority than the source component being extended.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> CompA = &#123; ... &#125;</div><div class="line"></div><div class="line"><span class="comment">// extend CompA without having to call Vue.extend on either</span></div><div class="line"><span class="keyword">var</span> CompB = &#123;</div><div class="line">  extends: CompA,</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="delimiters"><a href="#delimiters" class="headerlink" title="delimiters"></a>delimiters</h3><ul>
+<li><p><strong>Type:</strong> <code>Array&lt;String&gt;</code></p>
+</li>
+<li><p><strong>default:</strong> <code>[&quot;, &quot;]</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Change the plain text interpolation delimiters. This option is only available in the standalone build.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  delimiters: [<span class="string">'$&#123;'</span>, <span class="string">'&#125;'</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// Delimiters changed to ES6 template string style</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="functional"><a href="#functional" class="headerlink" title="functional"></a>functional</h3><ul>
+<li><p><strong>Type:</strong> <code>boolean</code></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Causes a component to be stateless (no <code>data</code>) and instanceless (no <code>this</code> context). They are simply a <code>render</code> function that returns virtual nodes making them much cheaper to render.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/render-function.html#Functional-Components">Functional Components</a></p>
+</li>
+</ul>
 <h2 id="Instance-Properties"><a href="#Instance-Properties" class="headerlink" title="Instance Properties"></a>Instance Properties</h2><h3 id="vm-data"><a href="#vm-data" class="headerlink" title="vm.$data"></a>vm.$data</h3><ul>
 <li><p><strong>Type:</strong> <code>Object</code></p>
 </li>

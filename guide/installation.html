@@ -326,14 +326,6 @@
                     <a href="/guide/join.html" class="sidebar-link">Join the Vue.js Community!</a>
                 </li>
             
-                
-                
-                
-                
-                <li>
-                    <a href="/guide/migration.html" class="sidebar-link">Migration from v1.x</a>
-                </li>
-            
         </ul>
     </div>
 </div>
@@ -350,9 +342,9 @@
 <h2 id="Standalone"><a href="#Standalone" class="headerlink" title="Standalone"></a>Standalone</h2><p>Simply download and include with a script tag. <code>Vue</code> will be registered as a global variable.</p>
 <p class="tip">Don’t use the minified version during development. You will miss out all the nice warnings for common mistakes!</p>
 
-<div id="downloads"><br><a class="button" href="/js/vue.js" download="">Development Version</a><span class="light info">With full warnings and debug mode</span><br><br><a class="button" href="/js/vue.min.js" download="">Production Version</a><span class="light info">Warnings stripped, 22.06kb min+gzip</span><br></div>
+<div id="downloads"><br><a class="button" href="/js/vue.js" download="">Development Version</a><span class="light info">With full warnings and debug mode</span><br><br><a class="button" href="/js/vue.min.js" download="">Production Version</a><span class="light info">Warnings stripped, 22kb min+gzip</span><br></div>
 
-<h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><p>Available on <a href="//cdn.jsdelivr.net/vue/2.0.0-rc.1/vue.min.js">jsdelivr</a> or <a href="//cdnjs.cloudflare.com/ajax/libs/vue/2.0.0-rc.1/vue.min.js">cdnjs</a> (takes some time to sync so the latest version might not be available yet).</p>
+<h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><p>Available on <a href="//cdn.jsdelivr.net/vue/2.0.0-rc.5/vue.min.js">jsdelivr</a> or <a href="//cdnjs.cloudflare.com/ajax/libs/vue/2.0.0-rc.5/vue.min.js">cdnjs</a> (takes some time to sync so the latest version might not be available yet).</p>
 <p>Also available on <a href="https://unpkg.com/vue/dist/vue.min.js" target="_blank" rel="external">unpkg</a>, which will reflect the latest version as soon as it is published to npm. You can also browse the source of the npm package at <a href="https://unpkg.com/vue/" target="_blank" rel="external">unpkg.com/vue/</a>.</p>
 <h3 id="CSP-environments"><a href="#CSP-environments" class="headerlink" title="CSP environments"></a>CSP environments</h3><p>Some environments, such as Google Chrome Apps, enforce Content Security Policy (CSP), which prohibits the use of <code>new Function()</code> for evaluating expressions. The standalone build depends on this feature to compile templates, so is unusable in these environments.</p>
 <p>There <em>is</em> a solution however. When using Vue in a build system with <a href="https://github.com/vuejs-templates/webpack-simple-2.0" target="_blank" rel="external">Webpack + vue-loader</a> or <a href="https://github.com/vuejs-templates/browserify-simple-2.0" target="_blank" rel="external">Browserify + vueify</a>, your templates will be precompiled into <code>render</code> functions which work perfectly in CSP environments.</p>

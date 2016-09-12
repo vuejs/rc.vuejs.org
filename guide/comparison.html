@@ -326,14 +326,6 @@
                     <a href="/guide/join.html" class="sidebar-link">Join the Vue.js Community!</a>
                 </li>
             
-                
-                
-                
-                
-                <li>
-                    <a href="/guide/migration.html" class="sidebar-link">Migration from v1.x</a>
-                </li>
-            
         </ul>
     </div>
 </div>
@@ -354,7 +346,9 @@
 <li>provide reactive and composable view components</li>
 <li>maintain focus in the core library, with concerns such as routing and global state management handled by companion libraries</li>
 </ul>
-<p>There are, of course, many differences as well:</p>
+<p>Being so similar in scope, we’ve put more time into fine-tuning this comparison than any other. We want to ensure not only technical accuracy, but also balance. We point out where React outshines Vue, for example in the richness of their ecosystem and abundance of their custom renderers.</p>
+<p>The React community <a href="https://github.com/vuejs/vuejs.org/issues/364" target="_blank" rel="external">has been instrumental</a> in helping us achieve this balance, with special thanks to Dan Abramov from the React team. He was extremely generous with his time and considerable expertise to help us refine this document until we were <a href="https://github.com/vuejs/vuejs.org/issues/364#issuecomment-244575740" target="_blank" rel="external">both happy</a> with the final result.</p>
+<p>With that said, we hope you can feel confident in the fairness of the review below as we explore the differences between these two libraries.</p>
 <h3 id="Performance-Profiles"><a href="#Performance-Profiles" class="headerlink" title="Performance Profiles"></a>Performance Profiles</h3><p>In every real-world scenario that we’ve tested so far, Vue outperforms React by a fair margin (usually at least 20-50% faster, though in some cases much more than that). We could now link to benchmarks - but frankly, all benchmarks are flawed in some way and very few resemble what you’d write in a real application. Instead, let’s break it down.</p>
 <h4 id="Render-Performance"><a href="#Render-Performance" class="headerlink" title="Render Performance"></a>Render Performance</h4><p>When rendering UI, manipulating the DOM is typically the most expensive operation and unfortunately, no library can make those raw operations faster. The best we can do is:</p>
 <ol>
@@ -442,7 +436,7 @@
 <p>The optional <code>scoped</code> attribute automatically scopes this CSS to your component by adding a unique attribute (such as <code>data-v-1</code>) to elements and compiling <code>.list-container:hover</code> to something like <code>.list-container[data-v-1]:hover</code>.</p>
 <p>Finally, just as with HTML, you also have the option of writing your CSS using any preprocessors (or postprocessors) you’d like. This allows you to perform design-centric operations such as color manipulation during your build process, rather than importing specialized JavaScript libraries that would increase the size of your build and complexity of your application.</p>
 <h3 id="Scale"><a href="#Scale" class="headerlink" title="Scale"></a>Scale</h3><h4 id="Scaling-Up"><a href="#Scaling-Up" class="headerlink" title="Scaling Up"></a>Scaling Up</h4><p>For large applications, both Vue and React offer robust routing solutions. The React community has also been very innovative in terms of state management solutions (e.g. Flux/Redux). These state management patterns and <a href="https://github.com/egoist/revue" target="_blank" rel="external">even Redux itself</a> can be easily integrated into Vue applications. In fact, Vue has even taken this model a step further with <a href="https://github.com/vuejs/vuex" target="_blank" rel="external">Vuex</a>, an Elm-inspired state management solution that integrates deeply into Vue that we think offers a superior development experience.</p>
-<p>Another important difference between these offerings is that Vue’s companion libraries for state management and routing (among <a href="https://github.com/vuejs" target="_blank" rel="external">other concerns</a>) are all officially supported and kept up-to-date with the core library. React instead chooses to leave these concerns to the community, creating a more fragmented ecosystem.</p>
+<p>Another important difference between these offerings is that Vue’s companion libraries for state management and routing (among <a href="https://github.com/vuejs" target="_blank" rel="external">other concerns</a>) are all officially supported and kept up-to-date with the core library. React instead chooses to leave these concerns to the community, creating a more fragmented ecosystem. Being more popular though, React’s ecosystem is considerably richer than Vue’s.</p>
 <p>Finally, Vue offers a <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="external">CLI project generator</a> that makes it trivially easy to start a new project using your choice of build system, including <a href="https://github.com/vuejs-templates/webpack" target="_blank" rel="external">Webpack</a>, <a href="https://github.com/vuejs-templates/browserify" target="_blank" rel="external">Browserify</a>, or even <a href="https://github.com/vuejs-templates/simple" target="_blank" rel="external">no build system</a>. React is also making strides in this area with <a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="external">create-react-app</a>, but it currently has a few limitations:</p>
 <ul>
 <li>It does not allow any configuration during project generation, while Vue’s project templates allow Yeoman-like customization.</li>
@@ -505,8 +499,6 @@
         
         
           <span style="float:right"><a href="/guide/join.html">Join the Vue.js Community!</a> →</span>
-        
-          <span style="float:right"><a href="/guide/migration.html">Migration from v1.x</a> →</span>
         
       </div>
     
