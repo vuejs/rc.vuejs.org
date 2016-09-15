@@ -216,10 +216,8 @@
 <p>Defer the callback to be executed after the next DOM update cycle. Use it immediately after you’ve changed some data to wait for the DOM update.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// modify data</span></div><div class="line">vm.msg = <span class="string">'Hello'</span></div><div class="line"><span class="comment">// DOM not updated yet</span></div><div class="line">Vue.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// DOM updated</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
-</ul>
-<p>!!TODO: The ‘see also’ link is dependant on whether its content will remain relevant after the rewrite(<a href="https://github.com/vuejs/vuejs.org/blob/2.0/src/guide/reactivity.md#async-update-queue" target="_blank" rel="external">See Guide#Reactivity TODO for 2.0</a>)</p>
-<ul>
-<li><strong>See also:</strong> <a href="/guide/reactivity.html#Async-Update-Queue">Async Update Queue</a></li>
+<li><p><strong>See also:</strong> <a href="/guide/reactivity.html#Async-Update-Queue">Async Update Queue</a></p>
+</li>
 </ul>
 <h3 id="Vue-set">Vue.set( object, key, value )</h3>
 
@@ -884,27 +882,6 @@
 <p>Trigger an event on the current instance. Any additional arguments will be passed into the listener’s callback function.</p>
 </li>
 </ul>
-<h2 id="Instance-Methods-DOM"><a href="#Instance-Methods-DOM" class="headerlink" title="Instance Methods / DOM"></a>Instance Methods / DOM</h2><h3 id="vm-nextTick">vm.$nextTick( callback )</h3>
-
-<ul>
-<li><p><strong>Arguments:</strong></p>
-<ul>
-<li><code>{Function} [callback]</code></li>
-</ul>
-</li>
-<li><p><strong>Usage:</strong></p>
-<p>Defer the callback to be executed after the next DOM update cycle. Use it immediately after you’ve changed some data to wait for the DOM update. This is the same as the global <code>Vue.nextTick</code>, except that the callback’s <code>this</code> context is automatically bound to the instance calling this method.</p>
-</li>
-<li><p><strong>Example:</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  methods: &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    example: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">// modify data</span></div><div class="line">      <span class="keyword">this</span>.message = <span class="string">'changed'</span></div><div class="line">      <span class="comment">// DOM is not updated yet</span></div><div class="line">      <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">// DOM is now updated</span></div><div class="line">        <span class="comment">// `this` is bound to the current instance</span></div><div class="line">        <span class="keyword">this</span>.doSomethingElse()</div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>See also:</strong></p>
-<ul>
-<li><a href="#Vue-nextTick">Vue.nextTick</a></li>
-<li><a href="/guide/reactivity.html#Async-Update-Queue">Async Update Queue</a></li>
-</ul>
-</li>
-</ul>
 <h2 id="Instance-Methods-Lifecycle"><a href="#Instance-Methods-Lifecycle" class="headerlink" title="Instance Methods / Lifecycle"></a>Instance Methods / Lifecycle</h2><h3 id="vm-mount">vm.$mount( [elementOrSelector], [hydrating] )</h3>
 
 <ul>
@@ -941,6 +918,27 @@
 </ul>
 <p class="tip">Note: This method have an influence on your application performance degradation. The excessive call is no recommended.</p>
 
+<h3 id="vm-nextTick">vm.$nextTick( callback )</h3>
+
+<ul>
+<li><p><strong>Arguments:</strong></p>
+<ul>
+<li><code>{Function} [callback]</code></li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>Defer the callback to be executed after the next DOM update cycle. Use it immediately after you’ve changed some data to wait for the DOM update. This is the same as the global <code>Vue.nextTick</code>, except that the callback’s <code>this</code> context is automatically bound to the instance calling this method.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  methods: &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    example: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">// modify data</span></div><div class="line">      <span class="keyword">this</span>.message = <span class="string">'changed'</span></div><div class="line">      <span class="comment">// DOM is not updated yet</span></div><div class="line">      <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">// DOM is now updated</span></div><div class="line">        <span class="comment">// `this` is bound to the current instance</span></div><div class="line">        <span class="keyword">this</span>.doSomethingElse()</div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="#Vue-nextTick">Vue.nextTick</a></li>
+<li><a href="/guide/reactivity.html#Async-Update-Queue">Async Update Queue</a></li>
+</ul>
+</li>
+</ul>
 <h3 id="vm-destroy">vm.$destroy( )</h3>
 
 <ul>
