@@ -32,12 +32,28 @@
         </div>
         
             <div id="header">
-    <a id="logo" href="/">
-        <img src="/images/logo.png">
-        <span>Vue.js</span>
-    </a>
-    <ul id="nav">
-        <li>
+  <a id="logo" href="/">
+    <img src="/images/logo.png">
+    <span>Vue.js <sup>2.0 RC</sup></span>
+  </a>
+  <span style="
+    position: absolute;
+    top: 100%;
+    left: 60px;
+    padding: 0 10px;
+    background: #ef9f00;
+    border-radius: 3px;
+    margin-top: -15px;
+    line-height: 30px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.3);
+  ">
+    WORK IN PROGRESS
+  </span>
+  <ul id="nav">
+    <li>
   <form id="search-form">
     <input type="text" id="search-query-nav" class="search-query st-default-search-input">
   </form>
@@ -57,7 +73,7 @@
 </li>
 
 
-    </ul>
+  </ul>
 </div>
 
             <div id="main">
@@ -96,54 +112,99 @@
         <h2>
             Examples
             <select class="version-select">
-                <option value="rc">2.0-rc</option>
-                <option selected>1.0</option>
+                <option value="rc" selected>2.0</option>
+                <!-- !!TODO: Update value to subdomain when 2.0 is released -->
+                <option value="">1.0</option>
                 <option>0.12</option>
                 <option>0.11</option>
             </select>
         </h2>
         <ul class="menu-root">
             
+                
+                
+                
+                
                 <li>
                     <a href="/examples/index.html" class="sidebar-link">Markdown Editor</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/examples/commits.html" class="sidebar-link">GitHub Commits</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/examples/firebase.html" class="sidebar-link">Firebase + Validation</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/examples/grid-component.html" class="sidebar-link">Grid Component</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/examples/tree-view.html" class="sidebar-link">Tree View</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/examples/svg.html" class="sidebar-link">SVG Graph</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/examples/modal.html" class="sidebar-link">Modal Component</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/examples/elastic-header.html" class="sidebar-link">Elastic Header</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/examples/select2.html" class="sidebar-link">Custom Directive</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/examples/todomvc.html" class="sidebar-link">TodoMVC</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/examples/hackernews.html" class="sidebar-link current">HackerNews Clone</a>
                 </li>
@@ -153,20 +214,41 @@
 </div>
 
 
-<div class="content examples with-sidebar">
+<div class="content examples with-sidebar ">
     <div id="ad">
   <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
 </div>
 
     <h1>HackerNews Clone Example</h1>
     <blockquote>
-<p>This is a HackerNews clone built upon HN’s official Firebase API, and using Webpack + vue-loader for the build setup.</p>
+<p>This is a HackerNews clone built upon HN’s official Firebase API, Vue 2.0 + vue-router + vuex, with server-side rendering.</p>
 </blockquote>
-<div style="max-width:600px"><br>  <a href="http://vuejs.github.io/vue-hackernews" target="_blank"><img style="width:100%" src="/images/hn.png"></a><br></div>
+
+<div style="max-width:600px">
+  <a href="https://github.com/vuejs/vue-hackernews-2.0" target="_blank">
+    <img style="width:100%" src="/images/hn.png">
+  </a>
+</div>
 
 <blockquote>
-<p>[<a href="https://github.com/vuejs/vue-hackernews" target="_blank" rel="external">Source</a>]</p>
+<p><a href="https://vue-hn.now.sh/" target="_blank" rel="external">Live Demo</a><br>Note: the demo may need some spin up time if nobody has accessed it for a certain period.</p>
+<p>[<a href="https://github.com/vuejs/vue-hackernews-2.0" target="_blank" rel="external">Source</a>]</p>
 </blockquote>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
+<li>Server Side Rendering<ul>
+<li>Vue + vue-router + vuex working together</li>
+<li>Server-side data pre-fetching</li>
+<li>Client-side state &amp; DOM hydration</li>
+</ul>
+</li>
+<li>Single-file Vue Components<ul>
+<li>Hot-reload in development</li>
+<li>CSS extraction for production</li>
+</ul>
+</li>
+<li>Real-time List Updates with FLIP Animation</li>
+</ul>
+<h2 id="Architecture-Overview"><a href="#Architecture-Overview" class="headerlink" title="Architecture Overview"></a>Architecture Overview</h2><p><img width="973" alt="Hackernew clone architecture overview" src="/images/hn-architecture.png"></p>
 
     
     <div class="footer">

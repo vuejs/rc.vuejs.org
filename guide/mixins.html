@@ -32,12 +32,28 @@
         </div>
         
             <div id="header">
-    <a id="logo" href="/">
-        <img src="/images/logo.png">
-        <span>Vue.js</span>
-    </a>
-    <ul id="nav">
-        <li>
+  <a id="logo" href="/">
+    <img src="/images/logo.png">
+    <span>Vue.js <sup>2.0 RC</sup></span>
+  </a>
+  <span style="
+    position: absolute;
+    top: 100%;
+    left: 60px;
+    padding: 0 10px;
+    background: #ef9f00;
+    border-radius: 3px;
+    margin-top: -15px;
+    line-height: 30px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.3);
+  ">
+    WORK IN PROGRESS
+  </span>
+  <ul id="nav">
+    <li>
   <form id="search-form">
     <input type="text" id="search-query-nav" class="search-query st-default-search-input">
   </form>
@@ -57,7 +73,7 @@
 </li>
 
 
-    </ul>
+  </ul>
 </div>
 
             <div id="main">
@@ -96,96 +112,227 @@
         <h2>
             Guide
             <select class="version-select">
-                <option value="rc">2.0-rc</option>
-                <option selected>1.0</option>
+                <option value="rc" selected>2.0</option>
+                <!-- !!TODO: Update value to subdomain when 2.0 is released -->
+                <option value="">1.0</option>
                 <option>0.12</option>
                 <option>0.11</option>
             </select>
         </h2>
         <ul class="menu-root">
             
+                
+                
+                  <li><h3>Essentials</h3></li>
+                
+                
+                
                 <li>
                     <a href="/guide/installation.html" class="sidebar-link">Installation</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/index.html" class="sidebar-link">Getting Started</a>
+                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
                 </li>
             
-                <li>
-                    <a href="/guide/overview.html" class="sidebar-link">Overview</a>
-                </li>
-            
+                
+                
+                
+                
                 <li>
                     <a href="/guide/instance.html" class="sidebar-link">The Vue Instance</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/syntax.html" class="sidebar-link">Data Binding Syntax</a>
+                    <a href="/guide/syntax.html" class="sidebar-link">Template Syntax</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/computed.html" class="sidebar-link">Computed Properties</a>
+                    <a href="/guide/computed.html" class="sidebar-link">Computed Properties and Watchers</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/class-and-style.html" class="sidebar-link">Class and Style Bindings</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/conditional.html" class="sidebar-link">Conditional Rendering</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/list.html" class="sidebar-link">List Rendering</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/events.html" class="sidebar-link">Methods and Event Handling</a>
+                    <a href="/guide/events.html" class="sidebar-link">Event Handling</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/forms.html" class="sidebar-link">Form Input Bindings</a>
                 </li>
             
-                <li>
-                    <a href="/guide/transitions.html" class="sidebar-link">Transitions</a>
-                </li>
-            
+                
+                
+                
+                
                 <li>
                     <a href="/guide/components.html" class="sidebar-link">Components</a>
                 </li>
             
+                
+                
+                
+                  <li><h3>Advanced</h3></li>
+                
+                
+                <li>
+                    <a href="/guide/transitions.html" class="sidebar-link">Transitions: Entering, Leaving, and Lists</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/transitioning-state.html" class="sidebar-link">Transitioning State</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/render-function.html" class="sidebar-link">Render Functions</a>
+                </li>
+            
+                
+                
+                
+                
                 <li>
                     <a href="/guide/reactivity.html" class="sidebar-link">Reactivity in Depth</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/custom-directive.html" class="sidebar-link">Custom Directives</a>
                 </li>
             
-                <li>
-                    <a href="/guide/custom-filter.html" class="sidebar-link">Custom Filters</a>
-                </li>
-            
+                
+                
+                
+                
                 <li>
                     <a href="/guide/mixins.html" class="sidebar-link current">Mixins</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/plugins.html" class="sidebar-link">Plugins</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/application.html" class="sidebar-link">Building Large-Scale Apps</a>
+                    <a href="/guide/single-file-components.html" class="sidebar-link">Single File Components</a>
                 </li>
             
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/routing.html" class="sidebar-link">Routing</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/state-management.html" class="sidebar-link">State Management</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/unit-testing.html" class="sidebar-link">Unit Testing</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/ssr.html" class="sidebar-link">Server-Side Rendering</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/migration.html" class="sidebar-link">Migration from 1.x</a>
+                </li>
+            
+                
+                
+                
+                
+                  <li><h3>Meta</h3></li>
+                
                 <li>
                     <a href="/guide/comparison.html" class="sidebar-link">Comparison with Other Frameworks</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/join.html" class="sidebar-link">Join the Vue Community!</a>
+                    <a href="/guide/join.html" class="sidebar-link">Join the Vue.js Community!</a>
                 </li>
             
         </ul>
@@ -193,7 +340,7 @@
 </div>
 
 
-<div class="content guide with-sidebar">
+<div class="content guide with-sidebar mixins-guide">
     <div id="ad">
   <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
 </div>
@@ -209,17 +356,19 @@
 <p>Note that the same merge strategies are used in <code>Vue.extend()</code>.</p>
 <h2 id="Global-Mixin"><a href="#Global-Mixin" class="headerlink" title="Global Mixin"></a>Global Mixin</h2><p>You can also apply a mixin globally. Use caution! Once you apply a mixin globally, it will affect <strong>every</strong> Vue instance created afterwards. When used properly, this can be used to inject processing logic for custom options:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// inject a handler for `myOption` custom option</span></div><div class="line">Vue.mixin(&#123;</div><div class="line">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> myOption = <span class="keyword">this</span>.$options.myOption</div><div class="line">    <span class="keyword">if</span> (myOption) &#123;</div><div class="line">      <span class="built_in">console</span>.log(myOption)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  myOption: <span class="string">'hello!'</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">// -&gt; "hello!"</span></div></pre></td></tr></table></figure>
-<p class="tip">Use global mixins sparsely and carefully, because it affects every single Vue instance created, including third party components. In most cases, you should only use it for custom option handling like demonstrated in the example above.</p>
+<p class="tip">Use global mixins sparsely and carefully, because it affects every single Vue instance created, including third party components. In most cases, you should only use it for custom option handling like demonstrated in the example above. It’s also a good idea to ship them as <a href="/guide/plugins.html">Plugins</a> to avoid duplicate application.</p>
 
 <h2 id="Custom-Option-Merge-Strategies"><a href="#Custom-Option-Merge-Strategies" class="headerlink" title="Custom Option Merge Strategies"></a>Custom Option Merge Strategies</h2><p>When custom options are merged, they use the default strategy, which simply overwrites the existing value. If you want a custom option to be merged using custom logic, you need to attach a function to <code>Vue.config.optionMergeStrategies</code>:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.config.optionMergeStrategies.myOption = <span class="function"><span class="keyword">function</span> (<span class="params">toVal, fromVal</span>) </span>&#123;</div><div class="line">  <span class="comment">// return mergedVal</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>For most object-based options, you can simply use the same strategy used by <code>methods</code>:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> strategies = Vue.config.optionMergeStrategies</div><div class="line">strategies.myOption = strategies.methods</div></pre></td></tr></table></figure>
+<p>A more advanced example can be found on <a href="https://github.com/vuejs/vuex" target="_blank" rel="external">Vuex</a>‘s merging strategy:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> merge = Vue.config.optionMergeStrategies.computed</div><div class="line">Vue.config.optionMergeStrategies.vuex = <span class="function"><span class="keyword">function</span> (<span class="params">toVal, fromVal</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (!toVal) <span class="keyword">return</span> fromVal</div><div class="line">  <span class="keyword">if</span> (!fromVal) <span class="keyword">return</span> toVal</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    getters: merge(toVal.getters, fromVal.getters),</div><div class="line">    state: merge(toVal.state, fromVal.state),</div><div class="line">    actions: merge(toVal.actions, fromVal.actions)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
     
       <div class="guide-links">
         
-          <span>← <a href="/guide/custom-filter.html">Custom Filters</a></span>
+          <span>← <a href="/guide/custom-directive.html">Custom Directives</a></span>
         
         
           <span style="float:right"><a href="/guide/plugins.html">Plugins</a> →</span>

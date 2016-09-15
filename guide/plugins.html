@@ -32,12 +32,28 @@
         </div>
         
             <div id="header">
-    <a id="logo" href="/">
-        <img src="/images/logo.png">
-        <span>Vue.js</span>
-    </a>
-    <ul id="nav">
-        <li>
+  <a id="logo" href="/">
+    <img src="/images/logo.png">
+    <span>Vue.js <sup>2.0 RC</sup></span>
+  </a>
+  <span style="
+    position: absolute;
+    top: 100%;
+    left: 60px;
+    padding: 0 10px;
+    background: #ef9f00;
+    border-radius: 3px;
+    margin-top: -15px;
+    line-height: 30px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.3);
+  ">
+    WORK IN PROGRESS
+  </span>
+  <ul id="nav">
+    <li>
   <form id="search-form">
     <input type="text" id="search-query-nav" class="search-query st-default-search-input">
   </form>
@@ -57,7 +73,7 @@
 </li>
 
 
-    </ul>
+  </ul>
 </div>
 
             <div id="main">
@@ -96,96 +112,227 @@
         <h2>
             Guide
             <select class="version-select">
-                <option value="rc">2.0-rc</option>
-                <option selected>1.0</option>
+                <option value="rc" selected>2.0</option>
+                <!-- !!TODO: Update value to subdomain when 2.0 is released -->
+                <option value="">1.0</option>
                 <option>0.12</option>
                 <option>0.11</option>
             </select>
         </h2>
         <ul class="menu-root">
             
+                
+                
+                  <li><h3>Essentials</h3></li>
+                
+                
+                
                 <li>
                     <a href="/guide/installation.html" class="sidebar-link">Installation</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/index.html" class="sidebar-link">Getting Started</a>
+                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
                 </li>
             
-                <li>
-                    <a href="/guide/overview.html" class="sidebar-link">Overview</a>
-                </li>
-            
+                
+                
+                
+                
                 <li>
                     <a href="/guide/instance.html" class="sidebar-link">The Vue Instance</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/syntax.html" class="sidebar-link">Data Binding Syntax</a>
+                    <a href="/guide/syntax.html" class="sidebar-link">Template Syntax</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/computed.html" class="sidebar-link">Computed Properties</a>
+                    <a href="/guide/computed.html" class="sidebar-link">Computed Properties and Watchers</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/class-and-style.html" class="sidebar-link">Class and Style Bindings</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/conditional.html" class="sidebar-link">Conditional Rendering</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/list.html" class="sidebar-link">List Rendering</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/events.html" class="sidebar-link">Methods and Event Handling</a>
+                    <a href="/guide/events.html" class="sidebar-link">Event Handling</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/forms.html" class="sidebar-link">Form Input Bindings</a>
                 </li>
             
-                <li>
-                    <a href="/guide/transitions.html" class="sidebar-link">Transitions</a>
-                </li>
-            
+                
+                
+                
+                
                 <li>
                     <a href="/guide/components.html" class="sidebar-link">Components</a>
                 </li>
             
+                
+                
+                
+                  <li><h3>Advanced</h3></li>
+                
+                
+                <li>
+                    <a href="/guide/transitions.html" class="sidebar-link">Transitions: Entering, Leaving, and Lists</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/transitioning-state.html" class="sidebar-link">Transitioning State</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/render-function.html" class="sidebar-link">Render Functions</a>
+                </li>
+            
+                
+                
+                
+                
                 <li>
                     <a href="/guide/reactivity.html" class="sidebar-link">Reactivity in Depth</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/custom-directive.html" class="sidebar-link">Custom Directives</a>
                 </li>
             
-                <li>
-                    <a href="/guide/custom-filter.html" class="sidebar-link">Custom Filters</a>
-                </li>
-            
+                
+                
+                
+                
                 <li>
                     <a href="/guide/mixins.html" class="sidebar-link">Mixins</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/plugins.html" class="sidebar-link current">Plugins</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/application.html" class="sidebar-link">Building Large-Scale Apps</a>
+                    <a href="/guide/single-file-components.html" class="sidebar-link">Single File Components</a>
                 </li>
             
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/routing.html" class="sidebar-link">Routing</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/state-management.html" class="sidebar-link">State Management</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/unit-testing.html" class="sidebar-link">Unit Testing</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/ssr.html" class="sidebar-link">Server-Side Rendering</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/migration.html" class="sidebar-link">Migration from 1.x</a>
+                </li>
+            
+                
+                
+                
+                
+                  <li><h3>Meta</h3></li>
+                
                 <li>
                     <a href="/guide/comparison.html" class="sidebar-link">Comparison with Other Frameworks</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/join.html" class="sidebar-link">Join the Vue Community!</a>
+                    <a href="/guide/join.html" class="sidebar-link">Join the Vue.js Community!</a>
                 </li>
             
         </ul>
@@ -193,7 +340,7 @@
 </div>
 
 
-<div class="content guide with-sidebar">
+<div class="content guide with-sidebar plugins-guide">
     <div id="ad">
   <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
 </div>
@@ -205,39 +352,23 @@
 </li>
 <li><p>Add one or more global assets: directives/filters/transitions etc. e.g. <a href="https://github.com/vuejs/vue-touch" target="_blank" rel="external">vue-touch</a></p>
 </li>
+<li><p>Add some component options by global mixin. e.g. <a href="https://github.com/vuejs/vuex" target="_blank" rel="external">vuex</a></p>
+</li>
 <li><p>Add some Vue instance methods by attaching them to Vue.prototype.</p>
 </li>
 <li><p>A library that provides an API of its own, while at the same time injecting some combination of the above. e.g. <a href="https://github.com/vuejs/vue-router" target="_blank" rel="external">vue-router</a></p>
 </li>
 </ol>
 <p>A Vue.js plugin should expose an <code>install</code> method. The method will be called with the <code>Vue</code> constructor as the first argument, along with possible options:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">MyPlugin.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue, options</span>) </span>&#123;</div><div class="line">  <span class="comment">// 1. add global method or property</span></div><div class="line">  Vue.myGlobalMethod = ...</div><div class="line">  <span class="comment">// 2. add a global asset</span></div><div class="line">  Vue.directive(<span class="string">'my-directive'</span>, &#123;&#125;)</div><div class="line">  <span class="comment">// 3. add an instance method</span></div><div class="line">  Vue.prototype.$myMethod = ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">MyPlugin.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue, options</span>) </span>&#123;</div><div class="line">  <span class="comment">// 1. add global method or property</span></div><div class="line">  Vue.myGlobalMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// something logic ...</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// 2. add a global asset</span></div><div class="line">  Vue.directive(<span class="string">'my-directive'</span>, &#123;</div><div class="line">    bind (el, binding, vnode, oldVnode) &#123;</div><div class="line">      <span class="comment">// something logic ...</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">  &#125;)</div><div class="line"></div><div class="line">  <span class="comment">// 3. inject some component options</span></div><div class="line">  Vue.mixin(&#123;</div><div class="line">    created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">// something logic ...</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">  &#125;)</div><div class="line"></div><div class="line">  <span class="comment">// 4. add an instance method</span></div><div class="line">  Vue.prototype.$myMethod = <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</div><div class="line">    <span class="comment">// something logic ...</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Using-a-Plugin"><a href="#Using-a-Plugin" class="headerlink" title="Using a Plugin"></a>Using a Plugin</h2><p>Use plugins by calling the <code>Vue.use()</code> global method:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// calls `MyPlugin.install(Vue)`</span></div><div class="line">Vue.use(MyPlugin)</div></pre></td></tr></table></figure>
 <p>You can optionally pass in some options:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.use(MyPlugin, &#123; someOption: <span class="literal">true</span> &#125;)</div></pre></td></tr></table></figure>
-<p>Some plugins such as <code>vue-router</code> automatically calls <code>Vue.use()</code> if <code>Vue</code> is available as a global variable. However in a module environment you always need to call <code>Vue.use()</code> explicitly:</p>
+<p><code>Vue.use</code> automatically prevents you from using the same plugin more than once, so calling it multiple times on the same plugin will install the plugin only once.</p>
+<p>Some plugins provided by Vue.js official plugins such as <code>vue-router</code> automatically calls <code>Vue.use()</code> if <code>Vue</code> is available as a global variable. However in a module environment such as CommonJS, you always need to call <code>Vue.use()</code> explicitly:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// When using CommonJS via Browserify or Webpack</span></div><div class="line"><span class="keyword">var</span> Vue = <span class="built_in">require</span>(<span class="string">'vue'</span>)</div><div class="line"><span class="keyword">var</span> VueRouter = <span class="built_in">require</span>(<span class="string">'vue-router'</span>)</div><div class="line"></div><div class="line"><span class="comment">// Don't forget to call this</span></div><div class="line">Vue.use(VueRouter)</div></pre></td></tr></table></figure>
-<h2 id="Existing-Plugins-amp-Tools"><a href="#Existing-Plugins-amp-Tools" class="headerlink" title="Existing Plugins &amp; Tools"></a>Existing Plugins &amp; Tools</h2><ul>
-<li><p><a href="https://github.com/vuejs/vue-router" target="_blank" rel="external">vue-router</a>: The official router for Vue.js. Deeply integrated with Vue.js core to make building Single Page Applications a breeze.</p>
-</li>
-<li><p><a href="https://github.com/vuejs/vue-resource" target="_blank" rel="external">vue-resource</a>: A plugin that provides services for making web requests and handle responses using a XMLHttpRequest or JSONP.</p>
-</li>
-<li><p><a href="https://github.com/vuejs/vue-async-data" target="_blank" rel="external">vue-async-data</a>: Async data loading plugin.</p>
-</li>
-<li><p><a href="https://github.com/vuejs/vue-validator" target="_blank" rel="external">vue-validator</a>: A plugin for form validations.</p>
-</li>
-<li><p><a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="external">vue-devtools</a>: A Chrome devtools extension for debugging Vue.js applications.</p>
-</li>
-<li><p><a href="https://github.com/vuejs/vue-touch" target="_blank" rel="external">vue-touch</a>: Add touch-gesture directives using Hammer.js.</p>
-</li>
-<li><p><a href="https://github.com/vuejs/vue-element" target="_blank" rel="external">vue-element</a>: Register Custom Elements with Vue.js.</p>
-</li>
-<li><p><a href="https://github.com/vuejs/vue-animated-list" target="_blank" rel="external">vue-animated-list</a>: A plugin for easily animating <code>v-for</code> rendered lists.</p>
-</li>
-<li><p><a href="https://github.com/vuejs/awesome-vue#libraries--plugins" target="_blank" rel="external">List of User Contributed Tools</a></p>
-</li>
-</ul>
+<p>Checkout <a href="https://github.com/vuejs/awesome-vue#libraries--plugins" target="_blank" rel="external">awesome-vue</a> for a huge collection of community-contributed plugins and libraries.</p>
 
     
       <div class="guide-links">
@@ -245,7 +376,7 @@
           <span>← <a href="/guide/mixins.html">Mixins</a></span>
         
         
-          <span style="float:right"><a href="/guide/application.html">Building Large-Scale Apps</a> →</span>
+          <span style="float:right"><a href="/guide/single-file-components.html">Single File Components</a> →</span>
         
       </div>
     

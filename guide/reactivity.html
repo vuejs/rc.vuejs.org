@@ -32,12 +32,28 @@
         </div>
         
             <div id="header">
-    <a id="logo" href="/">
-        <img src="/images/logo.png">
-        <span>Vue.js</span>
-    </a>
-    <ul id="nav">
-        <li>
+  <a id="logo" href="/">
+    <img src="/images/logo.png">
+    <span>Vue.js <sup>2.0 RC</sup></span>
+  </a>
+  <span style="
+    position: absolute;
+    top: 100%;
+    left: 60px;
+    padding: 0 10px;
+    background: #ef9f00;
+    border-radius: 3px;
+    margin-top: -15px;
+    line-height: 30px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.3);
+  ">
+    WORK IN PROGRESS
+  </span>
+  <ul id="nav">
+    <li>
   <form id="search-form">
     <input type="text" id="search-query-nav" class="search-query st-default-search-input">
   </form>
@@ -57,7 +73,7 @@
 </li>
 
 
-    </ul>
+  </ul>
 </div>
 
             <div id="main">
@@ -96,96 +112,227 @@
         <h2>
             Guide
             <select class="version-select">
-                <option value="rc">2.0-rc</option>
-                <option selected>1.0</option>
+                <option value="rc" selected>2.0</option>
+                <!-- !!TODO: Update value to subdomain when 2.0 is released -->
+                <option value="">1.0</option>
                 <option>0.12</option>
                 <option>0.11</option>
             </select>
         </h2>
         <ul class="menu-root">
             
+                
+                
+                  <li><h3>Essentials</h3></li>
+                
+                
+                
                 <li>
                     <a href="/guide/installation.html" class="sidebar-link">Installation</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/index.html" class="sidebar-link">Getting Started</a>
+                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
                 </li>
             
-                <li>
-                    <a href="/guide/overview.html" class="sidebar-link">Overview</a>
-                </li>
-            
+                
+                
+                
+                
                 <li>
                     <a href="/guide/instance.html" class="sidebar-link">The Vue Instance</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/syntax.html" class="sidebar-link">Data Binding Syntax</a>
+                    <a href="/guide/syntax.html" class="sidebar-link">Template Syntax</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/computed.html" class="sidebar-link">Computed Properties</a>
+                    <a href="/guide/computed.html" class="sidebar-link">Computed Properties and Watchers</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/class-and-style.html" class="sidebar-link">Class and Style Bindings</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/conditional.html" class="sidebar-link">Conditional Rendering</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/list.html" class="sidebar-link">List Rendering</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/events.html" class="sidebar-link">Methods and Event Handling</a>
+                    <a href="/guide/events.html" class="sidebar-link">Event Handling</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/forms.html" class="sidebar-link">Form Input Bindings</a>
                 </li>
             
-                <li>
-                    <a href="/guide/transitions.html" class="sidebar-link">Transitions</a>
-                </li>
-            
+                
+                
+                
+                
                 <li>
                     <a href="/guide/components.html" class="sidebar-link">Components</a>
                 </li>
             
+                
+                
+                
+                  <li><h3>Advanced</h3></li>
+                
+                
+                <li>
+                    <a href="/guide/transitions.html" class="sidebar-link">Transitions: Entering, Leaving, and Lists</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/transitioning-state.html" class="sidebar-link">Transitioning State</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/render-function.html" class="sidebar-link">Render Functions</a>
+                </li>
+            
+                
+                
+                
+                
                 <li>
                     <a href="/guide/reactivity.html" class="sidebar-link current">Reactivity in Depth</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/custom-directive.html" class="sidebar-link">Custom Directives</a>
                 </li>
             
-                <li>
-                    <a href="/guide/custom-filter.html" class="sidebar-link">Custom Filters</a>
-                </li>
-            
+                
+                
+                
+                
                 <li>
                     <a href="/guide/mixins.html" class="sidebar-link">Mixins</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/plugins.html" class="sidebar-link">Plugins</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/application.html" class="sidebar-link">Building Large-Scale Apps</a>
+                    <a href="/guide/single-file-components.html" class="sidebar-link">Single File Components</a>
                 </li>
             
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/routing.html" class="sidebar-link">Routing</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/state-management.html" class="sidebar-link">State Management</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/unit-testing.html" class="sidebar-link">Unit Testing</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/ssr.html" class="sidebar-link">Server-Side Rendering</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/migration.html" class="sidebar-link">Migration from 1.x</a>
+                </li>
+            
+                
+                
+                
+                
+                  <li><h3>Meta</h3></li>
+                
                 <li>
                     <a href="/guide/comparison.html" class="sidebar-link">Comparison with Other Frameworks</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/join.html" class="sidebar-link">Join the Vue Community!</a>
+                    <a href="/guide/join.html" class="sidebar-link">Join the Vue.js Community!</a>
                 </li>
             
         </ul>
@@ -193,58 +340,41 @@
 </div>
 
 
-<div class="content guide with-sidebar">
+<div class="content guide with-sidebar reactivity-guide">
     <div id="ad">
   <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
 </div>
 
     <h1>Reactivity in Depth</h1>
-    <p>We’ve covered most of the basics - now it’s time to take a deep dive! One of Vue.js’ most distinct features is the unobtrusive reactive system - models are just plain JavaScript objects, modify it and the view updates. It makes state management very simple and intuitive, but it’s also important to understand how it works to avoid some common gotchas. In this section, we are going to dig into some of the lower-level details of Vue.js’ reactivity system.</p>
-<h2 id="How-Changes-Are-Tracked"><a href="#How-Changes-Are-Tracked" class="headerlink" title="How Changes Are Tracked"></a>How Changes Are Tracked</h2><p>When you pass a plain JavaScript object to a Vue instance as its <code>data</code> option, Vue.js will walk through all of its properties and convert them to getter/setters using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="external">Object.defineProperty</a>. This is an ES5-only and un-shimmable feature, which is why Vue.js doesn’t support IE8 and below.</p>
-<p>The getter/setters are invisible to the user, but under the hood they enable Vue.js to perform dependency-tracking and change-notification when properties are accessed or modified. One caveat is that browser consoles format getter/setters differently when converted data objects are logged, so make sure to use the <code>vm.$log()</code> instance method for more inspection-friendly output.</p>
-<p>For every directive / data binding in the template, there will be a corresponding <strong>watcher</strong> object, which records any properties “touched” during its evaluation as dependencies. Later on when a dependency’s setter is called, it triggers the watcher to re-evaluate, and in turn causes its associated directive to perform DOM updates.</p>
-<p><img src="/images/data.png" alt="data"></p>
-<h2 id="Change-Detection-Caveats"><a href="#Change-Detection-Caveats" class="headerlink" title="Change Detection Caveats"></a>Change Detection Caveats</h2><p>Due to the limitation of ES5, Vue.js <strong>cannot detect property addition or deletion</strong>. Since Vue.js performs the getter/setter conversion process during instance initialization, a property must be present in the <code>data</code> object in order for Vue.js to convert it and make it reactive. For example:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123; a: <span class="number">1</span> &#125;</div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  data: data</div><div class="line">&#125;)</div><div class="line"><span class="comment">// `vm.a` and `data.a` are now reactive</span></div><div class="line"></div><div class="line">vm.b = <span class="number">2</span></div><div class="line"><span class="comment">// `vm.b` is NOT reactive</span></div><div class="line"></div><div class="line">data.b = <span class="number">2</span></div><div class="line"><span class="comment">// `data.b` is NOT reactive</span></div></pre></td></tr></table></figure>
-<p>However, there are ways to <strong>add a property and make it reactive</strong> after an instance has been created.</p>
-<p>For Vue instances, you can use the <code>$set(path, value)</code> instance method:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.$set(<span class="string">'b'</span>, <span class="number">2</span>)</div><div class="line"><span class="comment">// `vm.b` and `data.b` are now reactive</span></div></pre></td></tr></table></figure>
-<p>For plain data objects, you can use the global <code>Vue.set(object, key, value)</code> method:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.set(data, <span class="string">'c'</span>, <span class="number">3</span>)</div><div class="line"><span class="comment">// `vm.c` and `data.c` are now reactive</span></div></pre></td></tr></table></figure>
-<p>Sometimes you may want to assign a number of properties on to an existing object, for example using <code>Object.assign()</code> or <code>_.extend()</code>. However, new properties added to the object will not trigger changes. In such cases, create a fresh object with properties from both the original object and the mixin object:</p>
+    <p>We’ve covered most of the basics - now it’s time to take a deep dive! One of Vue’s most distinct features is the unobtrusive reactivity system. Models are just plain JavaScript objects. When you modify them, the view updates. It makes state management very simple and intuitive, but it’s also important to understand how it works to avoid some common gotchas. In this section, we are going to dig into some of the lower-level details of Vue’s reactivity system.</p>
+<h2 id="How-Changes-Are-Tracked"><a href="#How-Changes-Are-Tracked" class="headerlink" title="How Changes Are Tracked"></a>How Changes Are Tracked</h2><p>When you pass a plain JavaScript object to a Vue instance as its <code>data</code> option, Vue will walk through all of its properties and convert them to getter/setters using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="external">Object.defineProperty</a>. This is an ES5-only and un-shimmable feature, which is why Vue doesn’t support IE8 and below.</p>
+<p>The getter/setters are invisible to the user, but under the hood they enable Vue to perform dependency-tracking and change-notification when properties are accessed or modified. One caveat is that browser consoles format getter/setters differently when converted data objects are logged, so you may want to install <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="external">vue-devtools</a> for a more inspection-friendly interface.</p>
+<p>Every component instance has a corresponding <strong>watcher</strong> instance, which records any properties “touched” during the component’s render as dependencies. Later on when a dependency’s setter is triggered, it notifies the watcher, which in turn causes the component to re-render.</p>
+<p><img src="/images/data.png" alt="Reactivity Cycle"></p>
+<h2 id="Change-Detection-Caveats"><a href="#Change-Detection-Caveats" class="headerlink" title="Change Detection Caveats"></a>Change Detection Caveats</h2><p>Due to the limitations of modern JavaScript (and the abandonment of <code>Object.observe</code>), Vue <strong>cannot detect property addition or deletion</strong>. Since Vue performs the getter/setter conversion process during instance initialization, a property must be present in the <code>data</code> object in order for Vue to convert it and make it reactive. For example:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  data: &#123;</div><div class="line">    a: <span class="number">1</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// `vm.a` is now reactive</span></div><div class="line"></div><div class="line">vm.b = <span class="number">2</span></div><div class="line"><span class="comment">// `vm.b` is NOT reactive</span></div></pre></td></tr></table></figure>
+<p>Vue does not allow dynamically adding new root-level reactive properties to an already created instance. However, it’s possible to add reactive properties to a nested object using the <code>Vue.set(object, key, value)</code> method:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.set(vm.someObject, <span class="string">'b'</span>, <span class="number">2</span>)</div></pre></td></tr></table></figure>
+<p>You can also use the <code>vm.$set</code> instance method, which is just an alias to the global <code>Vue.set</code>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.someObject, <span class="string">'b'</span>, <span class="number">2</span>)</div></pre></td></tr></table></figure>
+<p>Sometimes you may want to assign a number of properties to an existing object, for example using <code>Object.assign()</code> or <code>_.extend()</code>. However, new properties added to the object will not trigger changes. In such cases, create a fresh object with properties from both the original object and the mixin object:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// instead of `Object.assign(this.someObject, &#123; a: 1, b: 2 &#125;)`</span></div><div class="line"><span class="keyword">this</span>.someObject = <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="keyword">this</span>.someObject, &#123; a: <span class="number">1</span>, b: <span class="number">2</span> &#125;)</div></pre></td></tr></table></figure>
-<p>There are also a few Array-related caveats, which were <a href="/guide/list.html#Caveats">discussed earlier in the list rendering section</a>.</p>
-<h2 id="Initialize-Your-Data"><a href="#Initialize-Your-Data" class="headerlink" title="Initialize Your Data"></a>Initialize Your Data</h2><p>Although Vue.js provides the API to dynamically add reactive properties on the fly, it is recommended to declare all reactive properties upfront in the <code>data</code> option.</p>
-<p>Instead of this:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  template: <span class="string">'&lt;div&gt;&#123;&#123;msg&#125;&#125;&lt;/div&gt;'</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">// add `msg` later</span></div><div class="line">vm.$set(<span class="string">'msg'</span>, <span class="string">'Hello!'</span>)</div></pre></td></tr></table></figure>
-<p>Prefer this:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  data: &#123;</div><div class="line">    <span class="comment">// declare msg with an empty value</span></div><div class="line">    msg: <span class="string">''</span></div><div class="line">  &#125;,</div><div class="line">  template: <span class="string">'&lt;div&gt;&#123;&#123;msg&#125;&#125;&lt;/div&gt;'</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">// set `msg` later</span></div><div class="line">vm.msg = <span class="string">'Hello!'</span></div></pre></td></tr></table></figure>
-<p>There are two reasons behind this pattern:</p>
-<ol>
-<li><p>The <code>data</code> object is like the schema for your component’s state. Declaring all reactive properties upfront makes the component code easier to understand and reason about.</p>
-</li>
-<li><p>Adding a top level reactive property on a Vue instance will force all the watchers in its scope to re-evaluate, because it didn’t exist before and no watcher could have tracked it as a dependency. The performance is usually acceptable (essentially the same as Angular’s dirty checking), but can be avoided when you initialize the data properly.</p>
-</li>
-</ol>
-<h2 id="Async-Update-Queue"><a href="#Async-Update-Queue" class="headerlink" title="Async Update Queue"></a>Async Update Queue</h2><p>By default, Vue.js performs DOM updates <strong>asynchronously</strong>. Whenever a data change is observed, Vue will open a queue and buffer all the data changes that happens in the same event loop. If the same watcher is triggered multiple times, it will be pushed into the queue only once. Then, in the next event loop “tick”, Vue flushes the queue and performs only the necessary DOM updates. Internally Vue uses <code>MutationObserver</code> if available for the asynchronous queuing and falls back to <code>setTimeout(fn, 0)</code>.</p>
-<p>For example, when you set <code>vm.someData = &#39;new value&#39;</code>, the DOM will not update immediately. It will update in the next “tick”, when the queue is flushed. Most of the time we don’t need to care about this, but it can be tricky when you want to do something that depends on the post-update DOM state. Although Vue.js generally encourages developers to think in a “data-driven” fashion and avoid touching the DOM directly, sometimes it might be necessary to get your hands dirty. In order to wait until Vue.js has finished updating the DOM after a data change, you can use <code>Vue.nextTick(callback)</code> immediately after the data is changed. The callback will be called after the DOM has been updated. For example:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#example'</span>,</div><div class="line">  data: &#123;</div><div class="line">    msg: <span class="string">'123'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.msg = <span class="string">'new message'</span> <span class="comment">// change data</span></div><div class="line">vm.$el.textContent === <span class="string">'new message'</span> <span class="comment">// false</span></div><div class="line">Vue.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  vm.$el.textContent === <span class="string">'new message'</span> <span class="comment">// true</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>There are also a few array-related caveats, which were discussed earlier in the <a href="/guide/list.html#Caveats">list rendering section</a>.</p>
+<h2 id="Declaring-Reactive-Properties"><a href="#Declaring-Reactive-Properties" class="headerlink" title="Declaring Reactive Properties"></a>Declaring Reactive Properties</h2><p>Since Vue doesn’t allow dynamically adding root-level reactive properties, this means you have to initialize you instances by declaring all root-level reactive data properties upfront, even just with an empty value:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  data: &#123;</div><div class="line">    <span class="comment">// declare message with an empty value</span></div><div class="line">    message: <span class="string">''</span></div><div class="line">  &#125;,</div><div class="line">  template: <span class="string">'&lt;div&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;'</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">// set `message` later</span></div><div class="line">vm.message = <span class="string">'Hello!'</span></div></pre></td></tr></table></figure>
+<p>If you don’t declare <code>message</code> in the data option, Vue will warn you that the render function is trying to access a property that doesn’t exist.</p>
+<p>There are technical reasons behind this restriction - it eliminates a class of edge cases in the dependency tracking system, and also makes Vue instances play nicer with type checking systems. But there is also an important consideration in terms of code maintainability: the <code>data</code> object is like the schema for your component’s state. Declaring all reactive properties upfront makes the component code easier to understand when revisited later or read by another developer.</p>
+<h2 id="Async-Update-Queue"><a href="#Async-Update-Queue" class="headerlink" title="Async Update Queue"></a>Async Update Queue</h2><p>In case you haven’t noticed yet, Vue performs DOM updates <strong>asynchronously</strong>. Whenever a data change is observed, it will open a queue and buffer all the data changes that happen in the same event loop. If the same watcher is triggered multiple times, it will be pushed into the queue only once. This buffered de-duplication is important in avoiding unnecessary calculations and DOM manipulations. Then, in the next event loop “tick”, Vue flushes the queue and performs the actual (already de-duped) work. Internally Vue uses <code>MutationObserver</code> if available for the asynchronous queuing and falls back to <code>setTimeout(fn, 0)</code>.</p>
+<p>For example, when you set <code>vm.someData = &#39;new value&#39;</code>, the component will not re-render immediately. It will update in the next “tick”, when the queue is flushed. Most of the time we don’t need to care about this, but it can be tricky when you want to do something that depends on the post-update DOM state. Although Vue.js generally encourages developers to think in a “data-driven” fashion and avoid touching the DOM directly, sometimes it might be necessary to get your hands dirty. In order to wait until Vue.js has finished updating the DOM after a data change, you can use <code>Vue.nextTick(callback)</code> immediately after the data is changed. The callback will be called after the DOM has been updated. For example:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#example'</span>,</div><div class="line">  data: &#123;</div><div class="line">    message: <span class="string">'123'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.message = <span class="string">'new message'</span> <span class="comment">// change data</span></div><div class="line">vm.$el.textContent === <span class="string">'new message'</span> <span class="comment">// false</span></div><div class="line">Vue.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  vm.$el.textContent === <span class="string">'new message'</span> <span class="comment">// true</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>There is also the <code>vm.$nextTick()</code> instance method, which is especially handy inside components, because it doesn’t need global <code>Vue</code> and its callback’s <code>this</code> context will be automatically bound to the current Vue instance:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'example'</span>, &#123;</div><div class="line">  template: <span class="string">'&lt;span&gt;&#123;&#123;msg&#125;&#125;&lt;/span&gt;'</span>,</div><div class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      msg: <span class="string">'not updated'</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    updateMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.msg = <span class="string">'updated'</span></div><div class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el.textContent) <span class="comment">// =&gt; 'not updated'</span></div><div class="line">      <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el.textContent) <span class="comment">// =&gt; 'updated'</span></div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h2 id="Inside-Computed-Properties"><a href="#Inside-Computed-Properties" class="headerlink" title="Inside Computed Properties"></a>Inside Computed Properties</h2><p>It should be noted that Vue.js computed properties are <strong>not</strong> simple getters. Each computed property keeps track of its own reactive dependencies. When a computed property is evaluated, Vue.js updates its dependency list and caches the result value. The cached value is only invalidated when one of the tracked dependencies have changed. Therefore, as long as the dependencies did not change, accessing the computed property will directly return the cached value instead of calling the getter.</p>
-<p>Why do we need caching? Imagine we have an expensive computed property <strong>A</strong>, which requires looping through a huge Array and doing a lot of computations. Then, we may have other computed properties that in turn depend on <strong>A</strong>. Without caching, we would be calling <strong>A</strong>’s getter many more times than necessary!</p>
-<p>Because of computed property caching, the getter function is not always called when you access a computed property. Consider the following example:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  data: &#123;</div><div class="line">    msg: <span class="string">'hi'</span></div><div class="line">  &#125;,</div><div class="line">  computed: &#123;</div><div class="line">    example: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">Date</span>.now() + <span class="keyword">this</span>.msg</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>The computed property <code>example</code> has only one dependency: <code>vm.msg</code>. <code>Date.now()</code> is <strong>not</strong> a reactive dependency, because it has nothing to do with Vue’s data observation system. Therefore, when you programmatically access <code>vm.example</code>, you will find the timestamp to remain the same unless <code>vm.msg</code> triggers a re-evaluation.</p>
-<p>In some use cases you may want to preserve the simple getter-like behavior, where every time you access <code>vm.example</code> it simply calls the getter again. You can do that by turning off caching for a specific computed property:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">computed: &#123;</div><div class="line">  example: &#123;</div><div class="line">    cache: <span class="literal">false</span>,</div><div class="line">    get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">Date</span>.now() + <span class="keyword">this</span>.msg</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Now, every time you access <code>vm.example</code>, the timestamp will be up-to-date. <strong>However, note this only affects programmatic access inside JavaScript; data-bindings are still dependency-driven.</strong> When you bind to a computed property in the template as <code>{{example}}</code>, the DOM will only be updated when a reactive dependency has changed.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'example'</span>, &#123;</div><div class="line">  template: <span class="string">'&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;'</span>,</div><div class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      message: <span class="string">'not updated'</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    updateMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.message = <span class="string">'updated'</span></div><div class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el.textContent) <span class="comment">// =&gt; 'not updated'</span></div><div class="line">      <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el.textContent) <span class="comment">// =&gt; 'updated'</span></div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 
     
       <div class="guide-links">
         
-          <span>← <a href="/guide/components.html">Components</a></span>
+          <span>← <a href="/guide/render-function.html">Render Functions</a></span>
         
         
           <span style="float:right"><a href="/guide/custom-directive.html">Custom Directives</a> →</span>
