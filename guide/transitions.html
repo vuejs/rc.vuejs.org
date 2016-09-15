@@ -191,7 +191,7 @@
                 
                 
                 <li>
-                    <a href="/guide/events.html" class="sidebar-link">Methods and Event Handling</a>
+                    <a href="/guide/events.html" class="sidebar-link">Event Handling</a>
                 </li>
             
                 
@@ -312,6 +312,14 @@
                 
                 
                 
+                <li>
+                    <a href="/guide/migration.html" class="sidebar-link">Migration from 1.x</a>
+                </li>
+            
+                
+                
+                
+                
                   <li><h3>Meta</h3></li>
                 
                 <li>
@@ -331,7 +339,7 @@
 </div>
 
 
-<div class="content guide with-sidebar">
+<div class="content guide with-sidebar transitions-guide">
     <div id="ad">
   <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
 </div>
@@ -384,22 +392,22 @@ new Vue({
 
 <p>When an element wrapped in a <code>transition</code> component is inserted or removed, this is what happens:</p>
 <ol>
-<li><p>Automatically sniff whether the target element has CSS transitions or animations applied. If it does, add/remove CSS classes at the appropriate times.</p>
+<li><p>Vue will automatically sniff whether the target element has CSS transitions or animations applied. If it does, CSS transition classes will be added/removed at appropriate timings.</p>
 </li>
-<li><p>If the transition component provided <a href="#JavaScript-Hooks">JavaScript hooks</a>, call these hooks at the appropriate times.</p>
+<li><p>If the transition component provided <a href="#JavaScript-Hooks">JavaScript hooks</a>, these hooks will be called at appropriate timings.</p>
 </li>
-<li><p>If no CSS transitions/animations are detected and no JavaScript hooks are provided, the DOM operations for insertion and/or removal are executed immediately on next frame.</p>
+<li><p>If no CSS transitions/animations are detected and no JavaScript hooks are provided, the DOM operations for insertion and/or removal will be executed immediately on next frame (Note: this is a browser animation frame, different from Vue’s concept of <code>nextTick</code>).</p>
 </li>
 </ol>
 <h3 id="Transition-Classes"><a href="#Transition-Classes" class="headerlink" title="Transition Classes"></a>Transition Classes</h3><p>There are four classes applied for enter/leave transitions.</p>
 <ol>
-<li><code>v-enter</code>: Starting state for enter. Applied before element is inserted, removed after 1 tick.</li>
+<li><code>v-enter</code>: Starting state for enter. Applied before element is inserted, removed after one frame.</li>
 <li><code>v-enter-active</code>: Active and ending state for enter. Applied before element is inserted, removed when transition/animation finishes.</li>
-<li><code>v-leave</code>: Starting state for leave. Applied when leave transition is triggered, removed after 1 tick.</li>
+<li><code>v-leave</code>: Starting state for leave. Applied when leave transition is triggered, removed after one frame.</li>
 <li><code>v-leave-active</code>: Active and ending state for leave. Applied when leave transition is triggered, removed when the transition/animation finishes.</li>
 </ol>
-<p>!!TODO: A nifty timeline diagram might be useful here.</p>
-<p>For each of these classes, the <code>v</code> prefix is the name of the transition. If you use <code>name=&quot;my-transition&quot;</code> for example, then the <code>v-enter</code> class would instead be <code>my-transition-enter</code>.</p>
+<p><img src="/images/transition.png" alt="Transition Diagram"></p>
+<p>Each of these classes will be prefixed with the name of the transition. Here the <code>v-</code> prefix is the default when you use a <code>&lt;transition&gt;</code> element with no name. If you use <code>&lt;transition name=&quot;my-transition&quot;&gt;</code> for example, then the <code>v-enter</code> class would instead be <code>my-transition-enter</code>.</p>
 <p><code>v-enter-active</code> and <code>v-leave-active</code> give you the ability to specify different easing curves for enter/leave transitions, which you’ll see an example of in the following section.</p>
 <h3 id="CSS-Transitions"><a href="#CSS-Transitions" class="headerlink" title="CSS Transitions"></a>CSS Transitions</h3><p>One of the most common transition types uses CSS transitions. Here’s a simple example:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-1"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"show = !show"</span>&gt;</span></div><div class="line">    Toggle render</div><div class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"slide-fade"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"show"</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>

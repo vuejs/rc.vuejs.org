@@ -125,7 +125,7 @@
 </div>
 
 
-<div class="content api with-sidebar">
+<div class="content api with-sidebar ">
     <div id="ad">
   <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
 </div>
@@ -1151,6 +1151,90 @@
 <li><a href="/guide/syntax.html#Text">Data Binding Syntax - interpolations</a></li>
 <li><a href="/guide/components.html#Cheap-Static-Components-with-v-once">Components - Cheap Static Components with v-once</a></li>
 </ul>
+</li>
+</ul>
+<h2 id="Special-Elements"><a href="#Special-Elements" class="headerlink" title="Special Elements"></a>Special Elements</h2><h3 id="component"><a href="#component" class="headerlink" title="component"></a>component</h3><ul>
+<li><p><strong>Attributes:</strong></p>
+<ul>
+<li><code>is</code> - String</li>
+<li><code>inline-template</code> - Boolean</li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p>Alternative syntax for invoking components. Primarily used for dynamic components with the <code>is</code> special attribute:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- a dynamic component controlled by --&gt;</span></div><div class="line"><span class="comment">&lt;!-- the `componentId` property on the vm --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"componentId"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/components.html#Dynamic-Components">Dynamic Components</a></p>
+</li>
+</ul>
+<h3 id="transition"><a href="#transition" class="headerlink" title="transition"></a>transition</h3><ul>
+<li><p><strong>Attributes:</strong></p>
+<ul>
+<li><code>name</code> - String, Used to automatically generate transition CSS class names. e.g. <code>name: &#39;fade&#39;</code> will auto expand to <code>.fade-enter</code>, <code>.fade-enter-active</code>, etc. Defaults to <code>&quot;v&quot;</code>.</li>
+<li><code>appear</code> - Boolean, Whether to apply transition on initial render. Defaults to <code>false</code>.</li>
+<li><code>css</code> - Boolean, Whether to apply CSS transition classes. Defaults to <code>true</code>. If set to <code>false</code>, will only trigger JavaScript hooks registered via component events.</li>
+<li><code>type</code> - String, Specify the type of transition events to wait for to determine transition end timing. Available values are <code>&quot;transition&quot;</code> and <code>&quot;animation&quot;</code>. By default, it will automatically detect the type that has a longer duration.</li>
+<li><code>mode</code> - String, Controls the timing sequence of leaving/entering transitions. Available modes are <code>&quot;out-in&quot;</code> and <code>&quot;in-out&quot;</code>; defaults to simultaneous.</li>
+<li><code>enterClass</code> - String, Individually configure transition CSS classes.</li>
+<li><code>leaveClass</code> - String, Individually configure transition CSS classes.</li>
+<li><code>enterActiveClass</code> - String, Individually configure transition CSS classes.</li>
+<li><code>leaveActiveClass</code> - String, Individually configure transition CSS classes.</li>
+<li><code>appearClass</code> - String, Individually configure transition CSS classes.</li>
+<li><code>appearActiveClass</code> - String, Individually configure transition CSS classes.</li>
+</ul>
+</li>
+<li><p><strong>Events:</strong></p>
+<ul>
+<li><code>before-enter</code></li>
+<li><code>enter</code></li>
+<li><code>after-enter</code></li>
+<li><code>before-leave</code></li>
+<li><code>leave</code></li>
+<li><code>after-leave</code></li>
+<li><code>before-appear</code></li>
+<li><code>appear</code></li>
+<li><code>after-appear</code></li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p><code>&lt;transition&gt;</code> serve as transition effects for <strong>single</strong> element/component. The <code>&lt;transition&gt;</code> does not render an extra DOM element, nor does it show up in the inspected component hierarchy. It simply applies the transition behavior to the wrapped content inside.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- simple element --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>toggled content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- dynamic component --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"fade"</span> <span class="attr">mode</span>=<span class="string">"out-in"</span> <span class="attr">appear</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- event hooking --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"transition-demo"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">transition</span> @<span class="attr">after-enter</span>=<span class="string">"transitionComplete"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-show</span>=<span class="string">"ok"</span>&gt;</span>toggled content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  ...</div><div class="line">  methods: &#123;</div><div class="line">    transitionComplete: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</div><div class="line">      <span class="comment">// for passed 'el' that DOM element as the argument, something ...</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  ... </div><div class="line">&#125;).$mount(<span class="string">'#transition-demo'</span>)</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/transitions.html">Transitions: Entering, Leaving, and Lists</a></p>
+</li>
+</ul>
+<h3 id="transition-group"><a href="#transition-group" class="headerlink" title="transition-group"></a>transition-group</h3><ul>
+<li><p><strong>Attributes:</strong></p>
+<ul>
+<li>exposes <code>&lt;transition&gt;</code> attributes (Note does not support the <code>mode</code> attribute).</li>
+<li><code>tag</code> - String, Default to <code>span</code>.</li>
+</ul>
+</li>
+<li><p><strong>Events:</strong></p>
+<ul>
+<li>exposes <code>&lt;transition&gt;</code> events.</li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p><code>&lt;transition-group&gt;</code> serve as transition effects for <strong>multiple</strong> element/component. The <code>&lt;transition-group&gt;</code> renders a real DOM element. By default it renders a <code>&lt;span&gt;</code>, and you can configure what element is should render via the <code>tag</code> attribute.</p>
+<p>Note every child in a <code>&lt;transition-group&gt;</code> must be <strong>uniquely keyed</strong>.</p>
+<p><code>&lt;transition-group&gt;</code> supports moving transitions via CSS transform. When a child’s position on screen has changed after an updated, it will get applied a moving CSS class (auto generated from the <code>name</code> attribute or configured with the <code>moveClass</code> attribute). If the CSS <code>transform</code> property is “transition-able” when the moving class is applied, the element will be smoothly animated to its destination using the <a href="https://aerotwist.com/blog/flip-your-animations/" target="_blank" rel="external">FLIP technique</a>.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line">  <span class="tag">&lt;<span class="name">transition-group</span> <span class="attr">tag</span>=<span class="string">"ul"</span> <span class="attr">name</span>=<span class="string">"slide"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></div><div class="line">      &#123;&#123; item.text &#125;&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">transition-group</span>&gt;</span></div><div class="line">  ``` </div><div class="line"></div><div class="line">- **See also:** [Transitions: Entering, Leaving, and Lists](/guide/transitions.html)</div><div class="line"></div><div class="line">### keep-alive</div><div class="line"></div><div class="line">- **Usage:**</div><div class="line"></div><div class="line">  `<span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span>` serve as caching of inactive component. `<span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span>` used with component, it will be replaced.</div><div class="line"></div><div class="line">  Primarily used with preserve component state or avoid re-rendering.</div><div class="line"></div><div class="line">  ```html</div><div class="line">  <span class="comment">&lt;!-- basic --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- multiple conditional children --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">comp-a</span> <span class="attr">v-if</span>=<span class="string">"a &gt; 1"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">comp-b</span> <span class="attr">v-else</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-b</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- used together with &lt;transition&gt; --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/components.html#keep-alive">Dynamic Components - keep-alive</a></p>
+</li>
+</ul>
+<h3 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h3><ul>
+<li><p><strong>Attributes:</strong></p>
+<ul>
+<li><code>name</code> - String, Used for named slot.</li>
+</ul>
+</li>
+<li><p><strong>Usage:</strong></p>
+<p><code>&lt;slot&gt;</code> serve as content distribution outlets in component templates. <code>&lt;slot&gt;</code> itself will be replaced.</p>
+<p>For detailed usage, see the guide section linked below.</p>
+</li>
+<li><p><strong>See also:</strong> <a href="/guide/components.html#Content-Distribution-with-Slots">Content Distribution with Slots</a></p>
 </li>
 </ul>
 

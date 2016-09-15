@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Methods and Event Handling - vue.js</title>
+        <title>Event Handling - vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -191,7 +191,7 @@
                 
                 
                 <li>
-                    <a href="/guide/events.html" class="sidebar-link current">Methods and Event Handling</a>
+                    <a href="/guide/events.html" class="sidebar-link current">Event Handling</a>
                 </li>
             
                 
@@ -312,6 +312,14 @@
                 
                 
                 
+                <li>
+                    <a href="/guide/migration.html" class="sidebar-link">Migration from 1.x</a>
+                </li>
+            
+                
+                
+                
+                
                   <li><h3>Meta</h3></li>
                 
                 <li>
@@ -331,12 +339,12 @@
 </div>
 
 
-<div class="content guide with-sidebar">
+<div class="content guide with-sidebar events-guide">
     <div id="ad">
   <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
 </div>
 
-    <h1>Methods and Event Handling</h1>
+    <h1>Event Handling</h1>
     <h2 id="Listening-to-Events"><a href="#Listening-to-Events" class="headerlink" title="Listening to Events"></a>Listening to Events</h2><p>We can use the <code>v-on</code> directive to listen to DOM events and run some JavaScript when they’re triggered.</p>
 <p>For example:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-1"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"counter += 1"</span>&gt;</span>Add 1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>The button above has been clicked &#123;&#123; counter &#125;&#125; times.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>

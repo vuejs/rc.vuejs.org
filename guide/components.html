@@ -191,7 +191,7 @@
                 
                 
                 <li>
-                    <a href="/guide/events.html" class="sidebar-link">Methods and Event Handling</a>
+                    <a href="/guide/events.html" class="sidebar-link">Event Handling</a>
                 </li>
             
                 
@@ -312,6 +312,14 @@
                 
                 
                 
+                <li>
+                    <a href="/guide/migration.html" class="sidebar-link">Migration from 1.x</a>
+                </li>
+            
+                
+                
+                
+                
                   <li><h3>Meta</h3></li>
                 
                 <li>
@@ -331,7 +339,7 @@
 </div>
 
 
-<div class="content guide with-sidebar">
+<div class="content guide with-sidebar components-guide">
     <div id="ad">
   <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
 </div>
@@ -363,7 +371,19 @@ new Vue({ el: '#example' })
 <h3 id="Local-Registration"><a href="#Local-Registration" class="headerlink" title="Local Registration"></a>Local Registration</h3><p>You don’t have to register every component globally. You can make a component available only in the scope of another instance/component by registering it with the <code>components</code> instance option:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> Child = &#123;</div><div class="line">  template: <span class="string">'&lt;div&gt;A custom component!&lt;/div&gt;'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  components: &#123;</div><div class="line">    <span class="comment">// &lt;my-component&gt; will only be available in parent's template</span></div><div class="line">    <span class="string">'my-component'</span>: Child</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>The same encapsulation applies for other registerable Vue features, such as directives.</p>
-<h3 id="Component-Option-Caveats"><a href="#Component-Option-Caveats" class="headerlink" title="Component Option Caveats"></a>Component Option Caveats</h3><p>Most of the options that can be passed into the Vue constructor can be used in a component, with two special cases: <code>data</code> and <code>el</code> must be functions. In fact, if you try this:</p>
+<h3 id="DOM-Template-Parsing-Caveats"><a href="#DOM-Template-Parsing-Caveats" class="headerlink" title="DOM Template Parsing Caveats"></a>DOM Template Parsing Caveats</h3><p>When using the DOM as your template (e.g. using the <code>el</code> option to mount an element with existing content), you will be subject to some restrictions that are inherent to how HTML works, because Vue can only retrieve the template content <strong>after</strong> the browser has parsed and normalized it. Most notably, some elements such as <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;table&gt;</code> and <code>&lt;select&gt;</code> have restrictions on what elements can appear inside them, and some elements such as <code>&lt;option&gt;</code> can only appear inside certain other elements.</p>
+<p>This will lead to issues when using custom components with elements that have such restrictions, for example:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">my-row</span>&gt;</span>...<span class="tag">&lt;/<span class="name">my-row</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>The custom component <code>&lt;my-row&gt;</code> will be hoisted out as invalid content, thus causing errors in the eventual rendered output. A workaround is to use the <code>is</code> special attribute:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tr</span> <span class="attr">is</span>=<span class="string">"my-row"</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><strong>It should be noted that these limitations do not apply if you are using string templates from one of the following sources</strong>:</p>
+<ul>
+<li><code>&lt;script type=&quot;text/x-template&quot;&gt;</code></li>
+<li>JavaScript inline template strings</li>
+<li><code>.vue</code> components</li>
+</ul>
+<p>Therefore, prefer using string templates whenever possible.</p>
+<h3 id="data-Must-Be-a-Function"><a href="#data-Must-Be-a-Function" class="headerlink" title="data Must Be a Function"></a><code>data</code> Must Be a Function</h3><p>Most of the options that can be passed into the Vue constructor can be used in a component, with one special case: <code>data</code> must be function. In fact, if you try this:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</div><div class="line">  template: <span class="string">'&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;'</span>,</div><div class="line">  data: &#123;</div><div class="line">    message: <span class="string">'hello'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>Then Vue will halt and emit warnings in the console, telling you that <code>data</code> must be a function for component instances. It’s good to understand why the rules exist though, so let’s cheat.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-2"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">simple-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">simple-counter</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">simple-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">simple-counter</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">simple-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">simple-counter</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -411,26 +431,10 @@ new Vue({
 </script>
 
 <p>The <code>el</code> option also requires a function value when used in a component instance, for exactly the same reason.</p>
-<h3 id="Template-Parsing-Caveats"><a href="#Template-Parsing-Caveats" class="headerlink" title="Template Parsing Caveats"></a>Template Parsing Caveats</h3><p>As long as you use string templates (<a href="#X-Templates"><code>&lt;script type=&quot;text/x-template&quot;&gt;</code></a>, inline template strings, or <a href="single-file-components.html"><code>.vue</code> components</a>), you are not subject to many of the restrictions inherent to HTML elements. However, if you use the <code>el</code> option to mount to an element with existing content as the template:</p>
-<ul>
-<li><code>a</code> can not contain other interactive elements (e.g. buttons and other links)</li>
-<li><code>li</code> should be a direct child of <code>ul</code> or <code>ol</code>, and both <code>ul</code> and <code>ol</code> can only contain <code>li</code></li>
-<li><code>option</code> should be a direct child of <code>select</code>, and <code>select</code> can only contain <code>option</code> (and <code>optgroup</code>)</li>
-<li><code>table</code> can only contain <code>thead</code>, <code>tbody</code>, <code>tfoot</code> and <code>tr</code>, and these elements should be direct children of <code>table</code></li>
-<li><code>tr</code> can only contain <code>th</code> and <code>td</code>, and these elements should be direct children of <code>tr</code></li>
-</ul>
-<p>In practice these restrictions can cause unexpected behavior. Although in simple cases it might appear to work, you can not rely on custom elements being expanded before browser validation. E.g. <code>&lt;my-select&gt;&lt;option&gt;...&lt;/option&gt;&lt;/my-select&gt;</code> is not a valid template even if <code>my-select</code> component eventually expands to <code>&lt;select&gt;...&lt;/select&gt;</code>.</p>
-<p>Another consequence is that you can not use custom tags (including custom elements and special tags like <code>&lt;component&gt;</code>, <code>&lt;template&gt;</code> and <code>&lt;partial&gt;</code>) inside of <code>ul</code>, <code>select</code>, <code>table</code> and other elements with similar restrictions. Custom tags will be hoisted out and thus not render properly.</p>
-<p>In case of a custom element you should use the <code>is</code> special attribute:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tr</span> <span class="attr">is</span>=<span class="string">"my-component"</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>In case of a <code>&lt;template&gt;</code> inside of a <code>&lt;table&gt;</code> you should use <code>&lt;tbody&gt;</code>, as tables are allowed to have multiple <code>tbody</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tbody</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span>Even row<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span>Odd row<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Again, it should be noted that these limitations do <strong>not</strong> apply with string templates via:</p>
-<ul>
-<li><code>&lt;script type=&quot;text/x-template&quot;&gt;</code></li>
-<li>inline template strings</li>
-<li><code>.vue</code> components</li>
-</ul>
+<h3 id="Composing-Components"><a href="#Composing-Components" class="headerlink" title="Composing Components"></a>Composing Components</h3><p>Components are meant to be used together, most commonly in parent-child relationships: component A may use component B in its own template. They inevitably need to communicate to one another: the parent may need to pass data down to the child, and the child may need to inform the parent of something that happened in the child. However, it is also very important to keep the parent and the child as decoupled as possible via a clearly-defined interface. This ensures each component’s code can be written and reasoned about in relative isolation, thus making them more maintainable and potentially easier to reuse.</p>
+<p>In Vue.js, the parent-child component relationship can be summarized as <strong>props down, events up</strong>. The parent passes data down to the child via <strong>props</strong>, and the child sends messages to the parent via <strong>events</strong>. Let’s see how they work next.</p>
+<p style="text-align: center"><br>  <img style="width:300px" src="/images/props-events.png" alt="props down, events up"><br></p>
+
 <h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><h3 id="Passing-Data-with-Props"><a href="#Passing-Data-with-Props" class="headerlink" title="Passing Data with Props"></a>Passing Data with Props</h3><p>Every component instance has its own <strong>isolated scope</strong>. This means you cannot (and should not) directly reference parent data in a child component’s template. Data can be passed down to child components using <strong>props</strong>.</p>
 <p>A prop is a custom attribute for passing information from parent components. A child component needs to explicitly declare the props it expects to receive using the <a href="/api/#props"><code>props</code> option</a>:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'child'</span>, &#123;</div><div class="line">  <span class="comment">// declare the props</span></div><div class="line">  props: [<span class="string">'message'</span>],</div><div class="line">  <span class="comment">// just like data, the prop can be used inside templates</span></div><div class="line">  <span class="comment">// and is also made available in the vm as this.message</span></div><div class="line">  template: <span class="string">'&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
@@ -483,47 +487,29 @@ new Vue({
 })
 </script>
 
-<h3 id="Literal-vs-Dynamic"><a href="#Literal-vs-Dynamic" class="headerlink" title="Literal vs. Dynamic"></a>Literal vs. Dynamic</h3><p>A common mistake beginners tend to make is attempting to pass down a number using the literal syntax:</p>
+<h3 id="Literal-vs-Dynamic"><a href="#Literal-vs-Dynamic" class="headerlink" title="Literal vs Dynamic"></a>Literal vs Dynamic</h3><p>A common mistake beginners tend to make is attempting to pass down a number using the literal syntax:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- this passes down a plain string "1" --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">comp</span> <span class="attr">some-prop</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>However, since this is a literal prop, its value is passed down as a plain string <code>&quot;1&quot;</code> instead of an actual number. If we want to pass down an actual JavaScript number, we need to use <code>v-bind</code> so that its value is evaluated as a JavaScript expression:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- this passes down an actual number --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">comp</span> <span class="attr">v-bind:some-prop</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="One-Way-Data-Flow"><a href="#One-Way-Data-Flow" class="headerlink" title="One-Way Data Flow"></a>One-Way Data Flow</h3><p>All props form a <strong>one-way-down</strong> binding between the child property and the parent one: when the parent property updates, it will flow down to the child, but not the other way around. This prevents child components from accidentally mutating the parent’s state, which can make your app’s data flow harder to reason about.</p>
-<p>This means you should never mutate props. If you do, Vue will slap your hand with a warning in the console. If you feel the need to mutate a prop, you can instead use it in a computed property or to define the initial value for a data property.</p>
+<p>In addition, every time the parent component is updated, all props in the child component will be refreshed with the latest value. This means you should <strong>not</strong> attempt to mutate a prop inside a child component. If you do, Vue will warn you in the console.</p>
+<p>There are usually two cases where it’s tempting to mutate a prop:</p>
+<ol>
+<li><p>The prop is used to only pass in an initial value, the child component simply wants to use it as a local data property afterwards;</p>
+</li>
+<li><p>The prop is passed in as a raw value that needs to be transformed.</p>
+</li>
+</ol>
+<p>The proper answer to these use cases are:</p>
+<ol>
+<li><p>Define a local data property that uses the prop’s initial value as its initial value;</p>
+</li>
+<li><p>Define a computed property that is computed from the prop’s value.</p>
+</li>
+</ol>
 <p class="tip">Note that objects and arrays in JavaScript are passed by reference, so if the prop is an array or object, mutating the object or array itself inside the child <strong>will</strong> affect parent state.</p>
 
-<p>Here’s an example:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"parent-object-mutation-demo"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Parent: &#123;&#123; message.text &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Child: <span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-bind:parent-message</span>=<span class="string">"message"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</div><div class="line">  template: <span class="string">'&lt;input v-model="message.text"&gt;'</span>,</div><div class="line">  props: [<span class="string">'parentMessage'</span>],</div><div class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      message: <span class="keyword">this</span>.parentMessage</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#parent-object-mutation-demo'</span>,</div><div class="line">  data: &#123;</div><div class="line">    message: &#123;</div><div class="line">      text: <span class="string">'hello'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-
-<div id="parent-object-mutation-demo" class="demo">
-  <p>Parent: {{ message.text }}</p>
-  <p>Child: <my-component v-bind:parent-message="message"></my-component></p>
-</div>
-<script>
-Vue.component('my-component', {
-  template: '<input v-model="message.text">',
-  props: ['parentMessage'],
-  data: function () {
-    return {
-      message: this.parentMessage
-    }
-  }
-})
-new Vue({
-  el: '#parent-object-mutation-demo',
-  data: {
-    message: {
-      text: 'hello'
-    }
-  }
-})
-</script>
-
-<p>To fix this, you can clone the object with:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    message: <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(<span class="keyword">this</span>.parentMessage))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Or if you’re using Babel with ES2015, the much simpler:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">data () &#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    message: &#123; ...this.parentMessage &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="Prop-Validation"><a href="#Prop-Validation" class="headerlink" title="Prop Validation"></a>Prop Validation</h3><p>It is possible for a component to specify requirements for the props it is receiving. If a requirement is not meant, Vue will emit warnings. This is especially useful when you are authoring a component that is intended to be used by others.</p>
+<h3 id="Prop-Validation"><a href="#Prop-Validation" class="headerlink" title="Prop Validation"></a>Prop Validation</h3><p>It is possible for a component to specify requirements for the props it is receiving. If a requirement is not met, Vue will emit warnings. This is especially useful when you are authoring a component that is intended to be used by others.</p>
 <p>Instead of defining the props as an array of strings, you can use an object with validation requirements:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'example'</span>, &#123;</div><div class="line">  props: &#123;</div><div class="line">    <span class="comment">// basic type check (`null` means accept any type)</span></div><div class="line">    propA: <span class="built_in">Number</span>,</div><div class="line">    <span class="comment">// multiple possible types</span></div><div class="line">    propB: [<span class="built_in">String</span>, <span class="built_in">Number</span>],</div><div class="line">    <span class="comment">// a required string</span></div><div class="line">    propC: &#123;</div><div class="line">      type: <span class="built_in">String</span>,</div><div class="line">      required: <span class="literal">true</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// a number with default value</span></div><div class="line">    propD: &#123;</div><div class="line">      type: <span class="built_in">Number</span>,</div><div class="line">      <span class="keyword">default</span>: <span class="number">100</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// object/array defaults should be returned from a</span></div><div class="line">    <span class="comment">// factory function</span></div><div class="line">    propE: &#123;</div><div class="line">      type: <span class="built_in">Object</span>,</div><div class="line">      <span class="keyword">default</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123; message: <span class="string">'hello'</span> &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// custom validator function</span></div><div class="line">    propF: &#123;</div><div class="line">      validator: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> value &gt; <span class="number">10</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>The <code>type</code> can be one of the following native constructors:</p>
@@ -537,23 +523,14 @@ new Vue({
 </ul>
 <p>In addition, <code>type</code> can also be a custom constructor function and the assertion will be made with an <code>instanceof</code> check.</p>
 <p>When a prop validation fails, Vue will refuse to set the value on the child component and throw a warning if using the development build.</p>
-<h2 id="Parent-Child-Communication"><a href="#Parent-Child-Communication" class="headerlink" title="Parent-Child Communication"></a>Parent-Child Communication</h2><h3 id="Parent-Chain"><a href="#Parent-Chain" class="headerlink" title="Parent Chain"></a>Parent Chain</h3><p>A child component holds access to its parent component as <code>this.$parent</code>. A root Vue instance will be available to all of its descendants as <code>this.$root</code>. Each parent component has an array, <code>this.$children</code>, which contains all its child components.</p>
-<p>When you’d like to access a specific child, you can give that component a <code>ref</code> attribute (e.g. <code>ref=&quot;myChild&quot;</code>), which makes the component instance available via <code>this.$refs.myChild</code>.</p>
-<p class="tip">These properties are made available as an escape hatch to accomodate extreme edge cases. They are not the correct way to access and mutate components in the vast majority of circumstances and if abused, can make your components much more difficult to reason about.</p>
-
-<p>Instead, prefer passing data down explicitly using props. Where data must be shared and mutated by multiple components, a parent component can be used to manage state in a single location. To mutate parent state, custom events can be emitted that parents may choose to listen to or mutation methods can be passed to child components.</p>
-<p>For managing state in more complex applications, <a href="https://github.com/vuejs/vuex/" target="_blank" rel="external">vuex</a> is recommended as an officially supported companion library.</p>
-<h3 id="Custom-Events"><a href="#Custom-Events" class="headerlink" title="Custom Events"></a>Custom Events</h3><p>You can use a pattern similar to the EventEmitter in Node.js: a centralized event hub that allows components to communicate, no matter where they are in the component tree. Because Vue instances implement the event emitter interface, you can actually use an empty Vue instance for this purpose:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> bus = <span class="keyword">new</span> Vue()</div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// in component A's method</span></div><div class="line">bus.$emit(<span class="string">'id-selected'</span>, <span class="number">1</span>)</div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// in component B's created hook</span></div><div class="line">bus.$on(<span class="string">'id-selected'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>As you can see, the event system can:</p>
+<h2 id="Custom-Events"><a href="#Custom-Events" class="headerlink" title="Custom Events"></a>Custom Events</h2><p>We have learned that the parent can pass data down to the child using props, but how do we communicate back to the parent when something happens? This is where custom events come in.</p>
+<h3 id="Using-v-on-with-Custom-Events"><a href="#Using-v-on-with-Custom-Events" class="headerlink" title="Using v-on with Custom Events"></a>Using <code>v-on</code> with Custom Events</h3><p>Every Vue instance implements the <a href="/api/#Instance-Methods-Events">Events interface</a>, which means it can:</p>
 <ul>
-<li>Listen to events using <code>$on()</code></li>
-<li>Trigger events using <code>$emit()</code></li>
+<li>Listen to an event using <code>$on(eventName)</code></li>
+<li>Trigger an event using <code>$emit(eventName)</code></li>
 </ul>
-<p>The example above looks pretty simple, but when looking at component B’s code, it’s not so obvious where the <code>&quot;id-selected&quot;</code> event comes from. That’s why when possible, it’s better to use custom events for explicit communication between parent and children using <code>v-on</code>.</p>
-<p>Here’s a simple example:</p>
+<p>In addition, a parent component can listen to the events emitted from a child component using <code>v-on</code> directly in the template where the child component is used.</p>
+<p>Here’s an example:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"counter-event-example"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; total &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button-counter</span> <span class="attr">v-on:increment</span>=<span class="string">"incrementTotal"</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button-counter</span> <span class="attr">v-on:increment</span>=<span class="string">"incrementTotal"</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'button-counter'</span>, &#123;</div><div class="line">  template: <span class="string">'&lt;button v-on:click="increment"&gt;&#123;&#123; counter &#125;&#125;&lt;/button&gt;'</span>,</div><div class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      counter: <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    increment: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.counter += <span class="number">1</span></div><div class="line">      <span class="keyword">this</span>.$emit(<span class="string">'increment'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#counter-event-example'</span>,</div><div class="line">  data: &#123;</div><div class="line">    total: <span class="number">0</span></div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    incrementTotal: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.total += <span class="number">1</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 
@@ -642,10 +619,11 @@ new Vue({
 
 <p>This interface can be used not only to connect with form inputs inside a component, but also to easily integrate input types that you invent yourself. Imagine these possibilities:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">voice-recognizer</span> <span class="attr">v-model</span>=<span class="string">"question"</span>&gt;</span><span class="tag">&lt;/<span class="name">voice-recognizer</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">webcam-gesture-reader</span> <span class="attr">v-model</span>=<span class="string">"gesture"</span>&gt;</span><span class="tag">&lt;/<span class="name">webcam-gesture-reader</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">webcam-retinal-scanner</span> <span class="attr">v-model</span>=<span class="string">"retinalImage"</span>&gt;</span><span class="tag">&lt;/<span class="name">webcam-retinal-scanner</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="Child-Component-Reference"><a href="#Child-Component-Reference" class="headerlink" title="Child Component Reference"></a>Child Component Reference</h3><p>Despite the existence of props and events, sometimes you might still need to directly access a child component in JavaScript. To achieve this you have to assign a reference ID to the child component using <code>ref</code>. For example:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"parent"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">user-profile</span> <span class="attr">ref</span>=<span class="string">"profile"</span>&gt;</span><span class="tag">&lt;/<span class="name">user-profile</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> parent = <span class="keyword">new</span> Vue(&#123; el: <span class="string">'#parent'</span> &#125;)</div><div class="line"><span class="comment">// access child component instance</span></div><div class="line"><span class="keyword">var</span> child = parent.$refs.profile</div></pre></td></tr></table></figure>
-<p>When <code>ref</code> is used together with <code>v-for</code>, the ref you get will be an array or an object containing the child components mirroring the data source.</p>
+<h3 id="Non-Parent-Child-Communication"><a href="#Non-Parent-Child-Communication" class="headerlink" title="Non Parent-Child Communication"></a>Non Parent-Child Communication</h3><p>Sometimes two components may need to communicate with one-another but they are not parent/child to each other. In simple scenarios, you can use an empty Vue instance as a central event bus:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> bus = <span class="keyword">new</span> Vue()</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// in component A's method</span></div><div class="line">bus.$emit(<span class="string">'id-selected'</span>, <span class="number">1</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// in component B's created hook</span></div><div class="line">bus.$on(<span class="string">'id-selected'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>In more complex cases, you should consider employing a dedicated <a href="/guide/state-management.html">state-management pattern</a>.</p>
 <h2 id="Content-Distribution-with-Slots"><a href="#Content-Distribution-with-Slots" class="headerlink" title="Content Distribution with Slots"></a>Content Distribution with Slots</h2><p>When using components, it is often desired to compose them like this:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">app</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">app-header</span>&gt;</span><span class="tag">&lt;/<span class="name">app-header</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">app-footer</span>&gt;</span><span class="tag">&lt;/<span class="name">app-footer</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">app</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>There are two things to note here:</p>
@@ -692,66 +670,30 @@ new Vue({
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> Home = &#123;</div><div class="line">  template: <span class="string">'&lt;p&gt;Welcome home!&lt;/p&gt;'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'body'</span>,</div><div class="line">  data: &#123;</div><div class="line">    currentView: Home</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <h3 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a><code>keep-alive</code></h3><p>If you want to keep the switched-out components in memory so that you can preserve their state or avoid re-rendering, you can wrap a dynamic component in a <code>keep-alive</code> element:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"currentView"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- inactive components will be cached! --&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="Components-and-v-for"><a href="#Components-and-v-for" class="headerlink" title="Components and v-for"></a>Components and v-for</h3><p>You can directly use <code>v-for</code> on a custom component, like any normal element:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>However, this won’t automatically pass any data to the component, because components have isolated scopes of their own. In order to pass the iterated data into the component, we should also use props:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-component</span></span></div><div class="line">  <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span></div><div class="line">  <span class="attr">v-bind:item</span>=<span class="string">"item"</span></div><div class="line">  <span class="attr">v-bind:index</span>=<span class="string">"index"</span>&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>The reason for not automatically injecting <code>item</code> into the component is because that makes the component tightly coupled to how <code>v-for</code> works. Being explicit about where its data comes from makes the component reusable in other situations.</p>
-<p>Here’s a complete example of a simple todo list:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"todo-list-example"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span></span></div><div class="line">    <span class="attr">v-model</span>=<span class="string">"newTodoText"</span></div><div class="line">    <span class="attr">v-on:keyup.enter</span>=<span class="string">"addNewTodo"</span></div><div class="line">    <span class="attr">placeholder</span>=<span class="string">"Add a todo"</span></div><div class="line">  &gt;</div><div class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span></span></div><div class="line">      <span class="attr">is</span>=<span class="string">"todo-item"</span></div><div class="line">      <span class="attr">v-for</span>=<span class="string">"(todo, index) in todos"</span></div><div class="line">      <span class="attr">v-bind:title</span>=<span class="string">"todo"</span></div><div class="line">      <span class="attr">v-on:remove</span>=<span class="string">"todos.splice(index, 1)"</span></div><div class="line">    &gt;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'todo-item'</span>, &#123;</div><div class="line">  template: <span class="string">'\</span></div><div class="line">    &lt;li&gt;\</div><div class="line">      &#123;&#123; title &#125;&#125;\</div><div class="line">      &lt;button v-on:click="$emit(\'remove\')"&gt;X&lt;/button&gt;\</div><div class="line">    &lt;\li&gt;\</div><div class="line">  ',</div><div class="line">  props: [<span class="string">'title'</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#todo-list-example'</span>,</div><div class="line">  data: &#123;</div><div class="line">    newTodoText: <span class="string">''</span>,</div><div class="line">    todos: [</div><div class="line">      <span class="string">'Do the dishes'</span>,</div><div class="line">      <span class="string">'Take out the trash'</span>,</div><div class="line">      <span class="string">'Mow the lawn'</span></div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    addNewTodo: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.todos.push(<span class="keyword">this</span>.newTodoText)</div><div class="line">      <span class="keyword">this</span>.newTodoText = <span class="string">''</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-
-<div id="todo-list-example" class="demo">
-  <input v-model="newTodoText" v="" v-on:keyup.enter="addNewTodo" placeholder="Add a todo">
-  <ul>
-    <li is="todo-item" v-for="(todo, index) in todos" v-bind:title="todo" v-on:remove="todos.splice(index, 1)"></li>
-  </ul>
-</div>
-<script>
-Vue.component('todo-item', {
-  template: '\
-    <li>\
-      {{ title }}\
-      <button v-on:click="$emit(\'remove\')">X</button>\
-    <\li>\
-  ',
-  props: ['title']
-})
-new Vue({
-  el: '#todo-list-example',
-  data: {
-    newTodoText: '',
-    todos: [
-      'Do the dishes',
-      'Take out the trash',
-      'Mow the lawn'
-    ]
-  },
-  methods: {
-    addNewTodo: function () {
-      this.todos.push(this.newTodoText)
-      this.newTodoText = ''
-    }
-  }
-})
-</script>
-
-<h3 id="Authoring-Reusable-Components"><a href="#Authoring-Reusable-Components" class="headerlink" title="Authoring Reusable Components"></a>Authoring Reusable Components</h3><p>When authoring components, it’s good to keep in mind whether you intend to reuse it somewhere else later. It’s OK for one-off components to be tightly coupled, but reusable components should define a clean public interface and make no assumptions about the context it’s used in.</p>
+<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="Authoring-Reusable-Components"><a href="#Authoring-Reusable-Components" class="headerlink" title="Authoring Reusable Components"></a>Authoring Reusable Components</h3><p>When authoring components, it’s good to keep in mind whether you intend to reuse it somewhere else later. It’s OK for one-off components to be tightly coupled, but reusable components should define a clean public interface and make no assumptions about the context it’s used in.</p>
 <p>The API for a Vue component comes in three parts - props, events, and slots:</p>
 <ul>
-<li><p><strong>Props</strong> allow the external environment to feed data to the component</p>
+<li><p><strong>Props</strong> allow the external environment to pass data into the component</p>
 </li>
-<li><p><strong>Events</strong> allow the component to trigger actions in the external environment</p>
+<li><p><strong>Events</strong> allow the component to trigger side effects in the external environment</p>
 </li>
-<li><p><strong>Slots</strong> allow the external environment to insert content into the component</p>
+<li><p><strong>Slots</strong> allow the external environment to compose the component with extra content.</p>
 </li>
 </ul>
 <p>With the dedicated shorthand syntaxes for <code>v-bind</code> and <code>v-on</code>, the intents can be clearly and succinctly conveyed in the template:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-component</span></span></div><div class="line">  <span class="attr">:foo</span>=<span class="string">"baz"</span></div><div class="line">  <span class="attr">:bar</span>=<span class="string">"qux"</span></div><div class="line">  @<span class="attr">event-a</span>=<span class="string">"doThis"</span></div><div class="line">  @<span class="attr">event-b</span>=<span class="string">"doThat"</span></div><div class="line">&gt;</div><div class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">slot</span>=<span class="string">"icon"</span> <span class="attr">src</span>=<span class="string">"..."</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">slot</span>=<span class="string">"main-text"</span>&gt;</span>Hello!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Child-Component-Refs"><a href="#Child-Component-Refs" class="headerlink" title="Child Component Refs"></a>Child Component Refs</h3><p>Despite the existence of props and events, sometimes you might still need to directly access a child component in JavaScript. To achieve this you have to assign a reference ID to the child component using <code>ref</code>. For example:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"parent"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">user-profile</span> <span class="attr">ref</span>=<span class="string">"profile"</span>&gt;</span><span class="tag">&lt;/<span class="name">user-profile</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> parent = <span class="keyword">new</span> Vue(&#123; el: <span class="string">'#parent'</span> &#125;)</div><div class="line"><span class="comment">// access child component instance</span></div><div class="line"><span class="keyword">var</span> child = parent.$refs.profile</div></pre></td></tr></table></figure>
+<p>When <code>ref</code> is used together with <code>v-for</code>, the ref you get will be an array or an object containing the child components mirroring the data source.</p>
+<p class="tip"><code>$refs</code> are only populated after the component has been rendered, and it is not reactive. It is only meant as an escape hatch for direct child manipulation - you should avoid using <code>$refs</code> in templates or computed properties.</p>
+
 <h3 id="Async-Components"><a href="#Async-Components" class="headerlink" title="Async Components"></a>Async Components</h3><p>In large applications, we may need to divide the app into smaller chunks and only load a component from the server when it’s actually needed. To make that easier, Vue allows you to define your component as a factory function that asynchronously resolves your component definition. Vue will only trigger the factory function when the component actually needs to be rendered and will cache the result for future re-renders. For example:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'async-example'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    resolve(&#123;</div><div class="line">      template: <span class="string">'&lt;div&gt;I am async!&lt;/div&gt;'</span></div><div class="line">    &#125;)</div><div class="line">  &#125;, <span class="number">1000</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>The factory function receives a <code>resolve</code> callback, which should be called when you have retrieved your component definition from the server. You can also call <code>reject(reason)</code> to indicate the load has failed. The <code>setTimeout</code> here is simply for demonstration; How to retrieve the component is entirely up to you. One recommended approach is to use async components together with <a href="http://webpack.github.io/docs/code-splitting.html" target="_blank" rel="external">Webpack’s code-splitting feature</a>:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'async-webpack-example'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">resolve</span>) </span>&#123;</div><div class="line">  <span class="comment">// This special require syntax will instruct Webpack to</span></div><div class="line">  <span class="comment">// automatically split your built code into bundles which</span></div><div class="line">  <span class="comment">// are loaded over Ajax requests.</span></div><div class="line">  <span class="built_in">require</span>([<span class="string">'./my-async-component'</span>], resolve)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>You can also return a <code>Promise</code> in the resolve function, so with Webpack 2 + ES2015 syntax you can do:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(</div><div class="line">  <span class="string">'async-webpack-example'</span>,</div><div class="line">  () =&gt; System.import(<span class="string">'./my-async-component'</span>)</div><div class="line">)</div></pre></td></tr></table></figure>
 <h3 id="Component-Naming-Conventions"><a href="#Component-Naming-Conventions" class="headerlink" title="Component Naming Conventions"></a>Component Naming Conventions</h3><p>When registering components (or props), you can use kebab-case, camelCase, or TitleCase. Vue doesn’t care.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// in a component definition</span></div><div class="line">components: &#123;</div><div class="line">  <span class="comment">// register using camelCase</span></div><div class="line">  <span class="string">'kebab-cased-component'</span>: &#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">  <span class="string">'camelCasedComponent'</span>: &#123; <span class="comment">/* ... */</span> &#125;,</div><div class="line">  <span class="string">'TitleCasedComponent'</span>: &#123; <span class="comment">/* ... */</span> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Within HTML templates though, you have to use the kebab-case equivalents:</p>

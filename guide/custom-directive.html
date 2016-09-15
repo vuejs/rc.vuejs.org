@@ -191,7 +191,7 @@
                 
                 
                 <li>
-                    <a href="/guide/events.html" class="sidebar-link">Methods and Event Handling</a>
+                    <a href="/guide/events.html" class="sidebar-link">Event Handling</a>
                 </li>
             
                 
@@ -312,6 +312,14 @@
                 
                 
                 
+                <li>
+                    <a href="/guide/migration.html" class="sidebar-link">Migration from 1.x</a>
+                </li>
+            
+                
+                
+                
+                
                   <li><h3>Meta</h3></li>
                 
                 <li>
@@ -331,23 +339,21 @@
 </div>
 
 
-<div class="content guide with-sidebar">
+<div class="content guide with-sidebar custom-directive-guide">
     <div id="ad">
   <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
 </div>
 
     <h1>Custom Directives</h1>
-    <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>In addition to the default set of directives shipped in core (<code>v-model</code> and <code>v-show</code>), Vue also allows you to register your own custom directives. Directives provide a reusable way of binding behavior that requires low-level DOM access, such as focusing on an input element, like this one:</p>
+    <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>In addition to the default set of directives shipped in core (<code>v-model</code> and <code>v-show</code>), Vue also allows you to register your own custom directives. Note that in Vue 2.0, the primary form of code reuse and abstraction is components - however there may be cases where you just need some low-level DOM access on plain elements, and this is where custom directives would still be useful. An example would be focusing on an input element, like this one:</p>
 
 <div id="simplest-directive-example" class="demo">
   <input v-focus="">
 </div>
 <script>
 Vue.directive('focus', {
-  bind: function (el) {
-    Vue.nextTick(function () {
-      el.focus()
-    })
+  inserted: function (el) {
+    el.focus()
   }
 })
 new Vue({
@@ -356,17 +362,23 @@ new Vue({
 </script>
 
 <p>When the page loads, that element gains focus. In fact, if you haven’t clicked on anything else since visiting this page, the input above should be focused now. Now let’s build the directive that accomplishes this:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Register a global custom directive called v-focus</span></div><div class="line">Vue.directive(<span class="string">'focus'</span>, &#123;</div><div class="line">  <span class="comment">// When the directive is first bound to the element...</span></div><div class="line">  bind: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</div><div class="line">    <span class="comment">// After the next render...</span></div><div class="line">    Vue.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">// Focus the element</span></div><div class="line">      el.focus()</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Register a global custom directive called v-focus</span></div><div class="line">Vue.directive(<span class="string">'focus'</span>, &#123;</div><div class="line">  <span class="comment">// When the bound element is inserted into the DOM...</span></div><div class="line">  inserted: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</div><div class="line">    <span class="comment">// Focus the element</span></div><div class="line">    el.focus()</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>If you want to register a directive locally instead, components also accept a <code>directives</code> option:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">directives: &#123;</div><div class="line">  focus: &#123;</div><div class="line">    <span class="comment">// directive definition</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Then in a template, you can use the new <code>v-focus</code> attribute on any element, like this:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-focus</span>&gt;</span></div></pre></td></tr></table></figure>
 <h2 id="Hook-Functions"><a href="#Hook-Functions" class="headerlink" title="Hook Functions"></a>Hook Functions</h2><p>A directive definition object can provide several hook functions (all optional):</p>
 <ul>
-<li><code>bind</code>: called only once, when the directive is first bound to the element</li>
-<li><code>update</code>: called whenever the bound element is updated, even when the directive value has not changed</li>
-<li><code>componentUpdated</code>: called after the component has completed an update cycle</li>
-<li><code>unbind</code>: called only once, when the directive is unbound from the element.</li>
+<li><p><code>bind</code>: called only once, when the directive is first bound to the element. This is where you can do one-time setup work.</p>
+</li>
+<li><p><code>inserted</code>: called when the bound element has been inserted into its parent node (this only guarantees parent node presence, not necessarily in-document).</p>
+</li>
+<li><p><code>update</code>: called whenever the bound element’s containing component is updated. The directive’s value may or may not have changed. You can skip unnecessary updates by comparing the binding’s current and old values (see below on hook arguments).</p>
+</li>
+<li><p><code>componentUpdated</code>: called after the containing component has completed an update cycle.</p>
+</li>
+<li><p><code>unbind</code>: called only once, when the directive is unbound from the element.</p>
+</li>
 </ul>
 <p>We’ll explore the arguments passed into these hooks (i.e. <code>el</code>, <code>binding</code>, <code>vnode</code>, and <code>oldVnode</code>) in the next section.</p>
 <h2 id="Directive-Hook-Arguments"><a href="#Directive-Hook-Arguments" class="headerlink" title="Directive Hook Arguments"></a>Directive Hook Arguments</h2><p>Directive hooks are passed these arguments:</p>
@@ -381,7 +393,7 @@ new Vue({
 <li><strong>modifiers</strong>: An object containing modifiers, if any. For example in <code>v-my-directive.foo.bar</code>, the modifiers object would be <code>{ foo: true, bar: true }</code>.</li>
 </ul>
 </li>
-<li><strong>vnode</strong>: The virtual node produced by Vue’s compiler. See the <a href="[!!TODO: Add link to the VNode API doc when it exists]">VNode API</a> for full details.</li>
+<li><strong>vnode</strong>: The virtual node produced by Vue’s compiler.<!--See the [VNode API]([!!TODO: Add link to the VNode API doc when it exists]) for full details.--></li>
 <li><strong>oldVnode</strong>: The previous virtual node, only available in the <code>update</code> and <code>componentUpdated</code> hooks.</li>
 </ul>
 <p class="tip">Apart from <code>el</code>, you should treat these arguments as read-only and never modify them. If you need to share information across hooks, it is recommended to do so through element’s <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset" target="_blank" rel="external">dataset</a>.</p>

@@ -224,7 +224,7 @@ a.small-button:hover {
   overflow-x: hidden;
 }
 #ad {
-  width: 140px;
+  width: 125px;
   position: fixed;
   z-index: 99;
   bottom: 10px;
@@ -478,6 +478,21 @@ ul.demo li {
 }
 .sponsors-page a {
   margin: 10px 20px;
+}
+.migration-guide h3 > sup {
+  margin-left: 0.3em;
+  color: #b9465c;
+}
+.migration-guide .upgrade-path {
+  padding: 2em;
+  background: rgba(73,195,140,0.1);
+  border-radius: 2px;
+}
+.migration-guide .upgrade-path > h4 {
+  margin-top: 0;
+}
+.migration-guide .upgrade-path > p:last-child {
+  margin-bottom: 0;
 }
 #header {
   background-color: #fff;

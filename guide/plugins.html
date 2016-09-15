@@ -191,7 +191,7 @@
                 
                 
                 <li>
-                    <a href="/guide/events.html" class="sidebar-link">Methods and Event Handling</a>
+                    <a href="/guide/events.html" class="sidebar-link">Event Handling</a>
                 </li>
             
                 
@@ -312,6 +312,14 @@
                 
                 
                 
+                <li>
+                    <a href="/guide/migration.html" class="sidebar-link">Migration from 1.x</a>
+                </li>
+            
+                
+                
+                
+                
                   <li><h3>Meta</h3></li>
                 
                 <li>
@@ -331,7 +339,7 @@
 </div>
 
 
-<div class="content guide with-sidebar">
+<div class="content guide with-sidebar plugins-guide">
     <div id="ad">
   <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
 </div>
@@ -356,34 +364,10 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// calls `MyPlugin.install(Vue)`</span></div><div class="line">Vue.use(MyPlugin)</div></pre></td></tr></table></figure>
 <p>You can optionally pass in some options:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.use(MyPlugin, &#123; someOption: <span class="literal">true</span> &#125;)</div></pre></td></tr></table></figure>
+<p><code>Vue.use</code> automatically prevents you from using the same plugin more than once, so calling it multiple times on the same plugin will install the plugin only once.</p>
 <p>Some plugins provided by Vue.js official plugins such as <code>vue-router</code> automatically calls <code>Vue.use()</code> if <code>Vue</code> is available as a global variable. However in a module environment such as CommonJS, you always need to call <code>Vue.use()</code> explicitly:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// When using CommonJS via Browserify or Webpack</span></div><div class="line"><span class="keyword">var</span> Vue = <span class="built_in">require</span>(<span class="string">'vue'</span>)</div><div class="line"><span class="keyword">var</span> VueRouter = <span class="built_in">require</span>(<span class="string">'vue-router'</span>)</div><div class="line"></div><div class="line"><span class="comment">// Don't forget to call this</span></div><div class="line">Vue.use(VueRouter)</div></pre></td></tr></table></figure>
-<h2 id="Tips-for-writing-a-Plugin"><a href="#Tips-for-writing-a-Plugin" class="headerlink" title="Tips for writing a Plugin"></a>Tips for writing a Plugin</h2><h3 id="Using-Vue-Utilities"><a href="#Using-Vue-Utilities" class="headerlink" title="Using Vue Utilities"></a>Using Vue Utilities</h3><p>When you are writing a plaugin with Vue.js API, sometimes may be need the utility library. Vue is exposing the <code>Vue.util</code> internaly utilitiy, you can write a plugin by using it, not include the external utility library.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Equivalent to `Object.assign`</span></div><div class="line"><span class="keyword">var</span> a = &#123;&#125;</div><div class="line"><span class="keyword">var</span> b = &#123; foo: <span class="number">1</span>, bar: <span class="string">'hello'</span> &#125;</div><div class="line">Vue.util.extend(a, b)</div><div class="line"><span class="built_in">console</span>.log(a) <span class="comment">// =&gt; Object &#123; foo: 1, bar: "hello" &#125;</span></div></pre></td></tr></table></figure>
-<h3 id="Modularization"><a href="#Modularization" class="headerlink" title="Modularization"></a>Modularization</h3><p>If you want to publish a plugin, you had better implement as the UMD module pattern in order to  corresponding to some use-cases as following example.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  MyPlugin.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue, options</span>) </span>&#123;</div><div class="line">    <span class="comment">// something impplementation ...</span></div><div class="line">    <span class="comment">// ...</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> exports === <span class="string">'object'</span>) &#123;</div><div class="line">    <span class="built_in">module</span>.exports = MyPlugin <span class="comment">// CommonJS</span></div><div class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> define == <span class="string">'function'</span> &amp;&amp; define.amd) &#123;</div><div class="line">    define([], <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> MyPlugin &#125;) <span class="comment">// AMD</span></div><div class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.Vue) &#123;</div><div class="line">    <span class="built_in">window</span>.MyPlugin = MyPlugin <span class="comment">// Browser (not required options)</span></div><div class="line">    Vue.use(MyPlugin)</div><div class="line">  &#125;</div><div class="line">&#125;)()</div></pre></td></tr></table></figure>
-<h3 id="Minimization"><a href="#Minimization" class="headerlink" title="Minimization"></a>Minimization</h3><p>Normally, Vue application or component fetch from HTTP server, and run in the browser. File size directly affect the performance of application, so you had better minify your a plugin with Browserify or Webpack. e.g. the below Webpack</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">webpack plugin.js bundle.js --optimize-minimize</div></pre></td></tr></table></figure>
-<h2 id="Existing-Plugins-amp-Tools"><a href="#Existing-Plugins-amp-Tools" class="headerlink" title="Existing Plugins &amp; Tools"></a>Existing Plugins &amp; Tools</h2><ul>
-<li><p><a href="https://github.com/vuejs/vuex" target="_blank" rel="external">vuex</a>: Application architecture for centralized state management in Vue.js application.</p>
-</li>
-<li><p><a href="https://github.com/vuejs/vue-router" target="_blank" rel="external">vue-router</a>: The official router for Vue.js. Deeply integrated with Vue.js core to make building Single Page Applications a breeze.</p>
-</li>
-<li><p><a href="https://github.com/vuejs/vue-async-data" target="_blank" rel="external">vue-async-data</a>: Async data loading plugin.</p>
-</li>
-<li><p><a href="https://github.com/vuejs/vue-validator" target="_blank" rel="external">vue-validator</a>: A plugin for form validations.</p>
-</li>
-<li><p><a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="external">vue-devtools</a>: A Chrome devtools extension for debugging Vue.js applications.</p>
-</li>
-<li><p><a href="https://github.com/vuejs/vue-touch" target="_blank" rel="external">vue-touch</a>: Add touch-gesture directives using Hammer.js.</p>
-</li>
-<li><p><a href="https://github.com/vuejs/vue-element" target="_blank" rel="external">vue-element</a>: Register Custom Elements with Vue.js.</p>
-</li>
-<li><p><a href="https://github.com/vuejs/vue-animated-list" target="_blank" rel="external">vue-animated-list</a>: A plugin for easily animating <code>v-for</code> rendered lists.</p>
-</li>
-<li><p><a href="https://github.com/vuejs/awesome-vue#libraries--plugins" target="_blank" rel="external">List of User Contributed Tools</a></p>
-</li>
-</ul>
+<p>Checkout <a href="https://github.com/vuejs/awesome-vue#libraries--plugins" target="_blank" rel="external">awesome-vue</a> for a huge collection of community-contributed plugins and libraries.</p>
 
     
       <div class="guide-links">
