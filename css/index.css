@@ -187,9 +187,6 @@ a.small-button:hover {
   line-height: 1.5em;
   margin: 0;
 }
-.highlight .code .line {
-  min-height: 1.5em;
-}
 .highlight.html .code:after,
 .highlight.js .code:after,
 .highlight.bash .code:after,
@@ -224,7 +221,7 @@ a.small-button:hover {
   overflow-x: hidden;
 }
 #ad {
-  width: 125px;
+  width: 140px;
   position: fixed;
   z-index: 99;
   bottom: 10px;

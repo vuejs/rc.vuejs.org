@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Join the Vue Community! - vue.js</title>
+        <title>Custom Filters - vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -164,7 +164,7 @@
                 </li>
             
                 <li>
-                    <a href="/guide/custom-filter.html" class="sidebar-link">Custom Filters</a>
+                    <a href="/guide/custom-filter.html" class="sidebar-link current">Custom Filters</a>
                 </li>
             
                 <li>
@@ -184,7 +184,7 @@
                 </li>
             
                 <li>
-                    <a href="/guide/join.html" class="sidebar-link current">Join the Vue Community!</a>
+                    <a href="/guide/join.html" class="sidebar-link">Join the Vue Community!</a>
                 </li>
             
         </ul>
@@ -197,43 +197,60 @@
   <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
 </div>
 
-    <h1>Join the Vue Community!</h1>
-    <h2 id="Join-the-Vue-js-Community"><a href="#Join-the-Vue-js-Community" class="headerlink" title="Join the Vue.js Community!"></a>Join the Vue.js Community!</h2><p>The vibrant community around Vue.js is continually growing. Nevertheless, helpful hands are always welcome. In fact, a growing community is the best sign of a healthy OSS project worth putting any effort into, even if it is as the user of the software. </p>
-<p>If you would like to also be a part of the Vue.js community, this page was meant to support your endeavors. Have a look at the resources listed below to get some orientation around the sailing ship of Vue.js and…</p>
-<p>….welcome aboard!</p>
-<h2 id="Resources-You-Should-Know-About"><a href="#Resources-You-Should-Know-About" class="headerlink" title="Resources You Should Know About!"></a>Resources You Should Know About!</h2><h3 id="The-Community"><a href="#The-Community" class="headerlink" title="The Community"></a>The Community</h3><ul>
-<li><a href="http://forum.vuejs.org/" target="_blank" rel="external">The Forum</a> - THE best place to ask questions and get answers about Vue.js and its components.</li>
-<li><a href="https://gitter.im/vuejs/vue" target="_blank" rel="external">Gitter Channel</a> -  A place for devs to meet and chat. You can ask questions here, but the forum is the better platform, since the discussions are threaded.</li>
-<li><a href="https://github.com/vuejs" target="_blank" rel="external">Github</a> - Report bugs or fork repositories to offer pull requests. Any contribution is greatly appreciated!  </li>
-</ul>
-<h3 id="Third-Party-Contributions"><a href="#Third-Party-Contributions" class="headerlink" title="Third Party Contributions"></a>Third Party Contributions</h3><ul>
-<li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="external">The Awesome Vue Page</a> - See what other awesome resources have been published by other awesome people.</li>
-<li><a href="http://forum.vuejs.org/category/15/show-tell" target="_blank" rel="external">The “Show and Tell” Subforum</a> - Another great place to check out what others have built with and for the growing Vue ecosystem.</li>
-</ul>
-<h3 id="Contributing-to-Vue"><a href="#Contributing-to-Vue" class="headerlink" title="Contributing to Vue"></a>Contributing to Vue</h3><ul>
-<li><p><a href="https://github.com/vuejs/vue/blob/dev/CONTRIBUTING.md" target="_blank" rel="external">The rules to contribute</a> - As with any community, there has to be rules, in order to ensure everyone is doing the right things the right way.</p>
-</li>
-<li><p>The Main Components of Vue</p>
-<ul>
-<li><a href="https://github.com/vuejs/vue" target="_blank" rel="external">Vue</a> - The core repository.</li>
-<li><a href="https://github.com/vuejs/vuex" target="_blank" rel="external">Vuex</a> - A Flux-inspired Application Architecture for Vue.js.</li>
-<li><a href="https://github.com/vuejs/vue-router" target="_blank" rel="external">Vue-router</a> - A routing system for SPAs with Vue.js.</li>
-<li><a href="https://github.com/vuejs/vue-resource" target="_blank" rel="external">Vue-resource</a> - A plugin, which provides services for making web requests and to handle responses using XMLHttpRequests or JSONP. </li>
-</ul>
-</li>
-</ul>
+    <h1>Custom Filters</h1>
+    <h2 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h2><p>Similar to custom directives, you can register a custom filter with the global <code>Vue.filter()</code> method, passing in a <strong>filterID</strong> and a <strong>filter function</strong>. The filter function takes a value as the argument and returns the transformed value:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.filter(<span class="string">'reverse'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> value.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 'abc' =&gt; 'cba' --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-text</span>=<span class="string">"message | reverse"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>The filter function also receives any inline arguments:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.filter(<span class="string">'wrap'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value, begin, end</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> begin + value + end</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 'hello' =&gt; 'before hello after' --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-text</span>=<span class="string">"message | wrap 'before' 'after'"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="Two-way-Filters"><a href="#Two-way-Filters" class="headerlink" title="Two-way Filters"></a>Two-way Filters</h2><p>Up till now we have used filters to transform values coming from the model and before displaying them in the view. But it is also possible to define a filter that transforms the value before it is written back to the model from the view (input elements):</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.filter(<span class="string">'currencyDisplay'</span>, &#123;</div><div class="line">  <span class="comment">// model -&gt; view</span></div><div class="line">  <span class="comment">// formats the value when updating the input element.</span></div><div class="line">  read: <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">'$'</span>+val.toFixed(<span class="number">2</span>)</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// view -&gt; model</span></div><div class="line">  <span class="comment">// formats the value when writing to the data.</span></div><div class="line">  write: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> number = +val.replace(<span class="regexp">/[^\d.]/g</span>, <span class="string">''</span>)</div><div class="line">    <span class="keyword">return</span> <span class="built_in">isNaN</span>(number) ? <span class="number">0</span> : <span class="built_in">parseFloat</span>(number.toFixed(<span class="number">2</span>))</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Demo:</p>
+
+<div id="two-way-filter-demo" class="demo">
+  <input type="text" v-model="money | currencyDisplay">
+  <p>Model value: {{money}}</p>
+</div>
+<script>
+new Vue({
+  el: '#two-way-filter-demo',
+  data: {
+    money: 123.45
+  },
+  filters: {
+    currencyDisplay: {
+      read: function(val) {
+        return '$'+val.toFixed(2)
+      },
+      write: function(val, oldVal) {
+        var number = +val.replace(/[^\d.]/g, '')
+        return isNaN(number) ? 0 : parseFloat(number.toFixed(2))
+      }
+    }
+  }
+})
+</script>
+
+<h2 id="Dynamic-Arguments"><a href="#Dynamic-Arguments" class="headerlink" title="Dynamic Arguments"></a>Dynamic Arguments</h2><p>If a filter argument is not enclosed by quotes, it will be evaluated dynamically in the current vm’s data context. In addition, the filter function is always invoked using the current vm as its <code>this</code> context. For example:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"userInput"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;msg | concat userInput&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.filter(<span class="string">'concat'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value, input</span>) </span>&#123;</div><div class="line">  <span class="comment">// here `input` === `this.userInput`</span></div><div class="line">  <span class="keyword">return</span> value + input</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>For this simple example above, you can achieve the same result with just an expression, but for more complicated procedures that need more than one statement, you need to put them either in a computed property or a custom filter.</p>
+<p>The built-in <code>filterBy</code> and <code>orderBy</code> filters are both filters that perform non-trivial work on the Array being passed in and relies on the current state of the owner Vue instance.</p>
 
     
       <div class="guide-links">
         
-          <span>← <a href="/guide/comparison.html">Comparison with Other Frameworks</a></span>
+          <span>← <a href="/guide/custom-directive.html">Custom Directives</a></span>
         
+        
+          <span style="float:right"><a href="/guide/mixins.html">Mixins</a> →</span>
         
       </div>
     
     <div class="footer">
       Caught a mistake or want to contribute to the documentation?
-      <a href="https://github.com/vuejs/vuejs.org/blob/master/src/guide/join.md" target="_blank">
+      <a href="https://github.com/vuejs/vuejs.org/blob/master/src/guide/custom-filter.md" target="_blank">
         Edit this page on Github!
       </a>
     </div>
