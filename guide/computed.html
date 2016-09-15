@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Computed Properties - vue.js</title>
+        <title>Computed Properties and Watchers - vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -32,12 +32,28 @@
         </div>
         
             <div id="header">
-    <a id="logo" href="/">
-        <img src="/images/logo.png">
-        <span>Vue.js</span>
-    </a>
-    <ul id="nav">
-        <li>
+  <a id="logo" href="/">
+    <img src="/images/logo.png">
+    <span>Vue.js <sup>2.0 RC</sup></span>
+  </a>
+  <span style="
+    position: absolute;
+    top: 100%;
+    left: 60px;
+    padding: 0 10px;
+    background: #ef9f00;
+    border-radius: 3px;
+    margin-top: -15px;
+    line-height: 30px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.3);
+  ">
+    WORK IN PROGRESS
+  </span>
+  <ul id="nav">
+    <li>
   <form id="search-form">
     <input type="text" id="search-query-nav" class="search-query st-default-search-input">
   </form>
@@ -57,7 +73,7 @@
 </li>
 
 
-    </ul>
+  </ul>
 </div>
 
             <div id="main">
@@ -96,95 +112,226 @@
         <h2>
             Guide
             <select class="version-select">
-                <option selected>1.0</option>
+                <option selected>2.0</option>
+                <option>1.0</option>
                 <option>0.12</option>
                 <option>0.11</option>
             </select>
         </h2>
         <ul class="menu-root">
             
+                
+                
+                  <li><h3>Essentials</h3></li>
+                
+                
+                
                 <li>
                     <a href="/guide/installation.html" class="sidebar-link">Installation</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/index.html" class="sidebar-link">Getting Started</a>
+                    <a href="/guide/index.html" class="sidebar-link">Introduction</a>
                 </li>
             
-                <li>
-                    <a href="/guide/overview.html" class="sidebar-link">Overview</a>
-                </li>
-            
+                
+                
+                
+                
                 <li>
                     <a href="/guide/instance.html" class="sidebar-link">The Vue Instance</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/syntax.html" class="sidebar-link">Data Binding Syntax</a>
+                    <a href="/guide/syntax.html" class="sidebar-link">Template Syntax</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/computed.html" class="sidebar-link current">Computed Properties</a>
+                    <a href="/guide/computed.html" class="sidebar-link current">Computed Properties and Watchers</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/class-and-style.html" class="sidebar-link">Class and Style Bindings</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/conditional.html" class="sidebar-link">Conditional Rendering</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/list.html" class="sidebar-link">List Rendering</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/events.html" class="sidebar-link">Methods and Event Handling</a>
+                    <a href="/guide/events.html" class="sidebar-link">Event Handling</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/forms.html" class="sidebar-link">Form Input Bindings</a>
                 </li>
             
-                <li>
-                    <a href="/guide/transitions.html" class="sidebar-link">Transitions</a>
-                </li>
-            
+                
+                
+                
+                
                 <li>
                     <a href="/guide/components.html" class="sidebar-link">Components</a>
                 </li>
             
+                
+                
+                
+                  <li><h3>Advanced</h3></li>
+                
+                
+                <li>
+                    <a href="/guide/transitions.html" class="sidebar-link">Transitions: Entering, Leaving, and Lists</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/transitioning-state.html" class="sidebar-link">Transitioning State</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/render-function.html" class="sidebar-link">Render Functions</a>
+                </li>
+            
+                
+                
+                
+                
                 <li>
                     <a href="/guide/reactivity.html" class="sidebar-link">Reactivity in Depth</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/custom-directive.html" class="sidebar-link">Custom Directives</a>
                 </li>
             
-                <li>
-                    <a href="/guide/custom-filter.html" class="sidebar-link">Custom Filters</a>
-                </li>
-            
+                
+                
+                
+                
                 <li>
                     <a href="/guide/mixins.html" class="sidebar-link">Mixins</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
                     <a href="/guide/plugins.html" class="sidebar-link">Plugins</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/application.html" class="sidebar-link">Building Large-Scale Apps</a>
+                    <a href="/guide/single-file-components.html" class="sidebar-link">Single File Components</a>
                 </li>
             
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/routing.html" class="sidebar-link">Routing</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/state-management.html" class="sidebar-link">State Management</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/unit-testing.html" class="sidebar-link">Unit Testing</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/ssr.html" class="sidebar-link">Server-Side Rendering</a>
+                </li>
+            
+                
+                
+                
+                
+                <li>
+                    <a href="/guide/migration.html" class="sidebar-link">Migration from 1.x</a>
+                </li>
+            
+                
+                
+                
+                
+                  <li><h3>Meta</h3></li>
+                
                 <li>
                     <a href="/guide/comparison.html" class="sidebar-link">Comparison with Other Frameworks</a>
                 </li>
             
+                
+                
+                
+                
                 <li>
-                    <a href="/guide/join.html" class="sidebar-link">Join the Vue Community!</a>
+                    <a href="/guide/join.html" class="sidebar-link">Join the Vue.js Community!</a>
                 </li>
             
         </ul>
@@ -192,53 +339,117 @@
 </div>
 
 
-<div class="content guide with-sidebar">
+<div class="content guide with-sidebar computed-guide">
     <div id="ad">
   <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
 </div>
 
-    <h1>Computed Properties</h1>
-    <p>In-template expressions are very convenient, but they are really meant for simple operations only. Templates are meant to describe the structure of your view. Putting too much logic into your templates can make them bloated and hard to maintain. This is why Vue.js limits binding expressions to one expression only. For any logic that requires more than one expression, you should use a <strong>computed property</strong>.</p>
-<h3 id="Basic-Example"><a href="#Basic-Example" class="headerlink" title="Basic Example"></a>Basic Example</h3><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></div><div class="line">  a=&#123;&#123; a &#125;&#125;, b=&#123;&#123; b &#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#example'</span>,</div><div class="line">  data: &#123;</div><div class="line">    a: <span class="number">1</span></div><div class="line">  &#125;,</div><div class="line">  computed: &#123;</div><div class="line">    <span class="comment">// a computed getter</span></div><div class="line">    b: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">// `this` points to the vm instance</span></div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.a + <span class="number">1</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+    <h1>Computed Properties and Watchers</h1>
+    <h2 id="Computed-Properties"><a href="#Computed-Properties" class="headerlink" title="Computed Properties"></a>Computed Properties</h2><p>In-template expressions are very convenient, but they are really only meant for simple operations. Putting too much logic into your templates can make them bloated and hard to maintain. For example:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></div><div class="line">  &#123;&#123; message.split('').reverse().join('') &#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>At this point, the template is no longer simple and declarative. You have to look at it for a second before realizing that it displays <code>message</code> in reverse. The problem is made worse when you want to include the reversed message in your template more than once.</p>
+<p>That’s why for any complex logic, you should use a <strong>computed property</strong>.</p>
+<h3 id="Basic-Example"><a href="#Basic-Example" class="headerlink" title="Basic Example"></a>Basic Example</h3><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Original message: "&#123;&#123; message &#125;&#125;"<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Computed reversed message: "&#123;&#123; reversedMessage &#125;&#125;"<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#example'</span>,</div><div class="line">  data: &#123;</div><div class="line">    message: <span class="string">'Hello'</span></div><div class="line">  &#125;,</div><div class="line">  computed: &#123;</div><div class="line">    <span class="comment">// a computed getter</span></div><div class="line">    reversedMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">// `this` points to the vm instance</span></div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>Result:</p>
 
 <div id="example" class="demo">
-  a={{ a }}, b={{ b }}
+  <p>Original message: "{{ message }}"</p>
+  <p>Computed reversed message: "{{ reversedMessage }}"</p>
 </div>
 <script>
 var vm = new Vue({
   el: '#example',
   data: {
-    a: 1
+    message: 'Hello'
   },
   computed: {
-    b: function () {
-      return this.a + 1
+    reversedMessage: function () {
+      return this.message.split('').reverse().join('')
     }
   }
 })
 </script>
 
-<p>Here we have declared a computed property <code>b</code>. The function we provided will be used as the getter function for the property <code>vm.b</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(vm.b) <span class="comment">// -&gt; 2</span></div><div class="line">vm.a = <span class="number">2</span></div><div class="line"><span class="built_in">console</span>.log(vm.b) <span class="comment">// -&gt; 3</span></div></pre></td></tr></table></figure>
-<p>You can open the console and play with the example vm yourself. The value of <code>vm.b</code> is always dependent on the value of <code>vm.a</code>.</p>
-<p>You can data-bind to computed properties in templates just like a normal property. Vue is aware that <code>vm.b</code> depends on <code>vm.a</code>, so it will update any bindings that depends on <code>vm.b</code> when <code>vm.a</code> changes. And the best part is that we’ve created this dependency relationship declaratively: the computed getter function is pure and has no side effects, which makes it easy to test and reason about.</p>
-<h3 id="Computed-Property-vs-watch"><a href="#Computed-Property-vs-watch" class="headerlink" title="Computed Property vs. $watch"></a>Computed Property vs. $watch</h3><p>Vue.js does provide an API method called <code>$watch</code> that allows you to observe data changes on a Vue instance. When you have some data that needs to change based on some other data, it is tempting to use <code>$watch</code> - especially if you are coming from an AngularJS background. However, it is often a better idea to use a computed property rather than an imperative <code>$watch</code> callback. Consider this example:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"demo"</span>&gt;</span>&#123;&#123;fullName&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#demo'</span>,</div><div class="line">  data: &#123;</div><div class="line">    firstName: <span class="string">'Foo'</span>,</div><div class="line">    lastName: <span class="string">'Bar'</span>,</div><div class="line">    fullName: <span class="string">'Foo Bar'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">vm.$watch(<span class="string">'firstName'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.fullName = val + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</div><div class="line">&#125;)</div><div class="line"></div><div class="line">vm.$watch(<span class="string">'lastName'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.fullName = <span class="keyword">this</span>.firstName + <span class="string">' '</span> + val</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Here we have declared a computed property <code>reversedMessage</code>. The function we provided will be used as the getter function for the property <code>vm.reversedMessage</code>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(vm.reversedMessage) <span class="comment">// -&gt; 'olleH'</span></div><div class="line">vm.message = <span class="string">'Goodbye'</span></div><div class="line"><span class="built_in">console</span>.log(vm.reversedMessage) <span class="comment">// -&gt; 'eybdooG'</span></div></pre></td></tr></table></figure>
+<p>You can open the console and play with the example vm yourself. The value of <code>vm.reversedMessage</code> is always dependent on the value of <code>vm.message</code>.</p>
+<p>You can data-bind to computed properties in templates just like a normal property. Vue is aware that <code>vm.reversedMessage</code> depends on <code>vm.message</code>, so it will update any bindings that depend on <code>vm.reversedMessage</code> when <code>vm.message</code> changes. And the best part is that we’ve created this dependency relationship declaratively: the computed getter function is pure and has no side effects, which makes it easy to test and reason about.</p>
+<h3 id="Computed-Caching-vs-Methods"><a href="#Computed-Caching-vs-Methods" class="headerlink" title="Computed Caching vs Methods"></a>Computed Caching vs Methods</h3><p>You may have noticed we can achieve the same result by invoking a method in the expression:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Reversed message: "&#123;&#123; reverseMessage() &#125;&#125;"<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// in component</span></div><div class="line">methods: &#123;</div><div class="line">  reverseMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Instead of a computed property, we can define the same function as a method instead. For the end result, the two approaches are indeed exactly the same. However, the difference is that <strong>computed properties are cached based on its dependencies.</strong> A computed property will only re-evaluate when some of its dependencies have changed. This means as long as <code>message</code> has not changed, multiple access to the <code>reversedMessage</code> computed property will immediately return the previously computed result without having to run the function again.</p>
+<p>This also means the following computed property will never update, because <code>Date.now()</code> is not a reactive dependency:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">computed: &#123;</div><div class="line">  now: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Date</span>.now()</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>In comparison, a method invocation will <strong>always</strong> run the function whenever a re-render happens.</p>
+<p>Why do we need caching? Imagine we have an expensive computed property <strong>A</strong>, which requires looping through a huge Array and doing a lot of computations. Then we may have other computed properties that in turn depend on <strong>A</strong>. Without caching, we would be executing <strong>A</strong>’s getter many more times than necessary! In cases where you do not want caching, use a method instead.</p>
+<h3 id="Computed-vs-Watched-Property"><a href="#Computed-vs-Watched-Property" class="headerlink" title="Computed vs Watched Property"></a>Computed vs Watched Property</h3><p>Vue does provide a more generic way to observe and react to data changes on a Vue instance: <strong>watch properties</strong>. When you have some data that needs to change based on some other data, it is tempting to overuse <code>watch</code> - especially if you are coming from an AngularJS background. However, it is often a better idea to use a computed property rather than an imperative <code>watch</code> callback. Consider this example:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"demo"</span>&gt;</span>&#123;&#123; fullName &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#demo'</span>,</div><div class="line">  data: &#123;</div><div class="line">    firstName: <span class="string">'Foo'</span>,</div><div class="line">    lastName: <span class="string">'Bar'</span>,</div><div class="line">    fullName: <span class="string">'Foo Bar'</span></div><div class="line">  &#125;,</div><div class="line">  watch: &#123;</div><div class="line">    firstName: <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.fullName = val + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</div><div class="line">    &#125;,</div><div class="line">    lastName: <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.fullName = <span class="keyword">this</span>.firstName + <span class="string">' '</span> + val</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>The above code is imperative and repetitive. Compare it with a computed property version:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#demo'</span>,</div><div class="line">  data: &#123;</div><div class="line">    firstName: <span class="string">'Foo'</span>,</div><div class="line">    lastName: <span class="string">'Bar'</span></div><div class="line">  &#125;,</div><div class="line">  computed: &#123;</div><div class="line">    fullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>Much better, isn’t it?</p>
 <h3 id="Computed-Setter"><a href="#Computed-Setter" class="headerlink" title="Computed Setter"></a>Computed Setter</h3><p>Computed properties are by default getter-only, but you can also provide a setter when you need it:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// ...</span></div><div class="line">computed: &#123;</div><div class="line">  fullName: &#123;</div><div class="line">    <span class="comment">// getter</span></div><div class="line">    get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// setter</span></div><div class="line">    set: <span class="function"><span class="keyword">function</span> (<span class="params">newValue</span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> names = newValue.split(<span class="string">' '</span>)</div><div class="line">      <span class="keyword">this</span>.firstName = names[<span class="number">0</span>]</div><div class="line">      <span class="keyword">this</span>.lastName = names[names.length - <span class="number">1</span>]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// ...</span></div></pre></td></tr></table></figure>
-<p>Now when you call <code>vm.fullName = &#39;John Doe&#39;</code>, the setter will be invoked and <code>vm.firstName</code> and <code>vm.lastName</code> will be updated accordingly.</p>
-<p>The technical details behind how computed properties are updated are <a href="reactivity.html#Inside-Computed-Properties">discussed in another section</a> dedicated to the reactivity system.</p>
+<p>Now when you run <code>vm.fullName = &#39;John Doe&#39;</code>, the setter will be invoked and <code>vm.firstName</code> and <code>vm.lastName</code> will be updated accordingly.</p>
+<h2 id="Watchers"><a href="#Watchers" class="headerlink" title="Watchers"></a>Watchers</h2><p>While computed properties are more appropriate in most cases, there are times when a custom watcher is necessary. That’s why Vue provides a more generic way to react to data changes through the <code>watch</code> option. This is most useful when you want to perform asynchronous or expensive operations in response to changing data.</p>
+<p>For example:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"watch-example"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></div><div class="line">    Ask a yes/no question:</div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"question"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; answer &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- Since there is already a rich ecosystem of ajax libraries    --&gt;</span></div><div class="line"><span class="comment">&lt;!-- and collections of general-purpose utility methods, Vue core --&gt;</span></div><div class="line"><span class="comment">&lt;!-- is able to remain small by not reinventing them. This also   --&gt;</span></div><div class="line"><span class="comment">&lt;!-- gives you the freedom to just use what you're familiar with. --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/axios@0.12.0/dist/axios.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/lodash@4.13.1/lodash.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="keyword">var</span> watchExampleVM = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#watch-example'</span>,</div><div class="line">  data: &#123;</div><div class="line">    question: <span class="string">''</span>,</div><div class="line">    answer: <span class="string">'I cannot give you an answer until you ask a question!'</span></div><div class="line">  &#125;,</div><div class="line">  watch: &#123;</div><div class="line">    <span class="comment">// whenever question changes, this function will run</span></div><div class="line">    question: <span class="function"><span class="keyword">function</span> (<span class="params">newQuestion</span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.answer = <span class="string">'Waiting for you to stop typing...'</span></div><div class="line">      <span class="keyword">this</span>.getAnswer()</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    <span class="comment">// _.debounce is a function provided by lodash to limit how</span></div><div class="line">    <span class="comment">// often a particularly expensive operation can be run.</span></div><div class="line">    <span class="comment">// In this case, we want to limit how often we access</span></div><div class="line">    <span class="comment">// yesno.wtf/api, waiting until the user has completely</span></div><div class="line">    <span class="comment">// finished typing before making the ajax request. To learn</span></div><div class="line">    <span class="comment">// more about the _.debounce function (and its cousin</span></div><div class="line">    <span class="comment">// _.throttle), visit: https://lodash.com/docs#debounce</span></div><div class="line">    getAnswer: _.debounce(</div><div class="line">      <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> vm = <span class="keyword">this</span></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.question.indexOf(<span class="string">'?'</span>) === <span class="number">-1</span>) &#123;</div><div class="line">          vm.answer = <span class="string">'Questions usually contain a question mark. ;-)'</span></div><div class="line">          <span class="keyword">return</span></div><div class="line">        &#125;</div><div class="line">        vm.answer = <span class="string">'Thinking...'</span></div><div class="line">        axios.get(<span class="string">'https://yesno.wtf/api'</span>)</div><div class="line">          .then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</div><div class="line">            vm.answer = _.capitalize(response.data.answer)</div><div class="line">          &#125;)</div><div class="line">          .catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">            vm.answer = <span class="string">'Error! Could not reach the API. '</span> + error</div><div class="line">          &#125;)</div><div class="line">      &#125;,</div><div class="line">      <span class="comment">// This is the number of milliseconds we wait for the</span></div><div class="line">      <span class="comment">// user to stop typing.</span></div><div class="line">      <span class="number">500</span></div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Result:</p>
+
+<div id="watch-example" class="demo">
+  <p>
+    Ask a yes/no question:
+    <input v-model="question">
+  </p>
+  <p>{{ answer }}</p>
+</div>
+<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+<script>
+var watchExampleVM = new Vue({
+  el: '#watch-example',
+  data: {
+    question: '',
+    answer: 'I cannot give you an answer until you ask a question!'
+  },
+  watch: {
+    question: function (newQuestion) {
+      this.answer = 'Waiting for you to stop typing...'
+      this.getAnswer()
+    }
+  },
+  methods: {
+    getAnswer: _.debounce(
+      function () {
+        var vm = this
+        if (this.question.indexOf('?') === -1) {
+          vm.answer = 'Questions usually contain a question mark. ;-)'
+          return
+        }
+        vm.answer = 'Thinking...'
+        axios.get('https://yesno.wtf/api')
+          .then(function (response) {
+            vm.answer = _.capitalize(response.data.answer)
+          })
+          .catch(function (error) {
+            vm.answer = 'Error! Could not reach the API. ' + error
+          })
+      },
+      500
+    )
+  }
+})
+</script>
+
+<p>In this case, using the <code>watch</code> option allows us to perform an asynchronous operation (accessing an API), limit how often we perform that operation, and set intermediary states until we get a final answer. None of that would be possible with a computed property.</p>
+<p>In addition to the <code>watch</code> option, you can also use the imperative <a href="/api/#vm-watch">vm.$watch API</a>.</p>
 
     
       <div class="guide-links">
         
-          <span>← <a href="/guide/syntax.html">Data Binding Syntax</a></span>
+          <span>← <a href="/guide/syntax.html">Template Syntax</a></span>
         
         
           <span style="float:right"><a href="/guide/class-and-style.html">Class and Style Bindings</a> →</span>

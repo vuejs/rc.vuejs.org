@@ -187,6 +187,9 @@ a.small-button:hover {
   line-height: 1.5em;
   margin: 0;
 }
+.highlight .code .line {
+  min-height: 1.5em;
+}
 .highlight.html .code:after,
 .highlight.js .code:after,
 .highlight.bash .code:after,
@@ -221,7 +224,7 @@ a.small-button:hover {
   overflow-x: hidden;
 }
 #ad {
-  width: 140px;
+  width: 125px;
   position: fixed;
   z-index: 99;
   bottom: 10px;
@@ -336,6 +339,7 @@ a.small-button:hover {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  overflow-x: scroll;
 }
 #demo h1,
 .demo h1 {
@@ -343,22 +347,39 @@ a.small-button:hover {
   font-size: 1.8em;
 }
 #demo ul,
-.demo ul {
+.demo ul,
+#demo ol,
+.demo ol {
   padding-left: 1.5em;
-  margin: 0;
+}
+#demo ul:first-child,
+.demo ul:first-child,
+#demo ol:first-child,
+.demo ol:first-child {
+  margin-top: 0;
+}
+#demo ul:last-child,
+.demo ul:last-child,
+#demo ol:last-child,
+.demo ol:last-child {
+  margin-bottom: 0;
 }
 #demo li,
 .demo li {
-  cursor: pointer;
   color: #34495e;
-  -ms-user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
 }
 #demo li.done,
 .demo li.done {
   color: #7f8c8d;
   text-decoration: line-through;
+}
+#demo p:first-child,
+.demo p:first-child {
+  margin-top: 0;
+}
+#demo p:last-child,
+.demo p:last-child {
+  margin-bottom: 0;
 }
 ul#demo li,
 ul.demo li {
@@ -369,6 +390,17 @@ ul.demo li {
   .demo {
     margin-left: 0;
   }
+}
+.benchmark-table {
+  margin: 0 auto;
+  text-align: center;
+}
+.benchmark-table tbody > tr > th {
+  text-align: right;
+}
+.benchmark-table th,
+.benchmark-table td {
+  padding: 3px 7px;
 }
 .content.blog h1 {
   margin: 0 0 0.5em;
@@ -409,9 +441,6 @@ ul.demo li {
   border-color: #999;
   font-size: 0.9rem;
 }
-.sidebar .aa-dropdown-menu {
-  min-width: auto;
-}
 @media (min-width: 768px) {
   .aa-dropdown-menu {
     min-width: 515px;
@@ -450,6 +479,21 @@ ul.demo li {
 .sponsors-page a {
   margin: 10px 20px;
 }
+.migration-guide h3 > sup {
+  margin-left: 0.3em;
+  color: #b9465c;
+}
+.migration-guide .upgrade-path {
+  padding: 2em;
+  background: rgba(73,195,140,0.1);
+  border-radius: 2px;
+}
+.migration-guide .upgrade-path > h4 {
+  margin-top: 0;
+}
+.migration-guide .upgrade-path > p:last-child {
+  margin-bottom: 0;
+}
 #header {
   background-color: #fff;
   box-shadow: 0 0 4px rgba(0,0,0,0.25);
@@ -474,7 +518,6 @@ ul.demo li {
   display: inline-block;
   position: relative;
   margin: 0 0.6em;
-  white-space: nowrap;
 }
 .nav-link {
   padding-bottom: 3px;
@@ -722,6 +765,9 @@ ul.demo li {
   font-weight: bold;
   font-family: 'Dosis', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
   font-size: 14px;
+}
+.content p.tip em {
+  color: #34495e;
 }
 .guide-links {
   margin-top: 2em;
