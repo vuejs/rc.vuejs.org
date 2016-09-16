@@ -809,7 +809,20 @@ new Vue({
   <p>Run the <strong>migration helper</strong> on your codebase to find <code>keep-alive</code> attributes.</p>
 </div>
 
-<h2 id="Interpolations"><a href="#Interpolations" class="headerlink" title="Interpolations"></a>Interpolations</h2><h3 id="HTML-Interpolation-deprecated"><a href="#HTML-Interpolation-deprecated" class="headerlink" title="HTML Interpolation deprecated"></a>HTML Interpolation <sup>deprecated</sup></h3><p>HTML interpolations (<code>{{{ foo }}}</code>) have been deprecated in favor of the <a href="/api/#v-html"><code>v-html</code> directive</a>.</p>
+<h2 id="Interpolation"><a href="#Interpolation" class="headerlink" title="Interpolation"></a>Interpolation</h2><h3 id="Interpolation-within-Attributes-deprecated"><a href="#Interpolation-within-Attributes-deprecated" class="headerlink" title="Interpolation within Attributes deprecated"></a>Interpolation within Attributes <sup>deprecated</sup></h3><p>Interpolation within attributes is no longer valid. For example:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-bind:class</span>=<span class="string">"btn btn-&#123;&#123; size &#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Should either be updated to use an inline expression:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-bind:class</span>=<span class="string">"'btn btn-' + size"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Or a data/computed property:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-bind:class</span>=<span class="string">"buttonClasses"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">computed: &#123;</div><div class="line">  buttonClasses: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">'btn btn-'</span> + size</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+<div class="upgrade-path">
+  <h4>Upgrade Path</h4>
+  <p>Run the <strong>migration helper</strong> on your codebase to find examples of interpolation used within attributes.</p>
+</div>
+
+<h3 id="HTML-Interpolation-deprecated"><a href="#HTML-Interpolation-deprecated" class="headerlink" title="HTML Interpolation deprecated"></a>HTML Interpolation <sup>deprecated</sup></h3><p>HTML interpolations (<code>{{{ foo }}}</code>) have been deprecated in favor of the <a href="/api/#v-html"><code>v-html</code> directive</a>.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
