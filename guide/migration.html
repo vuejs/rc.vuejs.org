@@ -389,14 +389,14 @@
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find all examples of this hook.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find all examples of this hook.</p>
 </div>
 
 <h3 id="compiled-deprecated"><a href="#compiled-deprecated" class="headerlink" title="compiled deprecated"></a><code>compiled</code> <sup>deprecated</sup></h3><p>Use the new <code>mounted</code> hook instead.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find all examples of this hook.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find all examples of this hook.</p>
 </div>
 
 <h3 id="attached-deprecated"><a href="#attached-deprecated" class="headerlink" title="attached deprecated"></a><code>attached</code> <sup>deprecated</sup></h3><p>Use a custom in-dom check in other hooks. For example, to replace:</p>
@@ -406,7 +406,7 @@
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find all examples of this hook.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find all examples of this hook.</p>
 </div>
 
 <h3 id="detached-deprecated"><a href="#detached-deprecated" class="headerlink" title="detached deprecated"></a><code>detached</code> <sup>deprecated</sup></h3><p>Use a custom in-dom check in other hooks. For example, to replace:</p>
@@ -416,14 +416,14 @@
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find all examples of this hook.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find all examples of this hook.</p>
 </div>
 
 <h3 id="init-deprecated"><a href="#init-deprecated" class="headerlink" title="init deprecated"></a><code>init</code> <sup>deprecated</sup></h3><p>Use the new <code>beforeCreate</code> hook instead, which is essentially the same thing. It was renamed for consistency with other lifecycle methods.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find all examples of this hook.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find all examples of this hook.</p>
 </div>
 
 <h3 id="ready-deprecated"><a href="#ready-deprecated" class="headerlink" title="ready deprecated"></a><code>ready</code> <sup>deprecated</sup></h3><p>Use the new <code>mounted</code> hook instead. It should be noted though that with <code>mounted</code>, there’s no guarantee to be in-document. For that, also include <code>Vue.nextTick</code>/<code>vm.$nextTick</code>. For example:</p>
@@ -431,28 +431,28 @@
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find all examples of this hook.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find all examples of this hook.</p>
 </div>
 
 <h2 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a><code>v-for</code></h2><h3 id="v-for-Argument-Order-for-Arrays"><a href="#v-for-Argument-Order-for-Arrays" class="headerlink" title="v-for Argument Order for Arrays"></a><code>v-for</code> Argument Order for Arrays</h3><p>When including an <code>index</code>, the argument order for arrays used to be <code>(index, value)</code>. It is now <code>(value, index)</code> to be more consisent with JavaScript’s native array methods such as <code>forEach</code> and <code>map</code>.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of the deprecated argument order. Note that if you name your index arguments something unusual like <code>position</code> or <code>num</code>, the helper will not flag them.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of the deprecated argument order. Note that if you name your index arguments something unusual like <code>position</code> or <code>num</code>, the helper will not flag them.</p>
 </div>
 
 <h3 id="v-for-Argument-Order-for-Objects"><a href="#v-for-Argument-Order-for-Objects" class="headerlink" title="v-for Argument Order for Objects"></a><code>v-for</code> Argument Order for Objects</h3><p>When including an <code>key</code>, the argument order for objects used to be <code>(key, value)</code>. It is now <code>(value, key)</code> to be more consisent with common object iterators such as lodash’s.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of the deprecated argument order. Note that if you name your key arguments something like <code>name</code> or <code>property</code>, the helper will not flag them.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of the deprecated argument order. Note that if you name your key arguments something like <code>name</code> or <code>property</code>, the helper will not flag them.</p>
 </div>
 
 <h3 id="index-and-key-deprecated"><a href="#index-and-key-deprecated" class="headerlink" title="$index and $key deprecated"></a><code>$index</code> and <code>$key</code> <sup>deprecated</sup></h3><p>The implicitly assigned <code>$index</code> and <code>$key</code> variables have been deprecated in favor of explicitly defining them in <code>v-for</code>. This makes the code easier to read for developers less experienced with Vue and also results in much clearer behavior when dealing with nested loops.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of these deprecated variables. If you miss any, you should also see <strong>console errors</strong> such as: <code>Uncaught ReferenceError: $index is not defined</code></p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of these deprecated variables. If you miss any, you should also see <strong>console errors</strong> such as: <code>Uncaught ReferenceError: $index is not defined</code></p>
 </div>
 
 <h3 id="track-by-deprecated"><a href="#track-by-deprecated" class="headerlink" title="track-by deprecated"></a><code>track-by</code> <sup>deprecated</sup></h3><p><code>track-by</code> has been replaced with <code>key</code>, which works like any other attribute: without the <code>v-bind:</code> or <code>:</code> prefix, it is treated as a literal string. In most cases, you’d want to use a dynamic binding which expects a full expression instead of a key. For example, in place of:</p>
@@ -462,7 +462,7 @@
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>track-by</code>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>track-by</code>.</p>
 </div>
 
 <h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><h3 id="coerce-Prop-Option-deprecated"><a href="#coerce-Prop-Option-deprecated" class="headerlink" title="coerce Prop Option deprecated"></a><code>coerce</code> Prop Option <sup>deprecated</sup></h3><p>If you want to coerce a prop, setup a local computed value based on it instead. For example, instead of:</p>
@@ -477,7 +477,7 @@
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of the <code>coerce</code> option.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of the <code>coerce</code> option.</p>
 </div>
 
 <h3 id="twoWay-Prop-Option-deprecated"><a href="#twoWay-Prop-Option-deprecated" class="headerlink" title="twoWay Prop Option deprecated"></a><code>twoWay</code> Prop Option <sup>deprecated</sup></h3><p>Props are now always one-way down. To produce side effects in the parent scope, a component needs to explicitly emit an event instead of relying on implicit binding. For more information, see:</p>
@@ -489,7 +489,7 @@
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of the <code>twoWay</code> option.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of the <code>twoWay</code> option.</p>
 </div>
 
 <h3 id="v-bind-with-once-and-sync-Modifiers-deprecated"><a href="#v-bind-with-once-and-sync-Modifiers-deprecated" class="headerlink" title="v-bind with .once and .sync Modifiers deprecated"></a><code>v-bind</code> with <code>.once</code> and <code>.sync</code> Modifiers <sup>deprecated</sup></h3><p>Props are now always one-way down. To produce side effects in the parent scope, a component needs to explicitly emit an event instead of relying on implicit binding. For more information, see:</p>
@@ -501,7 +501,7 @@
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of the <code>.once</code> and <code>.sync</code> modifiers.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of the <code>.once</code> and <code>.sync</code> modifiers.</p>
 </div>
 
 <h3 id="Prop-Mutation-deprecated"><a href="#Prop-Mutation-deprecated" class="headerlink" title="Prop Mutation deprecated"></a>Prop Mutation <sup>deprecated</sup></h3><p>Mutating a prop locally is now considered an anti-pattern, e.g. declaring a prop and then setting <code>this.myProp = &#39;someOtherValue&#39;</code> in the component. Due to the new rendering mechanism, whenever the parent component re-renders, the child component’s local changes will be overwritten.</p>
@@ -593,7 +593,7 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of the <code>debounce</code> attribute.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of the <code>debounce</code> attribute.</p>
 </div>
 
 <h3 id="v-model-with-lazy-or-number-Param-Attributes-deprecated"><a href="#v-model-with-lazy-or-number-Param-Attributes-deprecated" class="headerlink" title="v-model with lazy or number Param Attributes deprecated"></a><code>v-model</code> with <code>lazy</code> or <code>number</code> Param Attributes <sup>deprecated</sup></h3><p>The <code>lazy</code> and <code>number</code> param attributes are now modifiers, to make it more clear what That means instead of:</p>
@@ -603,7 +603,7 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of the these deprecated param attributes.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of the these deprecated param attributes.</p>
 </div>
 
 <h3 id="v-model-with-Inline-value-deprecated"><a href="#v-model-with-Inline-value-deprecated" class="headerlink" title="v-model with Inline value deprecated"></a><code>v-model</code> with Inline <code>value</code> <sup>deprecated</sup></h3><p><code>v-model</code> no longer cares about initial value of an inline <code>value</code> attribute. For predictability, it will instead always treat the Vue instance data as the source of truth.</p>
@@ -640,7 +640,7 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of style bindings with `!important` in objects.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of style bindings with `!important` in objects.</p>
 </div>
 
 <h3 id="v-el-and-v-ref-deprecated"><a href="#v-el-and-v-ref-deprecated" class="headerlink" title="v-el and v-ref deprecated"></a><code>v-el</code> and <code>v-ref</code> <sup>deprecated</sup></h3><p>For simplicity, <code>v-el</code> and <code>v-ref</code> have been merged into the <code>ref</code> attribute, accessable on a component instance via <code>$refs</code>. That means <code>v-el:my-element</code> would become <code>ref=&quot;myElement&quot;</code> and <code>v-ref:my-component</code> would become <code>ref=&quot;myComponent&quot;</code>. When used on a normal element, the <code>ref</code> will be the DOM element, and when used on a component, the <code>ref</code> will be the component instance.</p>
@@ -653,7 +653,7 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>v-el</code> and <code>v-ref</code>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>v-el</code> and <code>v-ref</code>.</p>
 </div>
 
 <h3 id="v-else-with-v-show-deprecated"><a href="#v-else-with-v-show-deprecated" class="headerlink" title="v-else with v-show deprecated"></a><code>v-else</code> with <code>v-show</code> <sup>deprecated</sup></h3><p><code>v-else</code> no longer works with <code>v-show</code>. Use <code>v-if</code> with a negation expression instead. For example, instead of:</p>
@@ -663,7 +663,7 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of the <code>v-else</code> with <code>v-show</code>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of the <code>v-else</code> with <code>v-show</code>.</p>
 </div>
 
 <h2 id="Custom-Directives"><a href="#Custom-Directives" class="headerlink" title="Custom Directives"></a>Custom Directives</h2><p>Directives have a greatly reduced scope of responsibility: they are now only used for applying low-level direct DOM manipulations. In most cases, you should prefer using components as the main code-reuse abstraction.</p>
@@ -677,21 +677,21 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of defined directives. The helper will flag all of them, as it's likely in most cases that you'll want to refactor to a component.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of defined directives. The helper will flag all of them, as it's likely in most cases that you'll want to refactor to a component.</p>
 </div>
 
 <h2 id="Transitions"><a href="#Transitions" class="headerlink" title="Transitions"></a>Transitions</h2><h3 id="transition-Attribute-deprecated"><a href="#transition-Attribute-deprecated" class="headerlink" title="transition Attribute deprecated"></a><code>transition</code> Attribute <sup>deprecated</sup></h3><p>Vue’s transition system has changed quite drastically and now uses <code>&lt;transition&gt;</code> and <code>&lt;transition-group&gt;</code> wrapper elements, rather than the <code>transition</code> attribute. It’s recommended to read the new <a href="transitions.html">Transitions guide</a> to learn more.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of the <code>transition</code> attribute.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of the <code>transition</code> attribute.</p>
 </div>
 
 <h3 id="Transition-stagger-Attribute-deprecated"><a href="#Transition-stagger-Attribute-deprecated" class="headerlink" title="Transition stagger Attribute deprecated"></a>Transition <code>stagger</code> Attribute <sup>deprecated</sup></h3><p>If you need to stagger list transitions, you can control timing by setting and accessing a <code>data-index</code> (or similar attribute) on an element. See <a href="transitions.html#Staggering-List-Transitions">an example here</a>.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of the <code>transition</code> attribute. During your update, you can transition (pun very much intended) to the new staggering strategy as well.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of the <code>transition</code> attribute. During your update, you can transition (pun very much intended) to the new staggering strategy as well.</p>
 </div>
 
 <h2 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h2><h3 id="Vue-directive-39-on-39-keyCodes-deprecated"><a href="#Vue-directive-39-on-39-keyCodes-deprecated" class="headerlink" title="Vue.directive(&#39;on&#39;).keyCodes deprecated"></a><code>Vue.directive(&#39;on&#39;).keyCodes</code> <sup>deprecated</sup></h3><p>The new, more concise way to configure <code>keyCodes</code> is through<code>Vue.config.keyCodes</code>. For example:</p>
@@ -699,7 +699,7 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of the the old <code>keyCode</code> configuration syntax.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of the the old <code>keyCode</code> configuration syntax.</p>
 </div>
 
 <h3 id="dispatch-and-broadcast-deprecated"><a href="#dispatch-and-broadcast-deprecated" class="headerlink" title="$dispatch and $broadcast deprecated"></a><code>$dispatch</code> and <code>$broadcast</code> <sup>deprecated</sup></h3><p><code>$dispatch</code> and <code>$broadcast</code> are being deprecated in favor of more explicity cross-component communication and more maintainable state management solutions, such as <a href="https://github.com/vuejs/vuex" target="_blank" rel="external">Vuex</a>.</p>
@@ -717,7 +717,7 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>$dispatch</code> and <code>$broadcast</code>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>$dispatch</code> and <code>$broadcast</code>.</p>
 </div>
 
 <h2 id="Filters"><a href="#Filters" class="headerlink" title="Filters"></a>Filters</h2><h3 id="Filters-Outside-Text-Interpolations-deprecated"><a href="#Filters-Outside-Text-Interpolations-deprecated" class="headerlink" title="Filters Outside Text Interpolations deprecated"></a>Filters Outside Text Interpolations <sup>deprecated</sup></h3><p>Filters can now only be used inside text interpolations (<code>{{ }}</code> tags). In the past we’ve found using filters within directives such as <code>v-model</code>, <code>v-on</code>, etc led to more complexity than convenience. For list filtering on <code>v-for</code>, it’s also better to move that logic into JavaScript as computed properties, so that it can be reused throughout your component.</p>
@@ -751,7 +751,7 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of filters being used inside directives. If you miss any, you should also see <strong>console errors</strong>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of filters being used inside directives. If you miss any, you should also see <strong>console errors</strong>.</p>
 </div>
 
 <h3 id="Filter-Argument-Syntax"><a href="#Filter-Argument-Syntax" class="headerlink" title="Filter Argument Syntax"></a>Filter Argument Syntax</h3><p>Filters’ syntax for arguments now better aligns with JavaScript function invocation. So instead of taking space-delimited arguments:</p>
@@ -761,7 +761,7 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of the old filter syntax. If you miss any, you should also see <strong>console errors</strong>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of the old filter syntax. If you miss any, you should also see <strong>console errors</strong>.</p>
 </div>
 
 <h3 id="Built-In-Text-Filters-deprecated"><a href="#Built-In-Text-Filters-deprecated" class="headerlink" title="Built-In Text Filters deprecated"></a>Built-In Text Filters <sup>deprecated</sup></h3><p>Although filters within text interpolations are still allowed, all of the filters have been removed. Instead, it’s recommended to use more specialized libraries for solving problems in each domain (e.g. <a href="https://date-fns.org/" target="_blank" rel="external"><code>date-fns</code></a> to format dates and <a href="http://openexchangerates.github.io/accounting.js/" target="_blank" rel="external"><code>accounting</code></a> for currencies).</p>
@@ -778,7 +778,7 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of the deprecated text filters. If you miss any, you should also see <strong>console errors</strong>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of the deprecated text filters. If you miss any, you should also see <strong>console errors</strong>.</p>
 </div>
 
 <h2 id="Slots"><a href="#Slots" class="headerlink" title="Slots"></a>Slots</h2><h3 id="Duplicate-Slots-deprecated"><a href="#Duplicate-Slots-deprecated" class="headerlink" title="Duplicate Slots deprecated"></a>Duplicate Slots <sup>deprecated</sup></h3><p>It is no longer supported to have <code>&lt;slot&gt;</code>s with the same name in the same template. When a slot is rendered it is “used up” and cannot be rendered elsewhere in the same render tree. If you must render the same content in multiple places, pass that content as a prop.</p>
@@ -792,7 +792,7 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find CSS selectors targeting named slots (e.g. <code>[slot="my-slot-name"]</code>).</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find CSS selectors targeting named slots (e.g. <code>[slot="my-slot-name"]</code>).</p>
 </div>
 
 <h2 id="Special-Attributes"><a href="#Special-Attributes" class="headerlink" title="Special Attributes"></a>Special Attributes</h2><h3 id="keep-alive-Attribute-deprecated"><a href="#keep-alive-Attribute-deprecated" class="headerlink" title="keep-alive Attribute deprecated"></a><code>keep-alive</code> Attribute <sup>deprecated</sup></h3><p><code>keep-alive</code> is no longer a special attribute, but rather a wrapper component, similar to <code>&lt;transition&gt;</code>. For example:</p>
@@ -806,7 +806,7 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find <code>keep-alive</code> attributes.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find <code>keep-alive</code> attributes.</p>
 </div>
 
 <h2 id="Interpolation"><a href="#Interpolation" class="headerlink" title="Interpolation"></a>Interpolation</h2><h3 id="Interpolation-within-Attributes-deprecated"><a href="#Interpolation-within-Attributes-deprecated" class="headerlink" title="Interpolation within Attributes deprecated"></a>Interpolation within Attributes <sup>deprecated</sup></h3><p>Interpolation within attributes is no longer valid. For example:</p>
@@ -819,21 +819,21 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of interpolation used within attributes.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of interpolation used within attributes.</p>
 </div>
 
 <h3 id="HTML-Interpolation-deprecated"><a href="#HTML-Interpolation-deprecated" class="headerlink" title="HTML Interpolation deprecated"></a>HTML Interpolation <sup>deprecated</sup></h3><p>HTML interpolations (<code>{{{ foo }}}</code>) have been deprecated in favor of the <a href="/api/#v-html"><code>v-html</code> directive</a>.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find HTML interpolations.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find HTML interpolations.</p>
 </div>
 
 <h3 id="One-Time-Bindings-deprecated"><a href="#One-Time-Bindings-deprecated" class="headerlink" title="One-Time Bindings deprecated"></a>One-Time Bindings <sup>deprecated</sup></h3><p>One time bindings (<code>{{* foo }}</code>) have been deprecated in favor of the new <a href="/api/#v-once"><code>v-once</code> directive</a>.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find one-time bindings.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find one-time bindings.</p>
 </div>
 
 <h2 id="Reactivity"><a href="#Reactivity" class="headerlink" title="Reactivity"></a>Reactivity</h2><h3 id="vm-watch"><a href="#vm-watch" class="headerlink" title="vm.$watch"></a><code>vm.$watch</code></h3><p>Watchers created via <code>vm.$watch</code> are now fired before the associated component rerenders. This gives you the chance to further update state before the component rerender, thus avoiding unnecessary updates. For example, you can watch a component prop and update the component’s own data when the prop changes.</p>
@@ -848,14 +848,14 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of the deprecated usage.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of the deprecated usage.</p>
 </div>
 
 <h3 id="vm-delete"><a href="#vm-delete" class="headerlink" title="vm.$delete"></a><code>vm.$delete</code></h3><p>The former <code>vm.$delete</code> behavior has been deprecated and it is now just an alias for <a href="/api/#Vue-delete"><code>Vue.delete</code></a></p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of the deprecated usage.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of the deprecated usage.</p>
 </div>
 
 <h3 id="Array-prototype-set-deprecated"><a href="#Array-prototype-set-deprecated" class="headerlink" title="Array.prototype.$set  deprecated"></a><code>Array.prototype.$set</code>  <sup>deprecated</sup></h3><p>use Vue.set instead</p>
@@ -863,7 +863,7 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>.$set</code> on an array. If you miss any, you should see <strong>console errors</strong> from the missing method.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>.$set</code> on an array. If you miss any, you should see <strong>console errors</strong> from the missing method.</p>
 </div>
 
 <h3 id="Array-prototype-remove-deprecated"><a href="#Array-prototype-remove-deprecated" class="headerlink" title="Array.prototype.$remove deprecated"></a><code>Array.prototype.$remove</code> <sup>deprecated</sup></h3><p>Use <code>Array.prototype.splice</code> instead. For example:</p>
@@ -873,28 +873,28 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>.$remove</code> on an array. If you miss any, you should see <strong>console errors</strong> from the missing method.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>.$remove</code> on an array. If you miss any, you should see <strong>console errors</strong> from the missing method.</p>
 </div>
 
 <h3 id="Vue-set-and-Vue-delete-on-Vue-instances-deprecated"><a href="#Vue-set-and-Vue-delete-on-Vue-instances-deprecated" class="headerlink" title="Vue.set and Vue.delete on Vue instances deprecated"></a><code>Vue.set</code> and <code>Vue.delete</code> on Vue instances <sup>deprecated</sup></h3><p>Vue.set and Vue.delete can no longer work on Vue instances. It is now mandatory to properly declare all top-level reactive properties in the data option. If you’d like to delete properties on a Vue instance or its <code>$data</code>, just set it to null.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>Vue.set</code> or <code>Vue.delete</code> on a Vue instance. If you miss any, they'll trigger <strong>console warnings</strong>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>Vue.set</code> or <code>Vue.delete</code> on a Vue instance. If you miss any, they'll trigger <strong>console warnings</strong>.</p>
 </div>
 
 <h3 id="Replacing-vm-data-deprecated"><a href="#Replacing-vm-data-deprecated" class="headerlink" title="Replacing vm.$data deprecated"></a>Replacing <code>vm.$data</code> <sup>deprecated</sup></h3><p>It is now prohibited to replace a component instance’s root $data. This prevents some edge cases in the reactivity system and makes the component state more predictable (especially with type-checking systems).</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of overwriting <code>vm.$data</code>. If you miss any, <strong>console warnings</strong> will be emitted.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of overwriting <code>vm.$data</code>. If you miss any, <strong>console warnings</strong> will be emitted.</p>
 </div>
 
 <h3 id="vm-get-deprecated"><a href="#vm-get-deprecated" class="headerlink" title="vm.$get deprecated"></a><code>vm.$get</code> <sup>deprecated</sup></h3><p>Just retrieve reactive data directly.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>vm.$get</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>vm.$get</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
 
 <h2 id="DOM-Focused-Instance-Methods"><a href="#DOM-Focused-Instance-Methods" class="headerlink" title="DOM-Focused Instance Methods"></a>DOM-Focused Instance Methods</h2><h3 id="vm-appendTo-deprecated"><a href="#vm-appendTo-deprecated" class="headerlink" title="vm.$appendTo deprecated"></a><code>vm.$appendTo</code> <sup>deprecated</sup></h3><p>Use the native DOM API:</p>
@@ -902,7 +902,7 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>vm.$appendTo</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>vm.$appendTo</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
 
 <h3 id="vm-before-deprecated"><a href="#vm-before-deprecated" class="headerlink" title="vm.$before deprecated"></a><code>vm.$before</code> <sup>deprecated</sup></h3><p>Use the native DOM API:</p>
@@ -910,7 +910,7 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>vm.$before</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>vm.$before</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
 
 <h3 id="vm-after-deprecated"><a href="#vm-after-deprecated" class="headerlink" title="vm.$after deprecated"></a><code>vm.$after</code> <sup>deprecated</sup></h3><p>Use the native DOM API:</p>
@@ -920,7 +920,7 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>vm.$after</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>vm.$after</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
 
 <h3 id="vm-remove-deprecated"><a href="#vm-remove-deprecated" class="headerlink" title="vm.$remove deprecated"></a><code>vm.$remove</code> <sup>deprecated</sup></h3><p>Use the native DOM API:</p>
@@ -928,28 +928,28 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>vm.$remove</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>vm.$remove</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
 
 <h2 id="Meta-Instance-Methods"><a href="#Meta-Instance-Methods" class="headerlink" title="Meta Instance Methods"></a>Meta Instance Methods</h2><h3 id="vm-eval-deprecated"><a href="#vm-eval-deprecated" class="headerlink" title="vm.$eval deprecated"></a><code>vm.$eval</code> <sup>deprecated</sup></h3><p>No real use. If you do happen to rely on this feature somehow and aren’t sure how to work around it, post on <a href="http://forum.vuejs.org/" target="_blank" rel="external">the forum</a> for ideas.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>vm.$eval</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>vm.$eval</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
 
 <h3 id="vm-interpolate-deprecated"><a href="#vm-interpolate-deprecated" class="headerlink" title="vm.$interpolate deprecated"></a><code>vm.$interpolate</code> <sup>deprecated</sup></h3><p>No real use. If you do happen to rely on this feature somehow and aren’t sure how to work around it, post on <a href="http://forum.vuejs.org/" target="_blank" rel="external">the forum</a> for ideas.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>vm.$interpolate</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>vm.$interpolate</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
 
 <h3 id="vm-log-deprecated"><a href="#vm-log-deprecated" class="headerlink" title="vm.$log deprecated"></a><code>vm.$log</code> <sup>deprecated</sup></h3><p>Use the <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="external">Vue Devtools</a> for the optimal debugging experience.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>vm.$log</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>vm.$log</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
 
 <h2 id="Instance-DOM-Options"><a href="#Instance-DOM-Options" class="headerlink" title="Instance DOM Options"></a>Instance DOM Options</h2><h3 id="replace-false-deprecated"><a href="#replace-false-deprecated" class="headerlink" title="replace: false deprecated"></a><code>replace: false</code> <sup>deprecated</sup></h3><p>Components now always replace the element they’re bound to. To simulate the behavior of <code>replace: false</code>, you can wrap your root component with an element similar to the one you’re replacing. For example:</p>
@@ -959,35 +959,35 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>replace: false</code>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>replace: false</code>.</p>
 </div>
 
 <h2 id="Global-Config"><a href="#Global-Config" class="headerlink" title="Global Config"></a>Global Config</h2><h3 id="Vue-config-debug-deprecated"><a href="#Vue-config-debug-deprecated" class="headerlink" title="Vue.config.debug deprecated"></a><code>Vue.config.debug</code> <sup>deprecated</sup></h3><p>No longer necessary, since warnings come with stack traces by default now.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>Vue.config.debug</code>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>Vue.config.debug</code>.</p>
 </div>
 
 <h3 id="Vue-config-async-deprecated"><a href="#Vue-config-async-deprecated" class="headerlink" title="Vue.config.async deprecated"></a><code>Vue.config.async</code> <sup>deprecated</sup></h3><p>Async is now required for rendering performance.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>Vue.config.async</code>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>Vue.config.async</code>.</p>
 </div>
 
 <h3 id="Vue-config-delimiters-deprecated"><a href="#Vue-config-delimiters-deprecated" class="headerlink" title="Vue.config.delimiters deprecated"></a><code>Vue.config.delimiters</code> <sup>deprecated</sup></h3><p>This has been reworked as a <a href="/api/#delimiters">component-level option</a>. This allows you to use alternative delimiters within your app without breaking 3rd-party components.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>Vue.config.delimiters</code>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>Vue.config.delimiters</code>.</p>
 </div>
 
 <h3 id="Vue-config-unsafeDelimiters-deprecated"><a href="#Vue-config-unsafeDelimiters-deprecated" class="headerlink" title="Vue.config.unsafeDelimiters deprecated"></a><code>Vue.config.unsafeDelimiters</code> <sup>deprecated</sup></h3><p>HTML interpolation has been <a href="#HTML-Interpolation-deprecated">deprecated in favor of <code>v-html</code></a>.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>Vue.config.unsafeDelimiters</code>. After this, the helper will also find instances of HTML interpolation so that you can replace them with `v-html`.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>Vue.config.unsafeDelimiters</code>. After this, the helper will also find instances of HTML interpolation so that you can replace them with `v-html`.</p>
 </div>
 
 <h2 id="Global-API"><a href="#Global-API" class="headerlink" title="Global API"></a>Global API</h2><h3 id="Vue-extend-with-el-deprecated"><a href="#Vue-extend-with-el-deprecated" class="headerlink" title="Vue.extend with el deprecated"></a><code>Vue.extend</code> with <code>el</code> <sup>deprecated</sup></h3><p>The el option can no longer be used in <code>Vue.extend</code>. It’s only valid as an instance creation option.</p>
@@ -1001,14 +1001,14 @@ new Vue({
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>Vue.elementDirective</code>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>Vue.elementDirective</code>.</p>
 </div>
 
 <h3 id="Vue-partial-deprecated"><a href="#Vue-partial-deprecated" class="headerlink" title="Vue.partial deprecated"></a><code>Vue.partial</code> <sup>deprecated</sup></h3><p>Use <a href="render-function.html#Functional-Components">functional components</a> instead.</p>
 
 <div class="upgrade-path">
   <h4>Upgrade Path</h4>
-  <p>Run the <strong>migration helper</strong> on your codebase to find examples of <code>Vue.partial</code>.</p>
+  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">migration helper</a> on your codebase to find examples of <code>Vue.partial</code>.</p>
 </div>
 
 
