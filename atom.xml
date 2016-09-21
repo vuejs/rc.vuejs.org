@@ -382,7 +382,7 @@
     <link href="http://vuejs.org/2014/03/22/vuejs-010-release/"/>
     <id>http://vuejs.org/2014/03/22/vuejs-010-release/</id>
     <published>2014-03-22T23:00:13.000Z</published>
-    <updated>2016-06-17T15:16:10.000Z</updated>
+    <updated>2016-09-21T04:37:17.000Z</updated>
     
     <content type="html"><![CDATA[<p>Vue.js 0.10.0 (Blade Runner) has been released! This release comes with many useful additions based on the suggestions from the users, notably interpolation in literal directives, dynamic components with the new <code>v-view</code> directive, array filters, and the option to configure interpolation delimiters. Internally, the codebase has received many refactoring and improvements which makes Vue.js <a href="http://vuejs.org/perf/">even faster</a>.</p>
 <a id="more"></a>
