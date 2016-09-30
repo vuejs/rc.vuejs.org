@@ -6,8 +6,8 @@
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto Mono' rel='stylesheet' type='text/css'>
-        <link href='//fonts.googleapis.com/css?family=Dosis:300,500&text=Vue.js' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
         <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="icon" href="/images/logo.png" type="image/x-icon">
         <script>
@@ -26,32 +26,15 @@
         <script src="/js/vue.js"></script>
     </head>
     <body>
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
-        
-            <div id="header">
+        <div id="header">
   <a id="logo" href="/">
     <img src="/images/logo.png">
-    <span>Vue.js <sup>2.0 RC</sup></span>
+    <span>Vue.js</span>
   </a>
-  <span style="
-    position: absolute;
-    top: 100%;
-    left: 60px;
-    padding: 0 10px;
-    background: #ef9f00;
-    border-radius: 3px;
-    margin-top: -15px;
-    line-height: 30px;
-    color: white;
-    font-weight: bold;
-    letter-spacing: 1px;
-    box-shadow: 0 1px 2px rgba(0,0,0,.3);
-  ">
-    WORK IN PROGRESS
-  </span>
   <ul id="nav">
     <li>
   <form id="search-form">
@@ -61,7 +44,7 @@
 <li><a href="/guide/" class="nav-link">Guide</a></li>
 <li><a href="/api/" class="nav-link current">API</a></li>
 <li><a href="/examples/" class="nav-link">Examples</a></li>
-<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="https://medium.com/the-vue-point" target="_blank" class="nav-link">Blog</a></li>
 <li class="nav-dropdown-container">
   <a class="nav-link">Community</a><span class="arrow"></span>
   <ul class="nav-dropdown">
@@ -76,6 +59,7 @@
   </ul>
 </div>
 
+        
             <div id="main">
                 
                     
@@ -89,7 +73,7 @@
 <li><a href="/guide/" class="nav-link">Guide</a></li>
 <li><a href="/api/" class="nav-link current">API</a></li>
 <li><a href="/examples/" class="nav-link">Examples</a></li>
-<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="https://medium.com/the-vue-point" target="_blank" class="nav-link">Blog</a></li>
 <li class="nav-dropdown-container">
   <a class="nav-link">Community</a><span class="arrow"></span>
   <ul class="nav-dropdown">
@@ -196,9 +180,9 @@
 </li>
 <li><p><strong>Usage:</strong></p>
 <p>Create a “subclass” of the base Vue constructor. The argument should be an object containing component options.</p>
-<p>The special cases to note here are <code>el</code> and <code>data</code> options - they must be functions when used with <code>Vue.extend()</code>.</p>
+<p>The special case to note here is the <code>data</code> option - it must be a function when used with <code>Vue.extend()</code>.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"mount-point"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// create reusable constructor</span></div><div class="line"><span class="keyword">var</span> Profile = Vue.extend(&#123;</div><div class="line">  template: <span class="string">'&lt;p&gt;&#123;&#123;firstName&#125;&#125; &#123;&#123;lastName&#125;&#125; aka &#123;&#123;alias&#125;&#125;&lt;/p&gt;'</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">// create an instance of Profile</span></div><div class="line"><span class="keyword">var</span> profile = <span class="keyword">new</span> Profile(&#123;</div><div class="line">  data: &#123;</div><div class="line">    firstName: <span class="string">'Walter'</span>,</div><div class="line">    lastName: <span class="string">'White'</span>,</div><div class="line">    alias: <span class="string">'Heisenberg'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// mount it on an element</span></div><div class="line">profile.$mount(<span class="string">'#mount-point'</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// create constructor</span></div><div class="line"><span class="keyword">var</span> Profile = Vue.extend(&#123;</div><div class="line">  template: <span class="string">'&lt;p&gt;&#123;&#123;firstName&#125;&#125; &#123;&#123;lastName&#125;&#125; aka &#123;&#123;alias&#125;&#125;&lt;/p&gt;'</span>,</div><div class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      firstName: <span class="string">'Walter'</span>,</div><div class="line">      lastName: <span class="string">'White'</span>,</div><div class="line">      alias: <span class="string">'Heisenberg'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// create an instance of Profile and mount it on an element</span></div><div class="line"><span class="keyword">new</span> Profile().$mount(<span class="string">'#mount-point'</span>)</div></pre></td></tr></table></figure>
 <p>Will result in:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Walter White aka Heisenberg<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
@@ -372,7 +356,7 @@
 <p>A list/hash of attributes that are exposed to accept data from the parent component. It has a simple Array-based syntax and an alternative Object-based syntax that allows advanced configurations such as type checking, custom validation and default values.</p>
 </li>
 <li><p><strong>Example:</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// simple syntax</span></div><div class="line">Vue.component(<span class="string">'props-demo-simple'</span>, &#123;</div><div class="line">  props: [<span class="string">'size'</span>, <span class="string">'myMessage'</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// object syntax with validation</span></div><div class="line">Vue.component(<span class="string">'props-demo-advanced'</span>, &#123;</div><div class="line">  props: &#123;</div><div class="line">    <span class="comment">// just type check</span></div><div class="line">    size: <span class="built_in">Number</span>,</div><div class="line">    <span class="comment">// type check plus other validations</span></div><div class="line">    name: &#123;</div><div class="line">      type: string,</div><div class="line">      <span class="keyword">default</span>: <span class="number">0</span>,</div><div class="line">      required: <span class="literal">true</span>,</div><div class="line">      validator: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> value &gt; <span class="number">0</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// simple syntax</span></div><div class="line">Vue.component(<span class="string">'props-demo-simple'</span>, &#123;</div><div class="line">  props: [<span class="string">'size'</span>, <span class="string">'myMessage'</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// object syntax with validation</span></div><div class="line">Vue.component(<span class="string">'props-demo-advanced'</span>, &#123;</div><div class="line">  props: &#123;</div><div class="line">    <span class="comment">// just type check</span></div><div class="line">    height: <span class="built_in">Number</span>,</div><div class="line">    <span class="comment">// type check plus other validations</span></div><div class="line">    age: &#123;</div><div class="line">      type: <span class="built_in">Number</span>,</div><div class="line">      <span class="keyword">default</span>: <span class="number">0</span>,</div><div class="line">      required: <span class="literal">true</span>,</div><div class="line">      validator: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> value &gt;= <span class="number">0</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>See also:</strong> <a href="/guide/components.html#Props">Props</a></p>
 </li>
@@ -435,7 +419,7 @@
 <li><p><strong>Restriction:</strong> only respected in instance creation via <code>new</code>.</p>
 </li>
 <li><p><strong>Details:</strong></p>
-<p>Provide the Vue instance an existing DOM element to mount on. It can be a CSS selector string or an actual HTMLElement. </p>
+<p>Provide the Vue instance an existing DOM element to mount on. It can be a CSS selector string or an actual HTMLElement.</p>
 <p>After the instance is mounted, the resolved element will be accessible as <code>vm.$el</code>.</p>
 <p>If this option is available at instantiation, the instance will immediately enter compilation; otherwise, the user will have to explicitly call <code>vm.$mount()</code> to manually start the compilation.</p>
 <p class="tip">The provided element merely serves as a mounting point. Unlike in Vue 1.x, the mounted element will be replaced with Vue-generated DOM in all cases. It is therefore not recommended to mount the root instance to <code>&lt;html&gt;</code> or <code>&lt;body&gt;</code>.</p>
@@ -734,6 +718,27 @@
 </li>
 <li><p><strong>Details:</strong></p>
 <p>The direct child components of the current instance. <strong>Note there’s no order guarantee for <code>$children</code>, and it is not reactive.</strong> If you find yourself trying to use <code>$children</code> for data binding, consider using an Array and <code>v-for</code> to generate child components, and use the Array as the source of truth.</p>
+</li>
+</ul>
+<h3 id="vm-slots"><a href="#vm-slots" class="headerlink" title="vm.$slots"></a>vm.$slots</h3><ul>
+<li><p><strong>Type:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Read only</strong></p>
+</li>
+<li><p><strong>Details:</strong></p>
+<p>Used to access content <a href="/guide/components.html#Content-Distribution-with-Slots">distributed by slots</a>. Each <a href="/guide/components.html#Named-Slots">named slot</a> has its own corresponding property (e.g. the contents of <code>slot=&quot;foo&quot;</code> will be found at <code>vm.$slots.foo</code>). The <code>default</code> property contains any nodes not included in a named slot.</p>
+<p>Accessing <code>vm.$slots</code> is most useful when writing a component with a <a href="/guide/render-function.html">render function</a>.</p>
+</li>
+<li><p><strong>Example:</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">blog-post</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">slot</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">    About Me</div><div class="line">  <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Here's some page content, which will be included in vm.$slots.default, because it's not inside a named slot.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">slot</span>=<span class="string">"footer"</span>&gt;</span></div><div class="line">    Copyright 2016 Evan You</div><div class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>If I have some content down here, it will also be included in vm.$slots.default.<span class="tag">&lt;/<span class="name">p</span>&gt;</span>.</div><div class="line"><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'blog-post'</span>, &#123;</div><div class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> header = <span class="keyword">this</span>.$slots.header</div><div class="line">    <span class="keyword">var</span> body   = <span class="keyword">this</span>.$slots.default</div><div class="line">    <span class="keyword">var</span> footer = <span class="keyword">this</span>.$slots.footer</div><div class="line">    <span class="keyword">return</span> createElement(<span class="string">'div'</span>, [</div><div class="line">      createElement(<span class="string">'header'</span>, header)</div><div class="line">      createElement(<span class="string">'main'</span>, body)</div><div class="line">      createElement(<span class="string">'footer'</span>, footer)</div><div class="line">    ])</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>See also:</strong></p>
+<ul>
+<li><a href="#slot"><code>&lt;slot&gt;</code> Component</a></li>
+<li><a href="/guide/components.html#Content-Distribution-with-Slots">Content Distribution with Slots</a></li>
+<li><a href="/guide/render-function.html">Render Functions</a></li>
+</ul>
 </li>
 </ul>
 <h3 id="vm-refs"><a href="#vm-refs" class="headerlink" title="vm.$refs"></a>vm.$refs</h3><ul>
@@ -1295,10 +1300,10 @@
 </li>
 </ul>
 <h2 id="VNode-Interface"><a href="#VNode-Interface" class="headerlink" title="VNode Interface"></a>VNode Interface</h2><ul>
-<li>Please refer to the <a href="https://github.com/vuejs/vue/blob/next/src/core/vdom/vnode.js" target="_blank" rel="external">VNode class declaration</a>.</li>
+<li>Please refer to the <a href="https://github.com/vuejs/vue/blob/dev/src/core/vdom/vnode.js" target="_blank" rel="external">VNode class declaration</a>.</li>
 </ul>
 <h2 id="Server-Side-Rendering"><a href="#Server-Side-Rendering" class="headerlink" title="Server-Side Rendering"></a>Server-Side Rendering</h2><ul>
-<li>Please refer to the <a href="https://github.com/vuejs/vue/tree/next/packages/vue-server-renderer" target="_blank" rel="external">vue-server-renderer package documentation</a>.</li>
+<li>Please refer to the <a href="https://github.com/vuejs/vue/tree/dev/packages/vue-server-renderer" target="_blank" rel="external">vue-server-renderer package documentation</a>.</li>
 </ul>
 
     
